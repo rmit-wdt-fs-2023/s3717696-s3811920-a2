@@ -4,5 +4,17 @@
         <name>MCBA-Web</name>
     </assembly>
     <members>
+        <member name="T:MCBAWeb.Migrations.Models">
+            <inheritdoc />
+        </member>
+        <member name="M:MCBAWeb.Migrations.Models.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:MCBAWeb.Migrations.Models.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:MCBAWeb.Migrations.Models.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
     </members>
 </doc>
