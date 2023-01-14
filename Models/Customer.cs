@@ -1,36 +1,30 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using MCBA_Web.Services;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 
 namespace MCBA_Web.Models;
 
 public class Customer 
 {
 
-    [StringLength(4, ErrorMessage = "Must be 4 digits", MinimumLength = 4)]
-    public int Id { get; set; }
+    [Range(0000, 9999, ErrorMessage = "ID must be 4 digits")]
+    public int CustomerID { get; set; }
 
     [Required(ErrorMessage = "Name is required")]
     [StringLength(50, ErrorMessage = "Name must be less than 50 characters")]
     [RegularExpression("^^[A-Za-z-' ]*$", ErrorMessage = "Name must be alpha")]
     public string Name { get; set; }
 
-    [Required(ErrorMessage = "TFN is required")]
-    [StringLength(11, MinimumLength = 11, ErrorMessage = "TFN must be 11 digits")]
-    [RegularExpression("^[0-9]*$", ErrorMessage = "TFN must be numeric")]
-    public string TFN { get; set; }
+    [Range(1000000000, 9999999999, ErrorMessage = "TFN must be 11 digits")]
+    public int? TFN { get; set; }
 
-    [StringLength(100, ErrorMessage = "Address must be less than 100 characters")]
-    public string Address { get; set; }
-
-    [StringLength(50, ErrorMessage = "City must be less than 50 characters")]
-    public string City { get; set; }
-
-    [EnumDataType(typeof(StateType), ErrorMessage = "Invalid State Type")]
-    public StateType? State { get; set; }
-
-    [StringLength(10, ErrorMessage = "Postcode must be less than 10 characters")]
-    public string Postcode { get; set; }
-
-    [StringLength(10, ErrorMessage = "Mobile must be 10 digits", MinimumLength = 10)]
+    [Range(1000000000, 9999999999, ErrorMessage = "Mobile must be 10 digits")]
     [RegularExpression("^04[0-9]*$", ErrorMessage = "Mobile must start with 04 and only contain numeric values")]
-    public string Mobile { get; set; }
+    public int? Mobile { get; set; }
+
+    [Required]
+    [ForeignKey("AddressID")]
+    public int AddressID { get; set; }
+    public virtual Address Address { get; set; }
 }

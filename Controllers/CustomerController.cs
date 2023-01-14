@@ -1,5 +1,4 @@
 ﻿using MCBA_Web.Models;
-using MCBA_Web.Repositories;
 using MCBA_Web.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -36,11 +35,11 @@ public class CustomerController : Controller
     [HttpPost]
     public ActionResult Create(Customer customer)
     {
-        if (ModelState.IsValid)
-        {
-            _customerService.Add(customer);
-            return RedirectToAction("Index");
-        }
+        //if (ModelState.IsValid)
+        //{
+        _customerService.Add(customer);
+        return RedirectToAction("Index");
+        //}
 
         return View(customer);
     }

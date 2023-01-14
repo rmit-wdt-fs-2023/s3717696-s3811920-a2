@@ -1,6 +1,5 @@
 using MCBA_Web.Controllers;
 using MCBA_Web.Data;
-using MCBA_Web.Repositories;
 using MCBA_Web.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,11 +10,11 @@ builder.Services.AddDbContext<MCBAContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString(nameof(MCBAContext))));
 
 
-// Add Services
+// Register Services
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 
-// Add Repositories
-builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+// Register Repositories
+//builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
