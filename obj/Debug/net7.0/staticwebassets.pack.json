@@ -1,8 +1,8 @@
 {
   "Files": [
     {
-      "Id": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\MCBA-Web\\MCBA-Web\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\MCBA-Web.bundle.scp.css",
-      "PackagePath": "staticwebassets\\MCBA-Web.bundle.scp.css"
+      "Id": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\MCBA-Web\\MCBA-Web\\wwwroot\\css\\header.css",
+      "PackagePath": "staticwebassets\\css\\header.css"
     },
     {
       "Id": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\MCBA-Web\\MCBA-Web\\wwwroot\\css\\site.css",

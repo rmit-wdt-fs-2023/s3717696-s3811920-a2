@@ -26,13 +26,14 @@ namespace MCBAWeb.Migrations
                 {
                     b.Property<int>("AccountNumber")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(4)
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AccountNumber"));
+                        .HasColumnType("int")
+                        .HasDefaultValueSql("1000");
 
                     b.Property<int>("AccountType")
                         .HasColumnType("int");
+
+                    b.Property<decimal>("Balance")
+                        .HasColumnType("money");
 
                     b.Property<int>("CustomerID")
                         .HasColumnType("int");
@@ -56,6 +57,9 @@ namespace MCBAWeb.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<int>("CustomerID")
+                        .HasColumnType("int");
+
                     b.Property<string>("Postcode")
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
@@ -68,6 +72,8 @@ namespace MCBAWeb.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.HasKey("AddressID");
+
+                    b.HasIndex("CustomerID");
 
                     b.ToTable("Address");
                 });
@@ -83,11 +89,8 @@ namespace MCBAWeb.Migrations
                     b.Property<int>("AccountNumber")
                         .HasColumnType("int");
 
-                    b.Property<int?>("AccountNumber1")
-                        .HasColumnType("int");
-
                     b.Property<decimal>("Amount")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("money");
 
                     b.Property<int>("PayeeID")
                         .HasColumnType("int");
@@ -100,7 +103,7 @@ namespace MCBAWeb.Migrations
 
                     b.HasKey("BillPayID");
 
-                    b.HasIndex("AccountNumber1");
+                    b.HasIndex("AccountNumber");
 
                     b.HasIndex("PayeeID");
 
@@ -111,36 +114,31 @@ namespace MCBAWeb.Migrations
                 {
                     b.Property<int>("CustomerID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasDefaultValueSql("1000");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CustomerID"));
-
-                    b.Property<int>("AddressID")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("Mobile")
-                        .HasColumnType("int");
+                    b.Property<string>("Mobile")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int?>("TFN")
-                        .HasColumnType("int");
+                    b.Property<string>("TFN")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CustomerID");
-
-                    b.HasIndex("AddressID");
 
                     b.ToTable("Customer");
                 });
 
             modelBuilder.Entity("MCBA_Web.Models.Login", b =>
                 {
-                    b.Property<string>("LoginID")
-                        .HasMaxLength(8)
-                        .HasColumnType("nvarchar(8)");
+                    b.Property<int>("LoginID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValueSql("10000000");
 
                     b.Property<int>("CustomerID")
                         .HasColumnType("int");
@@ -195,7 +193,7 @@ namespace MCBAWeb.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal>("Amount")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("money");
 
                     b.Property<string>("Comment")
                         .HasMaxLength(30)
@@ -228,11 +226,24 @@ namespace MCBAWeb.Migrations
                     b.Navigation("Customer");
                 });
 
+            modelBuilder.Entity("MCBA_Web.Models.Address", b =>
+                {
+                    b.HasOne("MCBA_Web.Models.Customer", "Customer")
+                        .WithMany()
+                        .HasForeignKey("CustomerID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Customer");
+                });
+
             modelBuilder.Entity("MCBA_Web.Models.BillPay", b =>
                 {
                     b.HasOne("MCBA_Web.Models.Account", "Account")
                         .WithMany()
-                        .HasForeignKey("AccountNumber1");
+                        .HasForeignKey("AccountNumber")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("MCBA_Web.Models.Payee", "Payee")
                         .WithMany()
@@ -243,17 +254,6 @@ namespace MCBAWeb.Migrations
                     b.Navigation("Account");
 
                     b.Navigation("Payee");
-                });
-
-            modelBuilder.Entity("MCBA_Web.Models.Customer", b =>
-                {
-                    b.HasOne("MCBA_Web.Models.Address", "Address")
-                        .WithMany()
-                        .HasForeignKey("AddressID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Address");
                 });
 
             modelBuilder.Entity("MCBA_Web.Models.Login", b =>

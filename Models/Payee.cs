@@ -14,7 +14,7 @@ public class Payee
     public string Name { get; set; }
 
     [Required]
-    [Range(10000000000000, 99999999999999, ErrorMessage = "Phone number must be 14 digits")]
+    [RegularExpression("^\\d{14}$", ErrorMessage = "Phone number must be 14 digits")]
     public int Phone { get; set; }
 
     [Required]

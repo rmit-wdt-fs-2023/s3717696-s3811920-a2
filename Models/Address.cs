@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MCBA_Web.Models;
 
@@ -17,4 +18,9 @@ public class Address
 
     [EnumDataType(typeof(StateType), ErrorMessage = "Invalid State Type")]
     public StateType? State { get; set; }
+
+    [Required(ErrorMessage = "Customer ID is required")]
+    [ForeignKey("CustomerID")]
+    public int CustomerID { get; set; }
+    public virtual Customer Customer { get; set; }
 }
