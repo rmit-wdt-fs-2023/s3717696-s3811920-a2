@@ -7,17 +7,22 @@ public class Account
 {
     [Key]
     [Required]
-    [StringLength(4, ErrorMessage = "Account number must be 4 digits", MinimumLength = 4)]
-    [RegularExpression("^[0-9]*$", ErrorMessage = "Account number must be numeric")]
+    [RegularExpression("^\\d{4}", ErrorMessage = "Account number must be 4 digits")]
     public int AccountNumber { get; set; }
 
     [Required(ErrorMessage = "Account type is required")]
     [EnumDataType(typeof(AccountType))]
+    [Column(TypeName = "varchar(20)")]
     public AccountType AccountType { get; set; }
 
-    [Required(ErrorMessage = "Customer ID is required")]
-    public int CustomerID { get; set; }
+    [Column(TypeName = "money")]
+    [DataType(DataType.Currency)]
+    public decimal Balance { get; set; }
 
+    public List<Transaction> Transactions { get; set; }
+
+    [Required(ErrorMessage = "Customer ID is required")]
     [ForeignKey("CustomerID")]
+    public int CustomerID { get; set; }
     public virtual Customer Customer { get; set; }
 }

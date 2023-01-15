@@ -9,15 +9,17 @@ public class Transaction
     public int TransactionID { get; set; }
 
     [Required]
+    [Column(TypeName = "varchar(20)")]
     public TransactionType TransactionType { get; set; }
 
-    [Required]
     public int AccountNumber { get; set; }
 
     public int? DestinationAccountNumber { get; set; }
 
     [Required]
     [Range(0, double.MaxValue, ErrorMessage = "Amount must be positive")]
+    [Column(TypeName = "money")]
+    [DataType(DataType.Currency)]
     public decimal Amount { get; set; }
 
     [StringLength(30, ErrorMessage = "Comment must be less than 30 characters")]

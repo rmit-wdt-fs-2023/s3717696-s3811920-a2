@@ -9,7 +9,6 @@ public class BillPay
     [Key]
     public int BillPayID { get; set; }
 
-    [ForeignKey("AccountNumber")]
     public int AccountNumber { get; set; }
 
     [ForeignKey("PayeeID")]
@@ -17,6 +16,8 @@ public class BillPay
 
     [Required]
     [Range(0, double.MaxValue, ErrorMessage = "Amount must be positive")]
+    [Column(TypeName = "money")]
+    [DataType(DataType.Currency)]
     public decimal Amount { get; set; }
 
     [Required]
@@ -25,6 +26,7 @@ public class BillPay
     [Required]
     public PaymentPeriodType PaymentPeriod { get; set; }
 
+    [ForeignKey("AccountNumber")]
     public virtual Account Account { get; set; }
     public virtual Payee Payee { get; set; }
 }

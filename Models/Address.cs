@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MCBA_Web.Models;
 
@@ -16,5 +17,11 @@ public class Address
     public string Postcode { get; set; }
 
     [EnumDataType(typeof(StateType), ErrorMessage = "Invalid State Type")]
+    [Column(TypeName = "varchar(20)")]
     public StateType? State { get; set; }
+
+    [Required(ErrorMessage = "Customer ID is required")]
+    [ForeignKey("CustomerID")]
+    public int CustomerID { get; set; }
+    public virtual Customer Customer { get; set; }
 }

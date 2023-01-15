@@ -1,6 +1,7 @@
 using MCBA_Web.Controllers;
 using MCBA_Web.Data;
 using MCBA_Web.Services;
+using McbaExample.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,13 +20,23 @@ builder.Services.AddScoped<ICustomerService, CustomerService>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-
 var app = builder.Build();
 
 
-// Check if DB is empty
-
-// Register Controllers
+// Seed data.
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        SeedData.Initialize(services);
+    }
+    catch (Exception ex)
+    {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "An error occurred seeding the DB.");
+    }
+}
 
 
 // Configure the HTTP request pipeline.

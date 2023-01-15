@@ -22,7 +22,6 @@ H:\2023 Flex Semester\Web Dev Technlologies\Assignment 2\MCBA-Web\MCBA-Web\obj\D
 H:\2023 Flex Semester\Web Dev Technlologies\Assignment 2\MCBA-Web\MCBA-Web\obj\Debug\net7.0\staticwebassets.build.json
 H:\2023 Flex Semester\Web Dev Technlologies\Assignment 2\MCBA-Web\MCBA-Web\obj\Debug\net7.0\staticwebassets.development.json
 H:\2023 Flex Semester\Web Dev Technlologies\Assignment 2\MCBA-Web\MCBA-Web\obj\Debug\net7.0\scopedcss\bundle\MCBA-Web.styles.css
-H:\2023 Flex Semester\Web Dev Technlologies\Assignment 2\MCBA-Web\MCBA-Web\obj\Debug\net7.0\scopedcss\projectbundle\MCBA-Web.bundle.scp.css
 H:\2023 Flex Semester\Web Dev Technlologies\Assignment 2\MCBA-Web\MCBA-Web\obj\Debug\net7.0\MCBA-Web.dll
 H:\2023 Flex Semester\Web Dev Technlologies\Assignment 2\MCBA-Web\MCBA-Web\obj\Debug\net7.0\refint\MCBA-Web.dll
 H:\2023 Flex Semester\Web Dev Technlologies\Assignment 2\MCBA-Web\MCBA-Web\obj\Debug\net7.0\MCBA-Web.pdb
@@ -30,7 +29,6 @@ H:\2023 Flex Semester\Web Dev Technlologies\Assignment 2\MCBA-Web\MCBA-Web\obj\D
 H:\2023 Flex Semester\Web Dev Technlologies\Assignment 2\MCBA-Web\MCBA-Web\obj\Debug\net7.0\ref\MCBA-Web.dll
 H:\2023 Flex Semester\Web Dev Technlologies\Assignment 2\MCBA-Web\MCBA-Web\bin\Debug\net7.0\MCBA-Web.xml
 H:\2023 Flex Semester\Web Dev Technlologies\Assignment 2\MCBA-Web\MCBA-Web\obj\Debug\net7.0\MCBA-Web.xml
-H:\2023 Flex Semester\Web Dev Technlologies\Assignment 2\MCBA-Web\MCBA-Web\obj\Debug\net7.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 H:\2023 Flex Semester\Web Dev Technlologies\Assignment 2\MCBA-Web\MCBA-Web\bin\Debug\net7.0\Azure.Core.dll
 H:\2023 Flex Semester\Web Dev Technlologies\Assignment 2\MCBA-Web\MCBA-Web\bin\Debug\net7.0\Azure.Identity.dll
 H:\2023 Flex Semester\Web Dev Technlologies\Assignment 2\MCBA-Web\MCBA-Web\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
