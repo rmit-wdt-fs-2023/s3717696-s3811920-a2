@@ -12,6 +12,40 @@ namespace MCBAWeb.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Customer",
+                columns: table => new
+                {
+                    CustomerID = table.Column<int>(type: "int", nullable: false, defaultValueSql: "1000"),
+                    Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    TFN = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Mobile = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Customer", x => x.CustomerID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Account",
+                columns: table => new
+                {
+                    AccountNumber = table.Column<int>(type: "int", nullable: false, defaultValueSql: "1000"),
+                    AccountType = table.Column<int>(type: "int", nullable: false),
+                    Balance = table.Column<decimal>(type: "money", nullable: false),
+                    CustomerID = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Account", x => x.AccountNumber);
+                    table.ForeignKey(
+                        name: "FK_Account_Customer_CustomerID",
+                        column: x => x.CustomerID,
+                        principalTable: "Customer",
+                        principalColumn: "CustomerID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Address",
                 columns: table => new
                 {
@@ -20,32 +54,60 @@ namespace MCBAWeb.Migrations
                     Street = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     City = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     Postcode = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: true),
-                    State = table.Column<int>(type: "int", nullable: true)
+                    State = table.Column<int>(type: "int", nullable: true),
+                    CustomerID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Address", x => x.AddressID);
+                    table.ForeignKey(
+                        name: "FK_Address_Customer_CustomerID",
+                        column: x => x.CustomerID,
+                        principalTable: "Customer",
+                        principalColumn: "CustomerID",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Customer",
+                name: "Login",
                 columns: table => new
                 {
-                    CustomerID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    TFN = table.Column<int>(type: "int", nullable: true),
-                    Mobile = table.Column<int>(type: "int", nullable: true),
-                    AddressID = table.Column<int>(type: "int", nullable: false)
+                    LoginID = table.Column<int>(type: "int", nullable: false, defaultValueSql: "10000000"),
+                    CustomerID = table.Column<int>(type: "int", nullable: false),
+                    PasswordHash = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Customer", x => x.CustomerID);
+                    table.PrimaryKey("PK_Login", x => x.LoginID);
                     table.ForeignKey(
-                        name: "FK_Customer_Address_AddressID",
-                        column: x => x.AddressID,
-                        principalTable: "Address",
-                        principalColumn: "AddressID",
+                        name: "FK_Login_Customer_CustomerID",
+                        column: x => x.CustomerID,
+                        principalTable: "Customer",
+                        principalColumn: "CustomerID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Transaction",
+                columns: table => new
+                {
+                    TransactionID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TransactionType = table.Column<int>(type: "int", nullable: false),
+                    AccountNumber = table.Column<int>(type: "int", nullable: false),
+                    DestinationAccountNumber = table.Column<int>(type: "int", nullable: true),
+                    Amount = table.Column<decimal>(type: "money", nullable: false),
+                    Comment = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: true),
+                    TransactionTimeUtc = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Transaction", x => x.TransactionID);
+                    table.ForeignKey(
+                        name: "FK_Transaction_Account_AccountNumber",
+                        column: x => x.AccountNumber,
+                        principalTable: "Account",
+                        principalColumn: "AccountNumber",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -71,45 +133,6 @@ namespace MCBAWeb.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Account",
-                columns: table => new
-                {
-                    AccountNumber = table.Column<int>(type: "int", maxLength: 4, nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    AccountType = table.Column<int>(type: "int", nullable: false),
-                    CustomerID = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Account", x => x.AccountNumber);
-                    table.ForeignKey(
-                        name: "FK_Account_Customer_CustomerID",
-                        column: x => x.CustomerID,
-                        principalTable: "Customer",
-                        principalColumn: "CustomerID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Login",
-                columns: table => new
-                {
-                    LoginID = table.Column<string>(type: "nvarchar(8)", maxLength: 8, nullable: false),
-                    CustomerID = table.Column<int>(type: "int", nullable: false),
-                    PasswordHash = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Login", x => x.LoginID);
-                    table.ForeignKey(
-                        name: "FK_Login_Customer_CustomerID",
-                        column: x => x.CustomerID,
-                        principalTable: "Customer",
-                        principalColumn: "CustomerID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "BillPay",
                 columns: table => new
                 {
@@ -117,48 +140,24 @@ namespace MCBAWeb.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AccountNumber = table.Column<int>(type: "int", nullable: false),
                     PayeeID = table.Column<int>(type: "int", nullable: false),
-                    Amount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Amount = table.Column<decimal>(type: "money", nullable: false),
                     ScheduleTimeUtc = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    PaymentPeriod = table.Column<int>(type: "int", nullable: false),
-                    AccountNumber1 = table.Column<int>(type: "int", nullable: true)
+                    PaymentPeriod = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_BillPay", x => x.BillPayID);
                     table.ForeignKey(
-                        name: "FK_BillPay_Account_AccountNumber1",
-                        column: x => x.AccountNumber1,
+                        name: "FK_BillPay_Account_AccountNumber",
+                        column: x => x.AccountNumber,
                         principalTable: "Account",
-                        principalColumn: "AccountNumber");
+                        principalColumn: "AccountNumber",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_BillPay_Payee_PayeeID",
                         column: x => x.PayeeID,
                         principalTable: "Payee",
                         principalColumn: "PayeeID");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Transaction",
-                columns: table => new
-                {
-                    TransactionID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    TransactionType = table.Column<int>(type: "int", nullable: false),
-                    AccountNumber = table.Column<int>(type: "int", nullable: false),
-                    DestinationAccountNumber = table.Column<int>(type: "int", nullable: true),
-                    Amount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Comment = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: true),
-                    TransactionTimeUtc = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Transaction", x => x.TransactionID);
-                    table.ForeignKey(
-                        name: "FK_Transaction_Account_AccountNumber",
-                        column: x => x.AccountNumber,
-                        principalTable: "Account",
-                        principalColumn: "AccountNumber",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -167,19 +166,19 @@ namespace MCBAWeb.Migrations
                 column: "CustomerID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_BillPay_AccountNumber1",
+                name: "IX_Address_CustomerID",
+                table: "Address",
+                column: "CustomerID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BillPay_AccountNumber",
                 table: "BillPay",
-                column: "AccountNumber1");
+                column: "AccountNumber");
 
             migrationBuilder.CreateIndex(
                 name: "IX_BillPay_PayeeID",
                 table: "BillPay",
                 column: "PayeeID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Customer_AddressID",
-                table: "Customer",
-                column: "AddressID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Login_CustomerID",
@@ -216,10 +215,10 @@ namespace MCBAWeb.Migrations
                 name: "Account");
 
             migrationBuilder.DropTable(
-                name: "Customer");
+                name: "Address");
 
             migrationBuilder.DropTable(
-                name: "Address");
+                name: "Customer");
         }
     }
 }

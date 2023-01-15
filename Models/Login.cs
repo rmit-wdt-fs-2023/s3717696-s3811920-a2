@@ -8,9 +8,8 @@ public class Login
 
     [Key]
     [Required]
-    [StringLength(8, MinimumLength = 8, ErrorMessage = "LoginID must be 8 digits")]
-    [RegularExpression(@"^\d+$", ErrorMessage = "LoginID must be digits")]
-    public string LoginID { get; set; }
+    [RegularExpression("^\\d{8}$", ErrorMessage = "LoginID must be 8 digits")]
+    public int LoginID { get; set; }
 
     [Required]
     [ForeignKey("CustomerID")]

@@ -9,9 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Deposit.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Migrations\" />
     <Folder Include="Repositories\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
 
   <ItemGroup>

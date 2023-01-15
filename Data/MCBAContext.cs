@@ -1,5 +1,6 @@
 ﻿using MCBA_Web.Models;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Reflection.Emit;
 
 namespace MCBA_Web.Data;
@@ -9,7 +10,6 @@ public class MCBAContext : DbContext
 
     public MCBAContext(DbContextOptions<MCBAContext> options) : base(options)
     {
-
     }
 
     public DbSet<Customer> Customer { get; set; }
@@ -28,5 +28,16 @@ public class MCBAContext : DbContext
         .HasOne(b => b.Payee)
         .WithMany()
         .OnDelete(DeleteBehavior.NoAction);
+
+        builder.Entity<Customer>().HasKey(c => c.CustomerID);
+        builder.Entity<Customer>().Property(c => c.CustomerID).HasDefaultValueSql("1000");
+
+        builder.Entity<Login>().HasKey(c => c.LoginID);
+        builder.Entity<Login>().Property(c => c.LoginID).HasDefaultValueSql("10000000");
+
+        builder.Entity<Account>().HasKey(c => c.AccountNumber);
+        builder.Entity<Account>().Property(c => c.AccountNumber).HasDefaultValueSql("1000");
+
+
     }
 }

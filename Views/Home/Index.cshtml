@@ -1,9 +1,12 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <title>Home</title>
-</head>
-<body>
-    <h1>Welcome to Online Banking</h1>
-</body>
-</html>
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<div class="global-container">
+    @{
+        await Html.RenderPartialAsync("Header");
+        await Html.RenderPartialAsync("Intro");
+        await Html.RenderPartialAsync("About");
+        await Html.RenderPartialAsync("../Account/Deposit");
+    }
+</div>
