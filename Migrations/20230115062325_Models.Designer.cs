@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MCBAWeb.Migrations
 {
     [DbContext(typeof(MCBAContext))]
-    [Migration("20230114053807_Models")]
+    [Migration("20230115062325_Models")]
     partial class Models
     {
         /// <inheritdoc />
@@ -32,8 +32,9 @@ namespace MCBAWeb.Migrations
                         .HasColumnType("int")
                         .HasDefaultValueSql("1000");
 
-                    b.Property<int>("AccountType")
-                        .HasColumnType("int");
+                    b.Property<string>("AccountType")
+                        .IsRequired()
+                        .HasColumnType("varchar(20)");
 
                     b.Property<decimal>("Balance")
                         .HasColumnType("money");
@@ -67,8 +68,8 @@ namespace MCBAWeb.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
 
-                    b.Property<int?>("State")
-                        .HasColumnType("int");
+                    b.Property<string>("State")
+                        .HasColumnType("varchar(20)");
 
                     b.Property<string>("Street")
                         .HasMaxLength(100)
@@ -148,12 +149,12 @@ namespace MCBAWeb.Migrations
 
                     b.Property<string>("PasswordHash")
                         .IsRequired()
-                        .HasMaxLength(64)
-                        .HasColumnType("nvarchar(64)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("LoginID");
 
-                    b.HasIndex("CustomerID");
+                    b.HasIndex("CustomerID")
+                        .IsUnique();
 
                     b.ToTable("Login");
                 });
@@ -208,8 +209,9 @@ namespace MCBAWeb.Migrations
                     b.Property<DateTime>("TransactionTimeUtc")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("TransactionType")
-                        .HasColumnType("int");
+                    b.Property<string>("TransactionType")
+                        .IsRequired()
+                        .HasColumnType("varchar(20)");
 
                     b.HasKey("TransactionID");
 
@@ -221,7 +223,7 @@ namespace MCBAWeb.Migrations
             modelBuilder.Entity("MCBA_Web.Models.Account", b =>
                 {
                     b.HasOne("MCBA_Web.Models.Customer", "Customer")
-                        .WithMany()
+                        .WithMany("Accounts")
                         .HasForeignKey("CustomerID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -262,8 +264,8 @@ namespace MCBAWeb.Migrations
             modelBuilder.Entity("MCBA_Web.Models.Login", b =>
                 {
                     b.HasOne("MCBA_Web.Models.Customer", "Customer")
-                        .WithMany()
-                        .HasForeignKey("CustomerID")
+                        .WithOne("Login")
+                        .HasForeignKey("MCBA_Web.Models.Login", "CustomerID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -284,12 +286,24 @@ namespace MCBAWeb.Migrations
             modelBuilder.Entity("MCBA_Web.Models.Transaction", b =>
                 {
                     b.HasOne("MCBA_Web.Models.Account", "Account")
-                        .WithMany()
+                        .WithMany("Transactions")
                         .HasForeignKey("AccountNumber")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Account");
+                });
+
+            modelBuilder.Entity("MCBA_Web.Models.Account", b =>
+                {
+                    b.Navigation("Transactions");
+                });
+
+            modelBuilder.Entity("MCBA_Web.Models.Customer", b =>
+                {
+                    b.Navigation("Accounts");
+
+                    b.Navigation("Login");
                 });
 #pragma warning restore 612, 618
         }

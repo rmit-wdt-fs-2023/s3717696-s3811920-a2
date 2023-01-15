@@ -22,6 +22,8 @@ public class Customer
     [RegularExpression("^04[0-9]{8}$", ErrorMessage = "Mobile must start with 04 and be 10 digits long")]
     public string? Mobile { get; set; }
 
+    public Login Login { get; set; }
+
     [InverseProperty("Customer")]
     public List<Account> Accounts { get; set; }
 }
