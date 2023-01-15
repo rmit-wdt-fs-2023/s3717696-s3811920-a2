@@ -16,7 +16,6 @@ public class Login
     public int CustomerID { get; set; }
 
     [Required]
-    [StringLength(64, ErrorMessage = "PasswordHash must be 64 characters long")]
     public string PasswordHash { get; set; }
 
     public virtual Customer Customer { get; set; }

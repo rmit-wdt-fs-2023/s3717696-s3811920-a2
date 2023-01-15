@@ -9,6 +9,7 @@ public class Transaction
     public int TransactionID { get; set; }
 
     [Required]
+    [Column(TypeName = "varchar(20)")]
     public TransactionType TransactionType { get; set; }
 
     public int AccountNumber { get; set; }

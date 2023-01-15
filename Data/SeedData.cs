@@ -13,5 +13,20 @@ public static class SeedData
         if (context.Customer.Any())
             return; // DB has already been seeded.
 
+        // Run PreLoad
+        PreLoad preLoad = new();
+        preLoad.Run();
+
+
+        // Commit New Data
+        context.Customer.AddRangeAsync(preLoad.GetCustomers());
+        context.Account.AddRangeAsync(preLoad.GetAccounts());
+        context.Address.AddRangeAsync(preLoad.GetAddresses());
+        context.Transaction.AddRangeAsync(preLoad.GetTransactions());
+        context.Login.AddRangeAsync(preLoad.GetLogins());
+        
+        // Save
+        context.SaveChanges();
+
     }
 }

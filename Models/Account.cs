@@ -12,11 +12,14 @@ public class Account
 
     [Required(ErrorMessage = "Account type is required")]
     [EnumDataType(typeof(AccountType))]
+    [Column(TypeName = "varchar(20)")]
     public AccountType AccountType { get; set; }
 
     [Column(TypeName = "money")]
     [DataType(DataType.Currency)]
     public decimal Balance { get; set; }
+
+    public List<Transaction> Transactions { get; set; }
 
     [Required(ErrorMessage = "Customer ID is required")]
     [ForeignKey("CustomerID")]

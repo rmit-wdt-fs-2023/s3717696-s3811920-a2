@@ -1,8 +1,8 @@
-﻿namespace MCBA.DTO;
+﻿namespace MCBA_Web.DTO;
 
 public class TransactionDTO
 {
-    public int TransactionId { get; set; }
+    public int TransactionID { get; set; }
     public char TransactionType { get; set; }
     public int AccountNumber { get; set; }
     public int DestinationAccountNumber { get; set; }

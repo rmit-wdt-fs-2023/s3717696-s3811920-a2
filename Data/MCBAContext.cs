@@ -1,4 +1,5 @@
-﻿using MCBA_Web.Models;
+﻿using MCBA_Web.DTO;
+using MCBA_Web.Models;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Reflection.Emit;
@@ -12,6 +13,7 @@ public class MCBAContext : DbContext
     {
     }
 
+    // Models
     public DbSet<Customer> Customer { get; set; }
     public DbSet<Account> Account { get; set; }
     public DbSet<BillPay> BillPay { get; set; }
@@ -38,6 +40,22 @@ public class MCBAContext : DbContext
         builder.Entity<Account>().HasKey(c => c.AccountNumber);
         builder.Entity<Account>().Property(c => c.AccountNumber).HasDefaultValueSql("1000");
 
+        builder.Entity<Account>()
+            .Property(c => c.AccountType)
+            .HasConversion(
+                v => v.ToString(),
+                v => (AccountType)Enum.Parse(typeof(AccountType), v));
 
+        builder.Entity<Transaction>()
+            .Property(c => c.TransactionType)
+            .HasConversion(
+                v => v.ToString(),
+                v => (TransactionType)Enum.Parse(typeof(TransactionType), v));
+
+        builder.Entity<Address>()
+            .Property(c => c.State)
+            .HasConversion(
+                v => v.ToString(),
+                v => (StateType)Enum.Parse(typeof(StateType), v));
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace MCBA.DTO;
+﻿namespace MCBA_Web.DTO;
 public class LoginDTO
 {
     public int LoginID { get; set; }

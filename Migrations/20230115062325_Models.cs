@@ -30,7 +30,7 @@ namespace MCBAWeb.Migrations
                 columns: table => new
                 {
                     AccountNumber = table.Column<int>(type: "int", nullable: false, defaultValueSql: "1000"),
-                    AccountType = table.Column<int>(type: "int", nullable: false),
+                    AccountType = table.Column<string>(type: "varchar(20)", nullable: false),
                     Balance = table.Column<decimal>(type: "money", nullable: false),
                     CustomerID = table.Column<int>(type: "int", nullable: false)
                 },
@@ -54,7 +54,7 @@ namespace MCBAWeb.Migrations
                     Street = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     City = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     Postcode = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: true),
-                    State = table.Column<int>(type: "int", nullable: true),
+                    State = table.Column<string>(type: "varchar(20)", nullable: true),
                     CustomerID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -74,7 +74,7 @@ namespace MCBAWeb.Migrations
                 {
                     LoginID = table.Column<int>(type: "int", nullable: false, defaultValueSql: "10000000"),
                     CustomerID = table.Column<int>(type: "int", nullable: false),
-                    PasswordHash = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false)
+                    PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -93,7 +93,7 @@ namespace MCBAWeb.Migrations
                 {
                     TransactionID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    TransactionType = table.Column<int>(type: "int", nullable: false),
+                    TransactionType = table.Column<string>(type: "varchar(20)", nullable: false),
                     AccountNumber = table.Column<int>(type: "int", nullable: false),
                     DestinationAccountNumber = table.Column<int>(type: "int", nullable: true),
                     Amount = table.Column<decimal>(type: "money", nullable: false),
@@ -183,7 +183,8 @@ namespace MCBAWeb.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Login_CustomerID",
                 table: "Login",
-                column: "CustomerID");
+                column: "CustomerID",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Payee_AddressID",
