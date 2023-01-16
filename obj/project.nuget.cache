@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "zskGscq2jkioWLYq2FXOCFtsacSZoR+dWNP3Mv1++kw9CFHidgFcFt516P1uB8UAymdqBq0mK/Mjkt/DZfTpeQ==",
+  "dgSpecHash": "141Di9mg8u7MvGbF4de66rVM9hzciL+siAjtD660Ldr/rp2IOsCkClqFzz+rrgNwz7J9xprJwZ44rwfmZIbCAw==",
   "success": true,
   "projectFilePath": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\MCBA-Web\\MCBA-Web\\MCBA-Web.csproj",
   "expectedPackageFiles": [
@@ -41,6 +41,7 @@
     "C:\\Users\\Mevi\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\7.0.2\\microsoft.entityframeworkcore.tools.7.0.2.nupkg.sha512",
     "C:\\Users\\Mevi\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\7.0.0\\microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\Mevi\\.nuget\\packages\\microsoft.extensions.caching.memory\\7.0.0\\microsoft.extensions.caching.memory.7.0.0.nupkg.sha512",
+    "C:\\Users\\Mevi\\.nuget\\packages\\microsoft.extensions.caching.sqlserver\\7.0.2\\microsoft.extensions.caching.sqlserver.7.0.2.nupkg.sha512",
     "C:\\Users\\Mevi\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\Mevi\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
     "C:\\Users\\Mevi\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
@@ -99,6 +100,7 @@
     "C:\\Users\\Mevi\\.nuget\\packages\\runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\Mevi\\.nuget\\packages\\runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\Mevi\\.nuget\\packages\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
+    "C:\\Users\\Mevi\\.nuget\\packages\\simplehashing.net\\2.1.0\\simplehashing.net.2.1.0.nupkg.sha512",
     "C:\\Users\\Mevi\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\Mevi\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\Mevi\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",

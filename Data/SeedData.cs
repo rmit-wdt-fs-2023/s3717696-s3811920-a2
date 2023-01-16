@@ -17,7 +17,6 @@ public static class SeedData
         PreLoad preLoad = new();
         preLoad.Run();
 
-
         // Commit New Data
         context.Customer.AddRangeAsync(preLoad.GetCustomers());
         context.Account.AddRangeAsync(preLoad.GetAccounts());

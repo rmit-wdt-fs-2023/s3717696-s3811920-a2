@@ -1,8 +1,27 @@
-﻿@{
-    ViewBag.Title = "Login";
-}
+﻿<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/login.css" >
+</head>
 
-<h1>Login Page</h1>
-
-<p>For user to login</p>
-
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Sign In</h5>
+                        <form asp-action="Login" method="post" class="form-signin">
+                            <div class="form-label-group">
+                                <input type="text" class="form-control" id="loginId" name="loginId" placeholder="Login ID" autofocus>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                            </div>
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" value="Login" type="submit">Sign in</button>
+                        </form>
+                        @Html.ValidationMessage("LoginFailed", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

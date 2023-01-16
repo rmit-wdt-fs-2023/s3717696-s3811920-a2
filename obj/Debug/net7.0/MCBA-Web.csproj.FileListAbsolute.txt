@@ -273,3 +273,6 @@ H:\2023 Flex Semester\Web Dev Technlologies\Assignment 2\MCBA-Web\MCBA-Web\bin\D
 H:\2023 Flex Semester\Web Dev Technlologies\Assignment 2\MCBA-Web\MCBA-Web\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 H:\2023 Flex Semester\Web Dev Technlologies\Assignment 2\MCBA-Web\MCBA-Web\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 H:\2023 Flex Semester\Web Dev Technlologies\Assignment 2\MCBA-Web\MCBA-Web\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+H:\2023 Flex Semester\Web Dev Technlologies\Assignment 2\MCBA-Web\MCBA-Web\bin\Debug\net7.0\Microsoft.Extensions.Caching.SqlServer.dll
+H:\2023 Flex Semester\Web Dev Technlologies\Assignment 2\MCBA-Web\MCBA-Web\bin\Debug\net7.0\libman.json
+H:\2023 Flex Semester\Web Dev Technlologies\Assignment 2\MCBA-Web\MCBA-Web\bin\Debug\net7.0\SimpleHashing.Net.dll
