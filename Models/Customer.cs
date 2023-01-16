@@ -23,7 +23,7 @@ public class Customer
     public string? Mobile { get; set; }
 
     [DataType(DataType.Upload)]
-    public string? ProfilePicture { get; set; }
+    public string? ProfilePicture { get; set; } = "~/img/CustomerProfile/default_profile_picture.png";
 
     public Login Login { get; set; }
 
