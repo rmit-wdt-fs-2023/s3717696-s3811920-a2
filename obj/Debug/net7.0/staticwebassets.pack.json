@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\MCBA-Web\\MCBA-Web\\wwwroot\\img\\CustomerProfile\\default_profile_picture.png",
+      "PackagePath": "staticwebassets\\img\\CustomerProfile\\default_profile_picture.png"
+    },
+    {
       "Id": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\MCBA-Web\\MCBA-Web\\wwwroot\\img\\Home\\bank-intro.png",
       "PackagePath": "staticwebassets\\img\\Home\\bank-intro.png"
     },
