@@ -11,12 +11,9 @@ public class Login
     [RegularExpression("^\\d{8}$", ErrorMessage = "LoginID must be 8 digits")]
     public int LoginID { get; set; }
 
-    [Required]
-    [ForeignKey("CustomerID")]
     public int CustomerID { get; set; }
+    public virtual Customer Customer { get; set; }
 
     [Required]
     public string PasswordHash { get; set; }
-
-    public virtual Customer Customer { get; set; }
 }

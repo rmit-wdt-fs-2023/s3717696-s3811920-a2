@@ -13,9 +13,23 @@ builder.Services.AddDbContext<MCBAContext>(options =>
 
 // Register Services
 builder.Services.AddScoped<ICustomerService, CustomerService>();
+builder.Services.AddScoped<ILoginService, LoginService>();
 
-// Register Repositories
-//builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+// Session Handler
+
+builder.Services.AddDistributedSqlServerCache(options =>
+{
+    options.ConnectionString = builder.Configuration.GetConnectionString(nameof(MCBAContext));
+    options.SchemaName = "dotnet";
+    options.TableName = "SessionCache";
+});
+builder.Services.AddSession(options =>
+{
+    // Make the session cookie essential.
+    options.Cookie.IsEssential = true;
+    options.IdleTimeout = TimeSpan.FromDays(7);
+});
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -38,7 +52,6 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
-
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -49,7 +62,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
+app.UseSession();
 app.UseRouting();
 
 app.UseAuthorization();

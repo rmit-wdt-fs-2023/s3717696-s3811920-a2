@@ -5,12 +5,20 @@
       "PackagePath": "staticwebassets\\css\\header.css"
     },
     {
+      "Id": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\MCBA-Web\\MCBA-Web\\wwwroot\\css\\login.css",
+      "PackagePath": "staticwebassets\\css\\login.css"
+    },
+    {
       "Id": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\MCBA-Web\\MCBA-Web\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\MCBA-Web\\MCBA-Web\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\MCBA-Web\\MCBA-Web\\wwwroot\\img\\Home\\bank-intro.png",
+      "PackagePath": "staticwebassets\\img\\Home\\bank-intro.png"
     },
     {
       "Id": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\MCBA-Web\\MCBA-Web\\wwwroot\\js\\site.js",

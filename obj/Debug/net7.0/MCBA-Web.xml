@@ -16,5 +16,17 @@
         <member name="M:MCBAWeb.Migrations.Models.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
+        <member name="T:MCBAWeb.Migrations.ModelsUpdate">
+            <inheritdoc />
+        </member>
+        <member name="M:MCBAWeb.Migrations.ModelsUpdate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:MCBAWeb.Migrations.ModelsUpdate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:MCBAWeb.Migrations.ModelsUpdate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
     </members>
 </doc>

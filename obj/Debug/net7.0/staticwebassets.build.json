@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wh3YyDmVwB+10QnroSs8iGmIzOTJODUW5D2s56k/DOY=",
+  "Hash": "CH1aoZ/kgw9XgUm73nva4+FkjWLZD8BxD3KE9aeNfjw=",
   "Source": "MCBA-Web",
   "BasePath": "_content/MCBA-Web",
   "Mode": "Default",
@@ -32,6 +32,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\header.css"
+    },
+    {
+      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\MCBA-Web\\MCBA-Web\\wwwroot\\css\\login.css",
+      "SourceId": "MCBA-Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\MCBA-Web\\MCBA-Web\\wwwroot\\",
+      "BasePath": "_content/MCBA-Web",
+      "RelativePath": "css/login.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\login.css"
     },
     {
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\MCBA-Web\\MCBA-Web\\wwwroot\\css\\site.css",
@@ -66,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\MCBA-Web\\MCBA-Web\\wwwroot\\img\\Home\\bank-intro.png",
+      "SourceId": "MCBA-Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\MCBA-Web\\MCBA-Web\\wwwroot\\",
+      "BasePath": "_content/MCBA-Web",
+      "RelativePath": "img/Home/bank-intro.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\Home\\bank-intro.png"
     },
     {
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\MCBA-Web\\MCBA-Web\\wwwroot\\js\\site.js",
