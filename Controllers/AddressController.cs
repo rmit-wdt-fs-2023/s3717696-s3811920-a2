@@ -10,6 +10,7 @@ using MCBA_Web.Models;
 
 namespace MCBA_Web.Controllers;
 
+[Route("/profile/MyDetails")]
 public class AddressController : Controller
 {
     private readonly MCBAContext _context;

@@ -10,6 +10,7 @@ using MCBA_Web.Models;
 
 namespace MCBA_Web.Controllers;
 
+[Route("/account")]
 public class AccountController : Controller
 {
     private readonly MCBAContext _context;
