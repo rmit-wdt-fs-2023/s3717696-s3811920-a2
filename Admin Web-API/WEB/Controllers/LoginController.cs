@@ -1,0 +1,45 @@
+﻿using MCBA_Admin.Models;
+using MCBA_Admin.Services;
+using Microsoft.AspNetCore.Mvc;
+using System.Text.Encodings.Web;
+
+namespace MCBA_Admin.WEB.Controllers;
+
+[Route("/")]
+public class LoginController : Controller
+{
+
+    private readonly ILoginService _loginService;
+
+    public LoginController(ILoginService loginService)
+    {
+        _loginService = loginService;
+    }
+    [HttpGet]
+    public IActionResult Index()
+    {
+        return View("WEB/Views/Login/Index.cshtml");
+    }
+
+    [HttpPost]
+    public IActionResult Login(string username, string password)
+    {
+
+        var admin = _loginService.AuthenticateAdmin(username, password);
+
+        // Check if authenticated
+        if (admin == null)
+        {
+            ModelState.AddModelError("LoginFailed", "Login failed, please try again.");
+            return RedirectToAction("Index", "Login");
+        }
+
+        TempData["adminUsername"] = admin.Username;
+
+        // Login admin.
+        HttpContext.Session.SetString(nameof(AdminLogin.Username), admin.Username);
+
+        return RedirectToAction("Index", "Admin", admin);
+    }
+
+}

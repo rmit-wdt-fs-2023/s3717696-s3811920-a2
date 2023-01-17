@@ -1,0 +1,98 @@
+﻿@model MCBA_Admin.Models.Customer
+
+<head>
+    <title>Admin Portal</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-q3PtQk78tLcbWVlQ2klJhxBqY1xQ4jV/qrUJZrUoN6JjLQxkXp1kJ1jJ1E5JZc5M" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/css/admin.css" />
+</head>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Customer Details</h5>
+                    <form>
+                        <div class="form-group">
+                            <label for="customerID">Customer ID</label>
+                            <input type="text" class="form-control" id="customerID" placeholder="Enter customer ID" value="@Model.CustomerID" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter name" value="@Model.Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="tfn">TFN</label>
+                            <input type="text" class="form-control" id="tfn" placeholder="Enter TFN" value="@Model.TFN">
+                        </div>
+                        <div class="form-group">
+                            <label for="mobile">Mobile</label>
+                            <input type="text" class="form-control" id="mobile" placeholder="Enter mobile" value="@Model.Mobile">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="card mt-3 col-md6">
+                <div class="card-body">
+                    <h5 class="card-title">Address Details</h5>
+                    <form>
+                        <div class="form-group">
+                            <label for="addressID">Address ID</label>
+                            <input type="text" class="form-control" id="addressID" placeholder="Enter address ID" value="@Model.Address.AddressID" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="street">Street</label>
+                            <input type="text" class="form-control" id="street" placeholder="Enter street" value="@Model.Address.Street">
+                        </div>
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" class="form-control" id="city" placeholder="Enter city" value="@Model.Address.City">
+                        </div>
+                        <div class="form-group">
+                            <label for="postcode">Postcode</label>
+                            <input type="text" class="form-control" id="postcode" placeholder="Enter postcode" value="@Model.Address.Postcode">
+                        </div>
+                        <div class="form-group">
+                            <label for="state">State</label>
+                            <select class="form-control" id="state" name="state">
+                                @foreach (var item in Enum.GetValues(typeof(MCBA_Admin.Models.StateType)))
+                                {
+                                    <option value="@item" @(Model.Address.State == (MCBA_Admin.Models.StateType)item ? "selected" : "")>@item</option>
+                                }
+                            </select>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <form method="put" action="/api/v1/customer/@Model.CustomerID"  onsubmit="submitForm(event)">
+                <input type="hidden" id="updatedCustomer" name="updatedCustomer">
+                @Html.AntiForgeryToken()
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function submitForm(event) {
+        event.preventDefault();
+        var updatedCustomer = @Html.Raw(Json.Serialize(Model));
+        document.getElementById("updatedCustomer").value = updatedCustomer;
+
+        fetch('/api/v1/customer/@Model.CustomerID', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updatedCustomer)
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Display "Changes saved" message
+            alert("Changes saved");
+        })
+        .catch(error => console.error(error));
+    }
+</script>
