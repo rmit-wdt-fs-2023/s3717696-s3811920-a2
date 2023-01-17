@@ -466,11 +466,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\MCBA-Admin Folder\\MCBA-Admin\\MCBA-Admin.csproj",
+      "projectUniqueName": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\MCBA-Admin.csproj",
       "projectName": "MCBA-Admin",
-      "projectPath": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\MCBA-Admin Folder\\MCBA-Admin\\MCBA-Admin.csproj",
+      "projectPath": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\MCBA-Admin.csproj",
       "packagesPath": "C:\\Users\\Mevi\\.nuget\\packages\\",
-      "outputPath": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\MCBA-Admin Folder\\MCBA-Admin\\obj\\",
+      "outputPath": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "H:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

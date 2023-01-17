@@ -9,9 +9,21 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MCBA_Admin
 build_property.RootNamespace = MCBA_Admin
-build_property.ProjectDir = H:\2023 Flex Semester\Web Dev Technlologies\Assignment 2\MCBA-Admin Folder\MCBA-Admin\
+build_property.ProjectDir = H:\2023 Flex Semester\Web Dev Technlologies\Assignment 2\Assignment 2\MCBA-Assignment2\Admin Web-API\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = H:\2023 Flex Semester\Web Dev Technlologies\Assignment 2\MCBA-Admin Folder\MCBA-Admin
+build_property.MSBuildProjectDirectory = H:\2023 Flex Semester\Web Dev Technlologies\Assignment 2\Assignment 2\MCBA-Assignment2\Admin Web-API
 build_property._RazorSourceGeneratorDebug = 
+
+[H:/2023 Flex Semester/Web Dev Technlologies/Assignment 2/Assignment 2/MCBA-Assignment2/Admin Web-API/WEB/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = V0VCXFZpZXdzXEFkbWluXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/2023 Flex Semester/Web Dev Technlologies/Assignment 2/Assignment 2/MCBA-Assignment2/Admin Web-API/WEB/Views/Admin/ManageCustomer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = V0VCXFZpZXdzXEFkbWluXE1hbmFnZUN1c3RvbWVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/2023 Flex Semester/Web Dev Technlologies/Assignment 2/Assignment 2/MCBA-Assignment2/Admin Web-API/WEB/Views/Login/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = V0VCXFZpZXdzXExvZ2luXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
