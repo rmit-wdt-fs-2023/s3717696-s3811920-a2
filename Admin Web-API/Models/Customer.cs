@@ -1,9 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Diagnostics.CodeAnalysis;
 
 namespace MCBA_Admin.Models;
 
@@ -22,8 +19,10 @@ public class Customer
     [RegularExpression("^04[0-9]{8}$", ErrorMessage = "Mobile must start with 04 and be 10 digits long")]
     public string? Mobile { get; set; }
 
-    [DataType(DataType.Upload)]
-    public string? ProfilePicture { get; set; } = "~/img/CustomerProfile/default_profile_picture.png";
+    public byte[] ProfilePicture { get; set; }
+
+    public string ProfilePictureContentType { get; set; }
+    public bool HasDefaultProfilePicture { get; set; } = true;
 
     public Address Address { get; set; }
   

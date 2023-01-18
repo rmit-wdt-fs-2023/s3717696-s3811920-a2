@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "59l+Bq2X0pCTXc3bYg5FCD3uwmzWDlzQDk8mug5YNUY=",
+  "Hash": "/GeHhHncwQWNOf/XoGOX41ZmnMmzja8mdSiLQv2Hp1g=",
   "Source": "MCBA-Admin",
   "BasePath": "_content/MCBA-Admin",
   "Mode": "Default",
@@ -16,6 +16,23 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\css\\admin.css",
+      "SourceId": "MCBA-Admin",
+      "SourceType": "Discovered",
+      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
+      "BasePath": "_content/MCBA-Admin",
+      "RelativePath": "css/admin.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\admin.css"
+    },
     {
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\css\\login.css",
       "SourceId": "MCBA-Admin",
