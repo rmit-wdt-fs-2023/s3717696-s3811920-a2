@@ -1,98 +1,246 @@
-﻿@model MCBA_Admin.Models.Customer
-
+﻿@model Customer
+@{
+    ViewData["Title"] = "Admin";
+}
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <title>Admin Portal</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-q3PtQk78tLcbWVlQ2klJhxBqY1xQ4jV/qrUJZrUoN6JjLQxkXp1kJ1jJ1E5JZc5M" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="~/css/admin.css" />
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
 </head>
-<div class="container">
+
+<body>
+    <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Admin Portal</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin">Customers</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    </header>
+
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-8 offset-md-2">
             <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Customer Details</h5>
-                    <form>
-                        <div class="form-group">
-                            <label for="customerID">Customer ID</label>
-                            <input type="text" class="form-control" id="customerID" placeholder="Enter customer ID" value="@Model.CustomerID" readonly>
-                        </div>
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter name" value="@Model.Name">
-                        </div>
-                        <div class="form-group">
-                            <label for="tfn">TFN</label>
-                            <input type="text" class="form-control" id="tfn" placeholder="Enter TFN" value="@Model.TFN">
-                        </div>
-                        <div class="form-group">
-                            <label for="mobile">Mobile</label>
-                            <input type="text" class="form-control" id="mobile" placeholder="Enter mobile" value="@Model.Mobile">
-                        </div>
-                    </form>
+                <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs justify-content-center">
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#customer" role="tab" aria-controls="customer" aria-selected="true">Customer</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#address" role="tab" aria-controls="address" aria-selected="false">Address</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#bills" role="tab" aria-controls="bills" aria-selected="false">Bills</a>
+                        </li>
+                    </ul>
                 </div>
-            </div>
-            <div class="card mt-3 col-md6">
                 <div class="card-body">
-                    <h5 class="card-title">Address Details</h5>
-                    <form>
-                        <div class="form-group">
-                            <label for="addressID">Address ID</label>
-                            <input type="text" class="form-control" id="addressID" placeholder="Enter address ID" value="@Model.Address.AddressID" readonly>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="customer" role="tabpanel">
+                            <div class="card">
+                                <div class="card-body" id="customer-body">
+                                    <form asp-action="ManageCustomer">
+                                        <div class="form-group">
+                                            <label for="CustomerID">Customer ID</label>
+                                            <input type="text" class="form-control" id="CustomerID" name="CustomerID" value="@Model.CustomerID" readonly>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="Name">Name</label>
+                                            <input asp-for="Name" type="text" class="form-control" id="Name" name="Name" value="@Model.Name">
+                                            <span asp-validation-for="Name" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="TFN">TFN</label>
+                                            <input asp-for="TFN" type="text" class="form-control" id="TFN" name="TFN" value="@Model.TFN">
+                                            <span asp-validation-for="TFN" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="Mobile">Mobile</label>
+                                            <input type="text" class="form-control" id="Mobile" name="Mobile" value="@Model.Mobile">
+                                        </div>
+                                    </form>
+                                    <div class="row">
+                                        <div class="col-sm-12 text-center">
+                                            <button id="saveBasicBtn" class="btn btn-primary">Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="street">Street</label>
-                            <input type="text" class="form-control" id="street" placeholder="Enter street" value="@Model.Address.Street">
-                        </div>
-                        <div class="form-group">
-                            <label for="city">City</label>
-                            <input type="text" class="form-control" id="city" placeholder="Enter city" value="@Model.Address.City">
-                        </div>
-                        <div class="form-group">
-                            <label for="postcode">Postcode</label>
-                            <input type="text" class="form-control" id="postcode" placeholder="Enter postcode" value="@Model.Address.Postcode">
-                        </div>
-                        <div class="form-group">
-                            <label for="state">State</label>
-                            <select class="form-control" id="state" name="state">
-                                @foreach (var item in Enum.GetValues(typeof(MCBA_Admin.Models.StateType)))
+                        <div class="tab-pane" id="address" role="tabpanel">
+                            <div class="card">
+                                @if (Model.Address != null)
                                 {
-                                    <option value="@item" @(Model.Address.State == (MCBA_Admin.Models.StateType)item ? "selected" : "")>@item</option>
+                                    <div class="card-body">
+                                        <form id="addressForm">
+                                            <div class="form-group">
+                                                <label for="AddressID">Address ID</label>
+                                                <input type="text" class="form-control" id="AddressID" name="AddressID" value="@Model.Address.AddressID" readonly>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Street">Street</label>
+                                                <input type="text" class="form-control" id="Street" name="Street" value="@Model.Address.Street">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="City">City</label>
+                                                <input type="text" class="form-control" id="City" name="City" value="@Model.Address.City">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Postcode">Postcode</label>
+                                                <input type="text" class="form-control" id="Postcode" name="Postcode" value="@Model.Address.Postcode">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="State">State</label>
+                                                <select class="form-control" id="State" name="State">
+                                                    @foreach (var item in Enum.GetValues(typeof(StateType)))
+                                                    {
+                                                        <option value="@item" @(Model.Address.State == (StateType)item ? "selected" : "")>@item</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </form>
+                                    </div>
                                 }
-                            </select>
+                                @if (Model.Address == null)
+                                {
+                                    <div class="card-body">
+                                        <form id="addressForm">
+                                            <div class="form-group">
+                                                <label for="Street">Street</label>
+                                                <input type="text" class="form-control" id="Street" name="Street" value="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="City">City</label>
+                                                <input type="text" class="form-control" id="City" name="City" value="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Postcode">Postcode</label>
+                                                <input type="text" class="form-control" id="Postcode" name="Postcode" value="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="State">State</label>
+                                                <select class="form-control" id="State" name="State">
+                                                    @foreach (var item in Enum.GetValues(typeof(MCBA_Admin.Models.StateType)))
+                                                    {
+                                                        <option value="@item">@item</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-sm-12 text-center">
+                                        <button id="addAddressBtn" class="btn btn-primary">Add Address</button>
+                                    </div>
+                                }
+                            </div>
                         </div>
-                    </form>
+                        <div class="tab-pane" id="bills" role="tabpanel">
+                            <div class="card">
+                                <div class="card-body">
+                                    <!-- bills card content -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <form method="put" action="/api/v1/customer/@Model.CustomerID"  onsubmit="submitForm(event)">
-                <input type="hidden" id="updatedCustomer" name="updatedCustomer">
-                @Html.AntiForgeryToken()
-                <button type="submit" class="btn btn-primary">Save Changes</button>
-            </form>
         </div>
     </div>
-</div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            <p>&copy; 2023 - MCBA </p>
+        </div>
+    </footer>
+
+</body>
+</html>
 
 <script>
-    function submitForm(event) {
-        event.preventDefault();
-        var updatedCustomer = @Html.Raw(Json.Serialize(Model));
-        document.getElementById("updatedCustomer").value = updatedCustomer;
+    document.getElementById("addAddressBtn").addEventListener("click", async function () {
+        
+        const State = {
+            VIC: 1,
+            NSW: 2,
+            QLD: 3,
+            WA: 4,
+            SA: 5,
+            TAS: 6,
+            ACT: 7,
+            NT: 8
+        };
 
-        fetch('/api/v1/customer/@Model.CustomerID', {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(updatedCustomer)
-        })
-        .then(response => response.json())
-        .then(data => {
-            // Display "Changes saved" message
-            alert("Changes saved");
-        })
-        .catch(error => console.error(error));
-    }
+        var customer = { 
+            Street: document.getElementById("Street").value,
+            City: document.getElementById("City").value,
+            Postcode: document.getElementById("Postcode").value,
+            State: State[document.getElementById("State").value],
+            CustomerID: document.getElementById("CustomerID").value
+        }
+
+        var url = "https://localhost:7016/api/v1/Address/";
+
+        const response = await fetch(url, { method: 'POST', body: JSON.stringify(customer), headers: { 'Content-Type': 'application/json' } })
+            .catch(error => console.error());
+        
+        const data = response.json();
+
+        console.log('Success');
+        alert("Added address!");
+        location.reload(true);
+
+    });
 </script>
+
+<script>
+    document.getElementById("saveBasicBtn").addEventListener("click", async function () {
+        var customer = {
+            CustomerID: document.getElementById("CustomerID").value,
+            Name: document.getElementById("Name").value,
+            TFN: document.getElementById("TFN").value,
+            Mobile: document.getElementById("Mobile").value
+        }
+
+        var url = "https://localhost:7016/api/v1/customer/" + customer.CustomerID;
+
+        const response = await fetch(url, { method: 'PUT', body: JSON.stringify(customer), headers: { 'Content-Type': 'application/json'}})
+        .catch(error => console.error());
+
+        const data = response.json();
+        console.log('Success');
+        alert("Changes have been saved successfully!");
+        
+    });
+</script>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        await RenderSectionAsync("Scripts", required: false);
+    }
+}

@@ -1,6 +1,10 @@
 {
   "Files": [
     {
+      "Id": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\css\\admin.css",
+      "PackagePath": "staticwebassets\\css\\admin.css"
+    },
+    {
       "Id": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\css\\login.css",
       "PackagePath": "staticwebassets\\css\\login.css"
     },

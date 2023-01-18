@@ -20,7 +20,7 @@ public class CustomerController : ControllerBase
     }
 
     [HttpPost]
-    public ActionResult<Customer> Post([FromBody] Customer customer)
+    public ActionResult<Customer> Post(int id, [FromBody] Customer customer)
     {
         _customerService.Add(customer);
         return CreatedAtAction("Get", new { id = customer.CustomerID }, customer);
@@ -42,7 +42,7 @@ public class CustomerController : ControllerBase
     {
         var customers = await _customerService.GetAllAsync();
 
-        if (customers.IsNullOrEmpty())
+        if (!customers.Any())
         {
             return NotFound();
         }
@@ -54,13 +54,15 @@ public class CustomerController : ControllerBase
     public IActionResult ManageCustomer(int id, [FromBody] Customer updatedCustomer)
     {
 
+        bool isUpdated = _customerService.Update(id, updatedCustomer);
+        
+        if (!isUpdated)
+            return NotFound();
+
+        return Ok();
+
         //var customer = JsonConvert.DeserializeObject<Customer>(updatedCustomer);
         //Console.WriteLine(customer.Mobile);
-
-
-        // Save
-        _customerService.Update(id, updatedCustomer);
-
 
         return Ok();
     }
