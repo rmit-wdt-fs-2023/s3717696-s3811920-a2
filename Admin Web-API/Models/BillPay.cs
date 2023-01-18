@@ -20,6 +20,8 @@ public class BillPay
     [DataType(DataType.Currency)]
     public decimal Amount { get; set; }
 
+    public bool IsBlocked { get; set; } = false;
+
     [Required]
     public DateTime ScheduleTimeUtc { get; set; }
 

@@ -2,7 +2,6 @@
 using MCBA_Admin.Models;
 using MCBA_Admin.Services;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 
 namespace MCBA_Admin.WEB.Controllers;
 
@@ -36,5 +35,6 @@ public class AdminController : Controller
         
         return View("WEB/Views/Admin/ManageCustomer.cshtml", customer);
     }
+
 
 }

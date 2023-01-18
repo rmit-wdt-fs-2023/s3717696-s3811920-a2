@@ -94,6 +94,9 @@ namespace MCBAAdmin.Migrations
                     b.Property<decimal>("Amount")
                         .HasColumnType("money");
 
+                    b.Property<bool>("IsBlocked")
+                        .HasColumnType("bit");
+
                     b.Property<int>("PayeeID")
                         .HasColumnType("int");
 
@@ -119,6 +122,9 @@ namespace MCBAAdmin.Migrations
                         .HasColumnType("int")
                         .HasDefaultValueSql("1000");
 
+                    b.Property<bool>("HasDefaultProfilePicture")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Mobile")
                         .HasColumnType("nvarchar(max)");
 
@@ -127,7 +133,10 @@ namespace MCBAAdmin.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("ProfilePicture")
+                    b.Property<byte[]>("ProfilePicture")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("ProfilePictureContentType")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TFN")
@@ -147,6 +156,9 @@ namespace MCBAAdmin.Migrations
 
                     b.Property<int>("CustomerID")
                         .HasColumnType("int");
+
+                    b.Property<bool>("IsLocked")
+                        .HasColumnType("bit");
 
                     b.Property<string>("PasswordHash")
                         .IsRequired()

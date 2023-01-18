@@ -18,6 +18,9 @@ public class LoginController : Controller
     [HttpGet]
     public IActionResult Index()
     {
+        if (HttpContext.Session.GetString(nameof(AdminLogin.Username)) != null)
+            return new RedirectResult("/admin");
+
         return View("WEB/Views/Login/Index.cshtml");
     }
 
@@ -40,6 +43,16 @@ public class LoginController : Controller
         HttpContext.Session.SetString(nameof(AdminLogin.Username), admin.Username);
 
         return RedirectToAction("Index", "Admin", admin);
+    }
+
+    [Route("/logout")]
+    [HttpGet]
+    public IActionResult Logout()
+    {
+        // Logout customer.
+        HttpContext.Session.Clear();
+
+        return RedirectToAction("Index", "Admin");
     }
 
 }

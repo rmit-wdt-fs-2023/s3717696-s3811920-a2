@@ -18,4 +18,6 @@ public class Login
 
     [Required]
     public string PasswordHash { get; set; }
+
+    public bool IsLocked { get; set; } = false;
 }
