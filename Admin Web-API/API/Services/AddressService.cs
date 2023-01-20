@@ -29,21 +29,10 @@ public class AddressService : IAddressService
         _addressRepository.AddAddressAsync(address);
     }
 
-    public bool Update(int id, Address customerUpdated)
+    public void Update(int id, Address addressUpdated)
     {
-        //var customer = 
-
-        //if (customer == null)
-        //{
-        //    return false;
-        //}
-
-        //customer.Address = customerUpdated.Address;
-        //customer.Accounts = customerUpdated.Accounts;
-        //customerUpdated.CustomerID = id;
-        _addressRepository.UpdateAddressAsync(customerUpdated);
-
-        return true;
+        addressUpdated.AddressID = id;
+        _addressRepository.UpdateAddress(addressUpdated);
     }
 
     public void Delete(int id)

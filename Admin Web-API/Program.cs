@@ -14,10 +14,16 @@ builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<ILoginService, LoginService>();
 builder.Services.AddScoped<IAdminService, AdminService>();
 builder.Services.AddScoped<IAddressService, AddressService>();
+builder.Services.AddScoped<IBillPayService, BillPayService>();
+builder.Services.AddScoped<IAccountService, AccountService>();
+builder.Services.AddScoped<ICustomerLoginService, CustomerLoginService>();
 
 // Register Repositories
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 builder.Services.AddScoped<IAddressRepository, AddressRepository>();
+builder.Services.AddScoped<IBillPayRepository, BillPayRepository>();
+builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+builder.Services.AddScoped<ICustomerLoginRepository, CustomerLoginRepository>();
 
 // Session Handler
 builder.Services.AddDistributedSqlServerCache(options =>
@@ -63,5 +69,9 @@ app.MapControllers();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Login}/{action=Index}/{id?}");
+
+
+app.MapDefaultControllerRoute();
+
 
 app.Run();
