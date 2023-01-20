@@ -11,6 +11,7 @@ public class Payee
 
     [Required]
     [StringLength(50, ErrorMessage = "Name must be less than 50 characters")]
+    [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Name must be in alpha")]
     public string Name { get; set; }
 
     [Required]
@@ -19,17 +20,21 @@ public class Payee
 
     [Required]
     [StringLength(40)]
-    public string Address { get; set; }
+    [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Street must be in alpha")]
+    public string Street { get; set; }
 
     [Required]
+    [EnumDataType(typeof(StateType), ErrorMessage = "Invalid State Type")]
+    [Column(TypeName = "varchar(20)")]
     public StateType State { get; set; }
 
     [Required]
-    [StringLength(4)]
+    [RegularExpression(@"^\d{4}$", ErrorMessage = "Postcode must be 4 digits")]
     public string Postcode { get; set; }
 
     [Required]
     [StringLength(14)]
+    [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "City must be in alpha")]
     public string City { get; set; }
 }
 
