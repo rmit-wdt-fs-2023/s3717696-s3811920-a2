@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace MCBA_Web.Models;
-
 public class Account
 {
     [Key]
@@ -19,10 +19,10 @@ public class Account
     [DataType(DataType.Currency)]
     public decimal Balance { get; set; }
 
-    public virtual List<Transaction> Transactions { get; set; } = new List<Transaction>();
+    public List<Transaction> Transactions { get; set; }
 
-    [Required(ErrorMessage = "Customer ID is required")]
     [ForeignKey("CustomerID")]
+    [JsonIgnore]
+    public Customer Customer { get; set; }
     public int CustomerID { get; set; }
-    public virtual Customer Customer { get; set; }
 }

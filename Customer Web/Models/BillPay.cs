@@ -2,7 +2,6 @@
 using System.ComponentModel.DataAnnotations;
 
 namespace MCBA_Web.Models;
-
 public class BillPay
 {
     [Required]
@@ -19,6 +18,8 @@ public class BillPay
     [Column(TypeName = "money")]
     [DataType(DataType.Currency)]
     public decimal Amount { get; set; }
+
+    public bool IsBlocked { get; set; } = false;
 
     [Required]
     public DateTime ScheduleTimeUtc { get; set; }

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MCBAWeb.Migrations
 {
     [DbContext(typeof(MCBAContext))]
-    [Migration("20230116214338_Models-Update-2")]
-    partial class ModelsUpdate2
+    [Migration("20230120215445_Models-Update")]
+    partial class ModelsUpdate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -65,8 +65,7 @@ namespace MCBAWeb.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Postcode")
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("State")
                         .HasColumnType("varchar(20)");
@@ -77,7 +76,8 @@ namespace MCBAWeb.Migrations
 
                     b.HasKey("AddressID");
 
-                    b.HasIndex("CustomerID");
+                    b.HasIndex("CustomerID")
+                        .IsUnique();
 
                     b.ToTable("Address");
                 });
@@ -96,11 +96,15 @@ namespace MCBAWeb.Migrations
                     b.Property<decimal>("Amount")
                         .HasColumnType("money");
 
+                    b.Property<bool>("IsBlocked")
+                        .HasColumnType("bit");
+
                     b.Property<int>("PayeeID")
                         .HasColumnType("int");
 
-                    b.Property<int>("PaymentPeriod")
-                        .HasColumnType("int");
+                    b.Property<string>("PaymentPeriod")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("ScheduleTimeUtc")
                         .HasColumnType("datetime2");
@@ -121,6 +125,9 @@ namespace MCBAWeb.Migrations
                         .HasColumnType("int")
                         .HasDefaultValueSql("1000");
 
+                    b.Property<bool>("HasDefaultProfilePicture")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Mobile")
                         .HasColumnType("nvarchar(max)");
 
@@ -129,7 +136,10 @@ namespace MCBAWeb.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("ProfilePicture")
+                    b.Property<byte[]>("ProfilePicture")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("ProfilePictureContentType")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TFN")
@@ -150,14 +160,16 @@ namespace MCBAWeb.Migrations
                     b.Property<int>("CustomerID")
                         .HasColumnType("int");
 
+                    b.Property<bool>("IsLocked")
+                        .HasColumnType("bit");
+
                     b.Property<string>("PasswordHash")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("LoginID");
 
-                    b.HasIndex("CustomerID")
-                        .IsUnique();
+                    b.HasIndex("CustomerID");
 
                     b.ToTable("Login");
                 });
@@ -170,20 +182,34 @@ namespace MCBAWeb.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PayeeID"));
 
-                    b.Property<int>("AddressID")
-                        .HasColumnType("int");
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasMaxLength(14)
+                        .HasColumnType("nvarchar(14)");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("Phone")
-                        .HasColumnType("int");
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Postcode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("State")
+                        .IsRequired()
+                        .HasColumnType("varchar(20)");
+
+                    b.Property<string>("Street")
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)");
 
                     b.HasKey("PayeeID");
-
-                    b.HasIndex("AddressID");
 
                     b.ToTable("Payee");
                 });
@@ -220,6 +246,8 @@ namespace MCBAWeb.Migrations
 
                     b.HasIndex("AccountNumber");
 
+                    b.HasIndex("DestinationAccountNumber");
+
                     b.ToTable("Transaction");
                 });
 
@@ -237,8 +265,8 @@ namespace MCBAWeb.Migrations
             modelBuilder.Entity("MCBA_Web.Models.Address", b =>
                 {
                     b.HasOne("MCBA_Web.Models.Customer", "Customer")
-                        .WithMany()
-                        .HasForeignKey("CustomerID")
+                        .WithOne("Address")
+                        .HasForeignKey("MCBA_Web.Models.Address", "CustomerID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -267,23 +295,12 @@ namespace MCBAWeb.Migrations
             modelBuilder.Entity("MCBA_Web.Models.Login", b =>
                 {
                     b.HasOne("MCBA_Web.Models.Customer", "Customer")
-                        .WithOne("Login")
-                        .HasForeignKey("MCBA_Web.Models.Login", "CustomerID")
+                        .WithMany()
+                        .HasForeignKey("CustomerID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Customer");
-                });
-
-            modelBuilder.Entity("MCBA_Web.Models.Payee", b =>
-                {
-                    b.HasOne("MCBA_Web.Models.Address", "Address")
-                        .WithMany()
-                        .HasForeignKey("AddressID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Address");
                 });
 
             modelBuilder.Entity("MCBA_Web.Models.Transaction", b =>
@@ -294,7 +311,13 @@ namespace MCBAWeb.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("MCBA_Web.Models.Account", "DestinationAccount")
+                        .WithMany()
+                        .HasForeignKey("DestinationAccountNumber");
+
                     b.Navigation("Account");
+
+                    b.Navigation("DestinationAccount");
                 });
 
             modelBuilder.Entity("MCBA_Web.Models.Account", b =>
@@ -306,7 +329,7 @@ namespace MCBAWeb.Migrations
                 {
                     b.Navigation("Accounts");
 
-                    b.Navigation("Login");
+                    b.Navigation("Address");
                 });
 #pragma warning restore 612, 618
         }

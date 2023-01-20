@@ -5,7 +5,7 @@
 namespace MCBAWeb.Migrations
 {
     /// <inheritdoc />
-    public partial class ModelsUpdate2 : Migration
+    public partial class ModelsUpdate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

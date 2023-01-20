@@ -11,7 +11,10 @@ public static class SeedData
 
         // Look for customers.
         if (context.Customer.Any())
+        {
+            Console.WriteLine("Skipping preload...");
             return; // DB has already been seeded.
+        }
 
         // Run PreLoad
         PreLoad preLoad = new();
