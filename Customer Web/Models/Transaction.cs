@@ -12,9 +12,13 @@ public class Transaction
     [Column(TypeName = "varchar(20)")]
     public TransactionType TransactionType { get; set; }
 
+    [ForeignKey("Account")]
     public int AccountNumber { get; set; }
+    public virtual Account Account { get; set; }
 
+    [ForeignKey("DestinationAccount")]
     public int? DestinationAccountNumber { get; set; }
+    public virtual Account DestinationAccount { get; set; }
 
     [Required]
     [Range(0, double.MaxValue, ErrorMessage = "Amount must be positive")]
@@ -28,6 +32,4 @@ public class Transaction
     [Required]
     public DateTime TransactionTimeUtc { get; set; }
 
-    [ForeignKey("AccountNumber")]
-    public virtual Account Account { get; set; }
 }

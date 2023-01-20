@@ -14,6 +14,7 @@ builder.Services.AddDbContext<MCBAContext>(options =>
 // Register Services
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<ILoginService, LoginService>();
+builder.Services.AddScoped<IAccountService, AccountService>();
 
 // Session Handler
 
@@ -64,6 +65,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseSession();
 app.UseRouting();
+app.UseStatusCodePages();
+app.UseDeveloperExceptionPage();
 
 app.UseAuthorization();
 

@@ -43,7 +43,7 @@ namespace MCBAWeb.Migrations
 
                     b.HasIndex("CustomerID");
 
-                    b.ToTable("Account");
+                    b.ToTable("Account", (string)null);
                 });
 
             modelBuilder.Entity("MCBA_Web.Models.Address", b =>
@@ -76,7 +76,7 @@ namespace MCBAWeb.Migrations
 
                     b.HasIndex("CustomerID");
 
-                    b.ToTable("Address");
+                    b.ToTable("Address", (string)null);
                 });
 
             modelBuilder.Entity("MCBA_Web.Models.BillPay", b =>
@@ -108,7 +108,7 @@ namespace MCBAWeb.Migrations
 
                     b.HasIndex("PayeeID");
 
-                    b.ToTable("BillPay");
+                    b.ToTable("BillPay", (string)null);
                 });
 
             modelBuilder.Entity("MCBA_Web.Models.Customer", b =>
@@ -134,7 +134,7 @@ namespace MCBAWeb.Migrations
 
                     b.HasKey("CustomerID");
 
-                    b.ToTable("Customer");
+                    b.ToTable("Customer", (string)null);
                 });
 
             modelBuilder.Entity("MCBA_Web.Models.Login", b =>
@@ -156,7 +156,7 @@ namespace MCBAWeb.Migrations
                     b.HasIndex("CustomerID")
                         .IsUnique();
 
-                    b.ToTable("Login");
+                    b.ToTable("Login", (string)null);
                 });
 
             modelBuilder.Entity("MCBA_Web.Models.Payee", b =>
@@ -182,7 +182,7 @@ namespace MCBAWeb.Migrations
 
                     b.HasIndex("AddressID");
 
-                    b.ToTable("Payee");
+                    b.ToTable("Payee", (string)null);
                 });
 
             modelBuilder.Entity("MCBA_Web.Models.Transaction", b =>
@@ -217,7 +217,9 @@ namespace MCBAWeb.Migrations
 
                     b.HasIndex("AccountNumber");
 
-                    b.ToTable("Transaction");
+                    b.HasIndex("DestinationAccountNumber");
+
+                    b.ToTable("Transaction", (string)null);
                 });
 
             modelBuilder.Entity("MCBA_Web.Models.Account", b =>
@@ -291,7 +293,13 @@ namespace MCBAWeb.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("MCBA_Web.Models.Account", "DestinationAccount")
+                        .WithMany()
+                        .HasForeignKey("DestinationAccountNumber");
+
                     b.Navigation("Account");
+
+                    b.Navigation("DestinationAccount");
                 });
 
             modelBuilder.Entity("MCBA_Web.Models.Account", b =>

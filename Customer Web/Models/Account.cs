@@ -19,7 +19,7 @@ public class Account
     [DataType(DataType.Currency)]
     public decimal Balance { get; set; }
 
-    public List<Transaction> Transactions { get; set; }
+    public virtual List<Transaction> Transactions { get; set; } = new List<Transaction>();
 
     [Required(ErrorMessage = "Customer ID is required")]
     [ForeignKey("CustomerID")]
