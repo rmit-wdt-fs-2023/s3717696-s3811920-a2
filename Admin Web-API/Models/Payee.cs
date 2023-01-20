@@ -14,13 +14,22 @@ public class Payee
     public string Name { get; set; }
 
     [Required]
-    [RegularExpression("^\\d{14}$", ErrorMessage = "Phone number must be 14 digits")]
-    public int Phone { get; set; }
+    [RegularExpression("^\\(\\d{2}\\) \\d{4} \\d{4}$", ErrorMessage = "Phone number must be of the format '(04) 3333 3333'")]
+    public string Phone { get; set; }
 
     [Required]
-    public int AddressID { get; set; }
+    [StringLength(40)]
+    public string Address { get; set; }
 
-    [ForeignKey("AddressID")]
-    public virtual Address Address { get; set; }
+    [Required]
+    public StateType State { get; set; }
+
+    [Required]
+    [StringLength(4)]
+    public string Postcode { get; set; }
+
+    [Required]
+    [StringLength(14)]
+    public string City { get; set; }
 }
 

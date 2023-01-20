@@ -30,31 +30,15 @@ public class AddressRepository : IAddressRepository
         return address;
     }
 
-    Task<bool> IAddressRepository.UpdateAddressAsync(Address address)
+    public void UpdateAddress(Address address)
+    {
+        _context.Address.Update(address);
+        _context.SaveChanges();
+
+    }
+
+    void IAddressRepository.DeleteAddressAsync(int id)
     {
         throw new NotImplementedException();
     }
-
-    Task<bool> IAddressRepository.DeleteAddressAsync(int id)
-    {
-        throw new NotImplementedException();
-    }
-
-    //public async Task<bool> UpdateCustomerAsync(Customer customer)
-    //{
-    //    _context.Customer.Update(customer);
-    //    var updated = await _context.SaveChangesAsync();
-    //    return updated > 0;
-    //}
-
-    //public async Task<bool> DeleteCustomerAsync(int id)
-    //{
-    //    var customer = await _context.Customer.FindAsync(id);
-    //    if (customer == null)
-    //        return false;
-
-    //    _context.Customer.Remove(customer);
-    //    var deleted = await _context.SaveChangesAsync();
-    //    return deleted > 0;
-    //}
 }

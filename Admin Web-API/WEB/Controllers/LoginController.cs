@@ -19,7 +19,7 @@ public class LoginController : Controller
     public IActionResult Index()
     {
         if (HttpContext.Session.GetString(nameof(AdminLogin.Username)) != null)
-            return new RedirectResult("/admin");
+            return new RedirectResult("/admin/customers");
 
         return View("WEB/Views/Login/Index.cshtml");
     }

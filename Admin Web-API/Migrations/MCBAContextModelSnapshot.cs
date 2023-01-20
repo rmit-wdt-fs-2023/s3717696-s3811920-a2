@@ -62,8 +62,7 @@ namespace MCBAAdmin.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Postcode")
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("State")
                         .HasColumnType("varchar(20)");
@@ -100,8 +99,9 @@ namespace MCBAAdmin.Migrations
                     b.Property<int>("PayeeID")
                         .HasColumnType("int");
 
-                    b.Property<int>("PaymentPeriod")
-                        .HasColumnType("int");
+                    b.Property<string>("PaymentPeriod")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("ScheduleTimeUtc")
                         .HasColumnType("datetime2");
@@ -166,8 +166,7 @@ namespace MCBAAdmin.Migrations
 
                     b.HasKey("LoginID");
 
-                    b.HasIndex("CustomerID")
-                        .IsUnique();
+                    b.HasIndex("CustomerID");
 
                     b.ToTable("Login");
                 });
@@ -180,20 +179,35 @@ namespace MCBAAdmin.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PayeeID"));
 
-                    b.Property<int>("AddressID")
-                        .HasColumnType("int");
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)");
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasMaxLength(14)
+                        .HasColumnType("nvarchar(14)");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("Phone")
-                        .HasColumnType("int");
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Postcode")
+                        .IsRequired()
+                        .HasMaxLength(4)
+                        .HasColumnType("nvarchar(4)");
+
+                    b.Property<string>("State")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("PayeeID");
-
-                    b.HasIndex("AddressID");
 
                     b.ToTable("Payee");
                 });
@@ -277,23 +291,12 @@ namespace MCBAAdmin.Migrations
             modelBuilder.Entity("MCBA_Admin.Models.Login", b =>
                 {
                     b.HasOne("MCBA_Admin.Models.Customer", "Customer")
-                        .WithOne("Login")
-                        .HasForeignKey("MCBA_Admin.Models.Login", "CustomerID")
+                        .WithMany()
+                        .HasForeignKey("CustomerID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Customer");
-                });
-
-            modelBuilder.Entity("MCBA_Admin.Models.Payee", b =>
-                {
-                    b.HasOne("MCBA_Admin.Models.Address", "Address")
-                        .WithMany()
-                        .HasForeignKey("AddressID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Address");
                 });
 
             modelBuilder.Entity("MCBA_Admin.Models.Transaction", b =>
@@ -317,8 +320,6 @@ namespace MCBAAdmin.Migrations
                     b.Navigation("Accounts");
 
                     b.Navigation("Address");
-
-                    b.Navigation("Login");
                 });
 #pragma warning restore 612, 618
         }

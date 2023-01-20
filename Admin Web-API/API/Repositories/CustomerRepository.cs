@@ -19,7 +19,6 @@ public class CustomerRepository : ICustomerRepository
             .Include(c => c.Address)
             .Include(a => a.Accounts)
             .ThenInclude(t => t.Transactions)
-            .Include(c => c.Login)
             .ToListAsync();
     }
 
@@ -29,7 +28,6 @@ public class CustomerRepository : ICustomerRepository
             .Include(c => c.Address)
             .Include(a => a.Accounts)
             .ThenInclude(t => t.Transactions)
-            .Include(c => c.Login)
             .FirstOrDefaultAsync(m => m.CustomerID == id);
     }
 
