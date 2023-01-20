@@ -2,7 +2,7 @@
 This project is an assignment for the Web Development Technologies course at RMIT. The project consists of two separate projects: Admin WEB-API and Customer-WEB.
 
 ## Contributors
-**Abida Mohammadi (s3811920)**
+**Abida Mohammadi (s3811920)**  
 **Mevlut Saluk (s3717696)**
 
 ## Admin WEB-API
