@@ -57,5 +57,9 @@ public class MCBAContext : DbContext
             .HasConversion(
                 v => v.ToString(),
                 v => (StateType)Enum.Parse(typeof(StateType), v));
+
+        // Configure ambiguous Account.Transactions navigation property relationship.
+        builder.Entity<Transaction>().
+            HasOne(x => x.Account).WithMany(x => x.Transactions).HasForeignKey(x => x.AccountNumber);
     }
 }
