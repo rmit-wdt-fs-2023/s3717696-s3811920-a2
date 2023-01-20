@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MCBA_Admin.Models;
 
@@ -13,10 +14,10 @@ public class Customer
     [RegularExpression("^^[A-Za-z-' ]*$", ErrorMessage = "Name must be alpha")]
     public string Name { get; set; }
 
-    [RegularExpression("^\\d{11}$", ErrorMessage = "TFN must be 11 digits")]
+    [RegularExpression("^\\d{3} \\d{3} \\d{3}$", ErrorMessage = "TFN must be 9 digits (Eg. 333 333 333)")]
     public string? TFN { get; set; }
 
-    [RegularExpression("^04[0-9]{8}$", ErrorMessage = "Mobile must start with 04 and be 10 digits long")]
+    [RegularExpression("^04\\d{2} \\d{3} \\d{3}$", ErrorMessage = "Mobile must start wih 04 and be of the format '0433 333 333' ")]
     public string? Mobile { get; set; }
 
     public byte[] ProfilePicture { get; set; }
@@ -25,7 +26,8 @@ public class Customer
     public bool HasDefaultProfilePicture { get; set; } = true;
 
     public Address Address { get; set; }
-  
+
+    [NotMapped]
     public Login Login { get; set; }
 
     public List<Account> Accounts { get; set; }

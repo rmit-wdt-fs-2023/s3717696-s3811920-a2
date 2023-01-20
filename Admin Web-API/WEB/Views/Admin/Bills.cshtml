@@ -1,0 +1,177 @@
+﻿@model dynamic
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Portal</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/css/admin.css" />
+</head>
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Admin Portal</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/customers">Customers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Bills</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+</header>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h3>BillPay List</h3>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>BillPayID</th>
+                            <th>AccountNumber</th>
+                            <th>PayeeID</th>
+                            <th>Amount</th>
+                            <th>ScheduleTimeUTC</th>
+                            <th>PaymentPeriod</th>
+                            <th>IsBlocked</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var bill in Model.Bills)
+                        {
+                            <tr>
+                                <td>@bill.BillPayID</td>
+                                <td>@bill.AccountNumber</td>
+                                <td>@bill.PayeeID</td>
+                                <td>@string.Format("{0:C}", bill.Amount)</td>
+                                <td>@bill.ScheduleTimeUtc</td>
+                                <td>@bill.PaymentPeriod</td>
+                                <td>@bill.IsBlocked</td>
+                                <td>
+                                    @if (bill.IsBlocked == false)
+                                    {
+                                        <button onclick="blockBill('@bill.BillPayID', '@bill.AccountNumber', '@bill.PayeeID', '@bill.Amount', '@bill.ScheduleTimeUtc', '@bill.PaymentPeriod')" class="btn btn-danger">Block</button>
+                                    }
+
+                                    @if (bill.IsBlocked == true)
+                                    {
+                                        <button onclick="unBlockBill('@bill.BillPayID', '@bill.AccountNumber', '@bill.PayeeID', '@bill.Amount', '@bill.ScheduleTimeUtc', '@bill.PaymentPeriod')" class="btn btn-primary">Un-Block</button>
+                                    }
+
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+<script>
+    function unBlockBill(a, b, c, d, e, f) {
+
+        const PaymentPeriod = {
+            OneTime: 0,
+            Monthly: 1
+        };
+
+        var date = new Date(e);
+        var UTCString = date.toUTCString();
+
+        var utcDate = moment.utc(e, "DD/MM/YYYY h:mm:ss A").toISOString();
+
+        var bill = {
+            BillPayID: parseInt(a),
+            PayeeID: parseInt(c),
+            AccountNumber: parseInt(b),
+            Amount: parseFloat(d),
+            ScheduleTimeUtc: utcDate,
+            PaymentPeriod: PaymentPeriod[f],
+            IsBlocked: false
+        };
+
+        var url = "https://localhost:7016/api/v1/BillPay/" + a;
+
+        const response = fetch(url, { method: 'PUT', body: JSON.stringify(bill), headers: { 'Content-Type': 'application/json' } })
+            .catch(error => console.error());
+        
+        if (response.status >= 500) {
+            alert("Server Error");
+            return;
+        }
+
+        if (response.status >= 400) {
+            alert("Incorrect data inputs");
+            return;
+        }
+
+        console.log('Success');
+        location.reload(true);
+    }
+</script>
+
+<script>
+    function blockBill(a,b,c,d,e,f) {
+
+        const PaymentPeriod = {
+            OneTime: 0,
+            Monthly: 1
+        };
+
+        var date = new Date(e);
+        var UTCString = date.toUTCString();
+        
+        var utcDate = moment.utc(e, "DD/MM/YYYY h:mm:ss A").toISOString();
+
+        var bill = { 
+            BillPayID: parseInt(a),
+            PayeeID: parseInt(c),
+            AccountNumber: parseInt(b),
+            Amount: parseFloat(d),
+            ScheduleTimeUtc: utcDate,
+            PaymentPeriod: PaymentPeriod[f],
+            IsBlocked: true
+        };
+
+        var url = "https://localhost:7016/api/v1/BillPay/" + a;
+
+        const response = fetch(url, { method: 'PUT', body: JSON.stringify(bill), headers: { 'Content-Type': 'application/json' } })
+            .catch(error => console.error());
+        
+        if (response.status >= 500) {
+            alert("Server Error");
+            return;
+        }
+
+        if (response.status >= 400) {
+            alert("Incorrect data inputs");
+            return;
+        }
+
+        console.log('Success');
+        location.reload(true);
+    }
+</script>

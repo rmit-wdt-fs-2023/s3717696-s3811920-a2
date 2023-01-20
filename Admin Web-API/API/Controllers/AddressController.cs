@@ -27,6 +27,14 @@ public class AddressController : ControllerBase
         return CreatedAtAction("Get", new { id = address.CustomerID }, address);
     }
 
+    [HttpPut("{id}")]
+    public ActionResult<Address> Put(int id, [FromBody] Address address)
+    {
+        _addressService.Update(id, address);
+
+        return CreatedAtAction("Get", new { id = address.CustomerID }, address);
+    }
+
     [HttpGet("{id}")]
     public async Task<ActionResult<Address>> Get(int id)
     {

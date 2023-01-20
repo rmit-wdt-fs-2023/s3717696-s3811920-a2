@@ -1,7 +1,5 @@
-﻿@model Customer
-@{
-    ViewData["Title"] = "Admin";
-}
+﻿@model CustomerBillViewModel
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +18,8 @@
 
 </head>
 
+
+
 <body>
     <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -30,8 +30,11 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/admin">Customers</a>
+                    <a class="nav-link" href="/admin/customers">Customers</a>
                 </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/bills">Bills</a>
+                    </li>
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -63,97 +66,112 @@
                         <div class="tab-pane active" id="customer" role="tabpanel">
                             <div class="card">
                                 <div class="card-body" id="customer-body">
-                                    <form asp-action="ManageCustomer">
+                                    <form asp-controller="Admin" asp-action="UpdateCustomer" asp-route-customerId="@Model.Customer.CustomerID">
                                         <div class="form-group">
-                                            <label for="CustomerID">Customer ID</label>
-                                            <input type="text" class="form-control" id="CustomerID" name="CustomerID" value="@Model.CustomerID" readonly>
+                                            <label asp-for="Customer.CustomerID">Customer ID</label>
+                                            <input type="text" class="form-control" id="Customer.CustomerID" name="Customer.CustomerID" value="@Model.Customer.CustomerID" readonly>
                                         </div>
                                         <div class="form-group">
-                                            <label asp-for="Name">Name</label>
-                                            <input asp-for="Name" type="text" class="form-control" id="Name" name="Name" value="@Model.Name">
-                                            <span asp-validation-for="Name" class="text-danger"></span>
+                                            <label>Name</label>
+                                            <input asp-for="Customer.Name" type="text" class="form-control" id="Customer.Name" name="Customer.Name" value="@Model.Customer.Name">
+                                            <span asp-validation-for="Customer.Name" class="text-danger"></span>
                                         </div>
                                         <div class="form-group">
-                                            <label asp-for="TFN">TFN</label>
-                                            <input asp-for="TFN" type="text" class="form-control" id="TFN" name="TFN" value="@Model.TFN">
-                                            <span asp-validation-for="TFN" class="text-danger"></span>
+                                            <label asp-for="Customer.TFN">TFN</label>
+                                            <input asp-for="Customer.TFN" type="text" class="form-control" id="Customer.TFN" name="Customer.TFN" value="@Model.Customer.TFN">
+                                            <span asp-validation-for="Customer.TFN" class="text-danger"></span>
                                         </div>
                                         <div class="form-group">
-                                            <label for="Mobile">Mobile</label>
-                                            <input type="text" class="form-control" id="Mobile" name="Mobile" value="@Model.Mobile">
+                                            <label asp-for="Customer.Mobile">Mobile</label>
+                                            <input asp-for="Customer.Mobile" type="text" class="form-control" id="Customer.Mobile" name="Customer.Mobile" value="@Model.Customer.Mobile">
+                                            <span asp-validation-for="Customer.Mobile" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-sm-12 text-center">
+                                                    <input type="submit" value="Save" class="btn btn-primary" />
+                                                </div>
+                                                @Html.ValidationMessage("UpdateFailed", new { @class = "text-danger" })
+                                            </div>
                                         </div>
                                     </form>
-                                    <div class="row">
-                                        <div class="col-sm-12 text-center">
-                                            <button id="saveBasicBtn" class="btn btn-primary">Save</button>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="tab-pane" id="address" role="tabpanel">
                             <div class="card">
-                                @if (Model.Address != null)
+                                @if (Model.CustomerAddress != null)
                                 {
                                     <div class="card-body">
-                                        <form id="addressForm">
+                                        <form asp-controller="Admin" asp-action="UpdateAddress" asp-route-customerId="@Model.Customer.CustomerID">
                                             <div class="form-group">
-                                                <label for="AddressID">Address ID</label>
-                                                <input type="text" class="form-control" id="AddressID" name="AddressID" value="@Model.Address.AddressID" readonly>
+                                                <label asp-for="CustomerAddress.AddressID">Address ID</label>
+                                                <input asp-for="CustomerAddress.AddressID" type="text" class="form-control" id="CustomerAddress.AddressID" name="CustomerAddress.AddressID" value="@Model.CustomerAddress.AddressID" readonly>
                                             </div>
                                             <div class="form-group">
-                                                <label for="Street">Street</label>
-                                                <input type="text" class="form-control" id="Street" name="Street" value="@Model.Address.Street">
+                                                <label asp-for="CustomerAddress.Street">Street</label>
+                                                <input asp-for="CustomerAddress.Street" type="text" class="form-control" id="CustomerAddress.Street" name="CustomerAddress.Street" value="@Model.CustomerAddress.Street">
+                                                <span asp-validation-for="CustomerAddress.Street" class="text-danger"></span>
                                             </div>
                                             <div class="form-group">
-                                                <label for="City">City</label>
-                                                <input type="text" class="form-control" id="City" name="City" value="@Model.Address.City">
+                                                <label asp-for="CustomerAddress.City">City</label>
+                                                <input asp-for="CustomerAddress.City" type="text" class="form-control" id="CustomerAddress.City" name="CustomerAddress.City" value="@Model.CustomerAddress.City">
+                                                <span asp-validation-for="CustomerAddress.City" class="text-danger"></span>
                                             </div>
                                             <div class="form-group">
-                                                <label for="Postcode">Postcode</label>
-                                                <input type="text" class="form-control" id="Postcode" name="Postcode" value="@Model.Address.Postcode">
+                                                <label asp-for="CustomerAddress.Postcode">Postcode</label>
+                                                <input asp-for="CustomerAddress.Postcode" type="text" class="form-control" id="CustomerAddress.Postcode" name="CustomerAddress.Postcode" value="@Model.CustomerAddress.Postcode">
+                                                <span asp-validation-for="CustomerAddress.Postcode" class="text-danger"></span>
                                             </div>
                                             <div class="form-group">
-                                                <label for="State">State</label>
-                                                <select class="form-control" id="State" name="State">
-                                                    @foreach (var item in Enum.GetValues(typeof(StateType)))
-                                                    {
-                                                        <option value="@item" @(Model.Address.State == (StateType)item ? "selected" : "")>@item</option>
-                                                    }
-                                                </select>
+                                                <label asp-for="CustomerAddress.State"></label>
+                                                <select asp-for="CustomerAddress.State" asp-items="Html.GetEnumSelectList<StateType>()" class="form-control"></select>
+                                                <span asp-validation-for="CustomerAddress.State" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-sm-12 text-center">
+                                                        <input type="submit" value="Save" class="btn btn-primary" />
+                                                    </div>
+                                                    @Html.ValidationMessage("UpdateFailed", new { @class = "text-danger" })
+                                                </div>
                                             </div>
                                         </form>
                                     </div>
                                 }
-                                @if (Model.Address == null)
+                                @if (Model.CustomerAddress == null)
                                 {
                                     <div class="card-body">
-                                        <form id="addressForm">
+                                        <form asp-controller="Admin" asp-action="CreateAddress" asp-route-customerId="@Model.Customer.CustomerID">
                                             <div class="form-group">
-                                                <label for="Street">Street</label>
-                                                <input type="text" class="form-control" id="Street" name="Street" value="">
+                                                <label asp-for="CustomerAddress.Street">Street</label>
+                                                <input asp-for="CustomerAddress.Street" type="text" class="form-control" id="CustomerAddress.Street" name="CustomerAddress.Street" value="">
+                                                <span asp-validation-for="CustomerAddress.Street" class="text-danger"></span>
                                             </div>
                                             <div class="form-group">
-                                                <label for="City">City</label>
-                                                <input type="text" class="form-control" id="City" name="City" value="">
+                                                <label asp-for="CustomerAddress.City">City</label>
+                                                <input asp-for="CustomerAddress.City" type="text" class="form-control" id="CustomerAddress.City" name="CustomerAddress.City" value="">
+                                                <span asp-validation-for="CustomerAddress.City" class="text-danger"></span>
                                             </div>
                                             <div class="form-group">
-                                                <label for="Postcode">Postcode</label>
-                                                <input type="text" class="form-control" id="Postcode" name="Postcode" value="">
+                                                <label asp-for="CustomerAddress.Postcode">Postcode</label>
+                                                <input asp-for="CustomerAddress.Postcode" type="text" class="form-control" id="CustomerAddress.Postcode" name="CustomerAddress.Postcode" value="">
+                                                <span asp-validation-for="CustomerAddress.Postcode" class="text-danger"></span>
                                             </div>
                                             <div class="form-group">
-                                                <label for="State">State</label>
-                                                <select class="form-control" id="State" name="State">
-                                                    @foreach (var item in Enum.GetValues(typeof(MCBA_Admin.Models.StateType)))
-                                                    {
-                                                        <option value="@item">@item</option>
-                                                    }
-                                                </select>
+                                                <label asp-for="CustomerAddress.State"></label>
+                                                <select asp-for="CustomerAddress.State" asp-items="Html.GetEnumSelectList<StateType>()" class="form-control"></select>
+                                                <span asp-validation-for="CustomerAddress.State" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-sm-12 text-center">
+                                                        <input type="submit" value="Create" class="btn btn-primary" />
+                                                    </div>
+                                                    @Html.ValidationMessage("CreateFailed", new { @class = "text-danger" })
+                                                </div>
                                             </div>
                                         </form>
-                                    </div>
-                                    <div class="col-sm-12 text-center">
-                                        <button id="addAddressBtn" class="btn btn-primary">Add Address</button>
                                     </div>
                                 }
                             </div>
@@ -161,7 +179,55 @@
                         <div class="tab-pane" id="bills" role="tabpanel">
                             <div class="card">
                                 <div class="card-body">
-                                    <!-- bills card content -->
+                                    <table class="table table-striped table-bordered table-hover">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th>BillPayID</th>
+                                                <th>AccountNumber</th>
+                                                <th>PayeeID</th>
+                                                <th>Amount</th>
+                                                <th>ScheduleTimeUTC</th>
+                                                <th>PaymentPeriod</th>
+                                                <th>IsBlocked</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var bill in Model.CustomerBills)
+                                            {
+                                                <tr>
+                                                    <td>@bill.BillPayID</td>
+                                                    <td>@bill.AccountNumber</td>
+                                                    <td>@bill.PayeeID</td>
+                                                    <td>@string.Format("{0:C}", bill.Amount)</td>
+                                                    <td>@bill.ScheduleTimeUtc</td>
+                                                    <td>@bill.PaymentPeriod</td>
+                                                    <td>@bill.IsBlocked</td>
+                                                    <td>
+                                                        @using (Html.BeginForm("BlockBillPay", "Admin", FormMethod.Post))
+                                                        {
+                                                            @Html.AntiForgeryToken()
+                                                            @if (bill.IsBlocked == false)
+                                                            {
+                                                                <input type="hidden" name="customerId" value="@Model.Customer.CustomerID" />
+                                                                <input type="hidden" name="billPayId" value="@bill.BillPayID" />
+                                                                <button class="btn btn-danger" type="submit">Block</button>
+                                                            }
+                                                        }
+                                                        @using (Html.BeginForm("UnBlockBillPay", "Admin", FormMethod.Post))
+                                                        {
+                                                            @if (bill.IsBlocked == true)
+                                                            {
+                                                                <input type="hidden" name="customerId" value="@Model.Customer.CustomerID" />
+                                                                <input type="hidden" name="billPayId" value="@bill.BillPayID" />
+                                                                <button class="btn btn-primary" type="submit">Un-Block</button>
+                                                            }
+                                                        }
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -179,63 +245,6 @@
 
 </body>
 </html>
-
-<script>
-    document.getElementById("addAddressBtn").addEventListener("click", async function () {
-        
-        const State = {
-            VIC: 1,
-            NSW: 2,
-            QLD: 3,
-            WA: 4,
-            SA: 5,
-            TAS: 6,
-            ACT: 7,
-            NT: 8
-        };
-
-        var customer = { 
-            Street: document.getElementById("Street").value,
-            City: document.getElementById("City").value,
-            Postcode: document.getElementById("Postcode").value,
-            State: State[document.getElementById("State").value],
-            CustomerID: document.getElementById("CustomerID").value
-        }
-
-        var url = "https://localhost:7016/api/v1/Address/";
-
-        const response = await fetch(url, { method: 'POST', body: JSON.stringify(customer), headers: { 'Content-Type': 'application/json' } })
-            .catch(error => console.error());
-        
-        const data = response.json();
-
-        console.log('Success');
-        alert("Added address!");
-        location.reload(true);
-
-    });
-</script>
-
-<script>
-    document.getElementById("saveBasicBtn").addEventListener("click", async function () {
-        var customer = {
-            CustomerID: document.getElementById("CustomerID").value,
-            Name: document.getElementById("Name").value,
-            TFN: document.getElementById("TFN").value,
-            Mobile: document.getElementById("Mobile").value
-        }
-
-        var url = "https://localhost:7016/api/v1/customer/" + customer.CustomerID;
-
-        const response = await fetch(url, { method: 'PUT', body: JSON.stringify(customer), headers: { 'Content-Type': 'application/json'}})
-        .catch(error => console.error());
-
-        const data = response.json();
-        console.log('Success');
-        alert("Changes have been saved successfully!");
-        
-    });
-</script>
 
 
 @section Scripts {

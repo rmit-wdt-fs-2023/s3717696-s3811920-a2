@@ -7,6 +7,6 @@ public interface IAddressRepository
     Task<List<Address>> GetAllAddressAsync();
     Task<Address> GetAddressByIdAsync(int id);
     Task<Address> AddAddressAsync(Address customer);
-    Task<bool> UpdateAddressAsync(Address customer);
-    Task<bool> DeleteAddressAsync(int id);
+    void UpdateAddress(Address customer);
+    void DeleteAddressAsync(int id);
 }

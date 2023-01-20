@@ -58,5 +58,16 @@ public class MCBAContext : DbContext
                 v => v.ToString(),
                 v => (StateType)Enum.Parse(typeof(StateType), v));
 
+        builder.Entity<BillPay>()
+            .Property(c => c.PaymentPeriod)
+            .HasConversion(
+                v => v.ToString(),
+                v => (PaymentPeriodType)Enum.Parse(typeof(PaymentPeriodType), v));
+
+        builder.Entity<Payee>()
+            .Property(c => c.State)
+            .HasConversion(
+                v => v.ToString(),
+                v => (StateType)Enum.Parse(typeof(StateType), v));
     }
 }
