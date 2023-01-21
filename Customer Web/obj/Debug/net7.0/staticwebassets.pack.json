@@ -25,6 +25,26 @@
       "PackagePath": "staticwebassets\\img\\Home\\bank-intro.png"
     },
     {
+      "Id": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\img\\Home\\carousel-img-1.jpg",
+      "PackagePath": "staticwebassets\\img\\Home\\carousel-img-1.jpg"
+    },
+    {
+      "Id": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\img\\Home\\carousel-img-2.jpg",
+      "PackagePath": "staticwebassets\\img\\Home\\carousel-img-2.jpg"
+    },
+    {
+      "Id": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\img\\Home\\carousel-img-3.jpg",
+      "PackagePath": "staticwebassets\\img\\Home\\carousel-img-3.jpg"
+    },
+    {
+      "Id": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\img\\Home\\home-banner.jpeg",
+      "PackagePath": "staticwebassets\\img\\Home\\home-banner.jpeg"
+    },
+    {
+      "Id": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\img\\Home\\logo.png",
+      "PackagePath": "staticwebassets\\img\\Home\\logo.png"
+    },
+    {
       "Id": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
