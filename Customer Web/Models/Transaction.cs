@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace MCBA_Web.Models;
 
@@ -13,6 +14,7 @@ public class Transaction
     public TransactionType TransactionType { get; set; }
 
     [ForeignKey("Account")]
+    [JsonIgnore]
     public int AccountNumber { get; set; }
     public virtual Account Account { get; set; }
 
