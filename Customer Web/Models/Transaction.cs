@@ -6,17 +6,21 @@ namespace MCBA_Web.Models;
 public class Transaction
 {
     [Required]
+    [Display(Name = "Transaction ID")]
     public int TransactionID { get; set; }
 
     [Required]
     [Column(TypeName = "varchar(20)")]
+    [Display(Name = "Transaction Type")]
     public TransactionType TransactionType { get; set; }
 
     [ForeignKey("Account")]
+    [Display(Name = "Account Number")]
     public int AccountNumber { get; set; }
     public virtual Account Account { get; set; }
 
     [ForeignKey("DestinationAccount")]
+    [Display(Name = "Destination Account Number")]
     public int? DestinationAccountNumber { get; set; }
     public virtual Account DestinationAccount { get; set; }
 
@@ -30,6 +34,7 @@ public class Transaction
     public string Comment { get; set; }
 
     [Required]
+    [Display(Name = "Transaction DateTime")]
     public DateTime TransactionTimeUtc { get; set; }
 
 }

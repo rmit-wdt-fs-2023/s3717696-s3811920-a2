@@ -9,41 +9,41 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MCBA_Admin
 build_property.RootNamespace = MCBA_Admin
-build_property.ProjectDir = H:\2023 Flex Semester\Web Dev Technlologies\Assignment 2\Assignment 2\MCBA-Assignment2\Admin Web-API\
+build_property.ProjectDir = /Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Admin Web-API/
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = H:\2023 Flex Semester\Web Dev Technlologies\Assignment 2\Assignment 2\MCBA-Assignment2\Admin Web-API
+build_property.MSBuildProjectDirectory = /Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Admin Web-API
 build_property._RazorSourceGeneratorDebug = 
 
-[H:/2023 Flex Semester/Web Dev Technlologies/Assignment 2/Assignment 2/MCBA-Assignment2/Admin Web-API/View.cshtml]
+[/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Admin Web-API/View.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[H:/2023 Flex Semester/Web Dev Technlologies/Assignment 2/Assignment 2/MCBA-Assignment2/Admin Web-API/WEB/Views/Admin/Bills.cshtml]
-build_metadata.AdditionalFiles.TargetPath = V0VCXFZpZXdzXEFkbWluXEJpbGxzLmNzaHRtbA==
+[/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Admin Web-API/WEB/Views/Admin/Bills.cshtml]
+build_metadata.AdditionalFiles.TargetPath = V0VCL1ZpZXdzL0FkbWluL0JpbGxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[H:/2023 Flex Semester/Web Dev Technlologies/Assignment 2/Assignment 2/MCBA-Assignment2/Admin Web-API/WEB/Views/Admin/Customers.cshtml]
-build_metadata.AdditionalFiles.TargetPath = V0VCXFZpZXdzXEFkbWluXEN1c3RvbWVycy5jc2h0bWw=
+[/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Admin Web-API/WEB/Views/Admin/Customers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = V0VCL1ZpZXdzL0FkbWluL0N1c3RvbWVycy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[H:/2023 Flex Semester/Web Dev Technlologies/Assignment 2/Assignment 2/MCBA-Assignment2/Admin Web-API/WEB/Views/Admin/ManageCustomer.cshtml]
-build_metadata.AdditionalFiles.TargetPath = V0VCXFZpZXdzXEFkbWluXE1hbmFnZUN1c3RvbWVyLmNzaHRtbA==
+[/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Admin Web-API/WEB/Views/Admin/ManageCustomer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = V0VCL1ZpZXdzL0FkbWluL01hbmFnZUN1c3RvbWVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[H:/2023 Flex Semester/Web Dev Technlologies/Assignment 2/Assignment 2/MCBA-Assignment2/Admin Web-API/WEB/Views/Login/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = V0VCXFZpZXdzXExvZ2luXEluZGV4LmNzaHRtbA==
+[/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Admin Web-API/WEB/Views/Login/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = V0VCL1ZpZXdzL0xvZ2luL0luZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[H:/2023 Flex Semester/Web Dev Technlologies/Assignment 2/Assignment 2/MCBA-Assignment2/Admin Web-API/WEB/Views/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = V0VCXFZpZXdzXFNoYXJlZFxfVmFsaWRhdGlvblNjcmlwdHNQYXJ0aWFsLmNzaHRtbA==
+[/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Admin Web-API/WEB/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = V0VCL1ZpZXdzL1NoYXJlZC9fVmFsaWRhdGlvblNjcmlwdHNQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[H:/2023 Flex Semester/Web Dev Technlologies/Assignment 2/Assignment 2/MCBA-Assignment2/Admin Web-API/WEB/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = V0VCXF9WaWV3SW1wb3J0cy5jc2h0bWw=
+[/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Admin Web-API/WEB/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = V0VCL19WaWV3SW1wb3J0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[H:/2023 Flex Semester/Web Dev Technlologies/Assignment 2/Assignment 2/MCBA-Assignment2/Admin Web-API/WEB/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = V0VCXF9WaWV3U3RhcnQuY3NodG1s
+[/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Admin Web-API/WEB/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = V0VCL19WaWV3U3RhcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

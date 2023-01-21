@@ -4,7 +4,7 @@ using MCBA_Web.Models;
 
 namespace MCBA_Web.ViewModels
 {
-	public class WithdrawViewModel
+	public class WithdrawViewModel : TransactionViewModel
     {
         public int AccountNumber { get; set; }
         public Account Account { get; set; }

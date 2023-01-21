@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "P2T01mPRD571ZKZn2O04kHlPgVMDB688CJ9qGg37WP2yPqxqB8meuuL2dllRFxxfXGXkkfFWZjlTMLj9GAQhSw==",
+  "dgSpecHash": "xOTkLOZ9/stW6ROA5FCIgyHxMDObVVnDHiyLjYUfte/HFax5YcH7oNnN0pOlUoaho9t0fwYlZPU/eKm4ll0U1A==",
   "success": true,
   "projectFilePath": "/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/MCBA-Web.csproj",
   "expectedPackageFiles": [
     "/Users/abidamohammadi/.nuget/packages/azure.core/1.24.0/azure.core.1.24.0.nupkg.sha512",
     "/Users/abidamohammadi/.nuget/packages/azure.identity/1.6.0/azure.identity.1.6.0.nupkg.sha512",
     "/Users/abidamohammadi/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
+    "/Users/abidamohammadi/.nuget/packages/jetbrains.annotations/2022.1.0/jetbrains.annotations.2022.1.0.nupkg.sha512",
     "/Users/abidamohammadi/.nuget/packages/microsoft.aspnetcore.razor.language/6.0.11/microsoft.aspnetcore.razor.language.6.0.11.nupkg.sha512",
     "/Users/abidamohammadi/.nuget/packages/microsoft.bcl.asyncinterfaces/6.0.0/microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "/Users/abidamohammadi/.nuget/packages/microsoft.build/17.3.2/microsoft.build.17.3.2.nupkg.sha512",
@@ -185,7 +186,9 @@
     "/Users/abidamohammadi/.nuget/packages/system.threading.timer/4.3.0/system.threading.timer.4.3.0.nupkg.sha512",
     "/Users/abidamohammadi/.nuget/packages/system.windows.extensions/6.0.0/system.windows.extensions.6.0.0.nupkg.sha512",
     "/Users/abidamohammadi/.nuget/packages/system.xml.readerwriter/4.3.0/system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "/Users/abidamohammadi/.nuget/packages/system.xml.xdocument/4.3.0/system.xml.xdocument.4.3.0.nupkg.sha512"
+    "/Users/abidamohammadi/.nuget/packages/system.xml.xdocument/4.3.0/system.xml.xdocument.4.3.0.nupkg.sha512",
+    "/Users/abidamohammadi/.nuget/packages/x.pagedlist/8.4.3/x.pagedlist.8.4.3.nupkg.sha512",
+    "/Users/abidamohammadi/.nuget/packages/x.pagedlist.mvc.core/8.4.3/x.pagedlist.mvc.core.8.4.3.nupkg.sha512"
   ],
   "logs": []
 }

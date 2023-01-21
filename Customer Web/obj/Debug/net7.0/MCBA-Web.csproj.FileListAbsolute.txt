@@ -289,6 +289,7 @@ H:/2023 Flex Semester/Web Dev Technlologies/Assignment 2/MCBA-Web/MCBA-Web/bin/D
 /Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/bin/Debug/net7.0/Azure.Core.dll
 /Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/bin/Debug/net7.0/Azure.Identity.dll
 /Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/bin/Debug/net7.0/Humanizer.dll
+/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/bin/Debug/net7.0/JetBrains.Annotations.dll
 /Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/bin/Debug/net7.0/Microsoft.AspNetCore.Razor.Language.dll
 /Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/bin/Debug/net7.0/Microsoft.Bcl.AsyncInterfaces.dll
 /Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/bin/Debug/net7.0/Microsoft.Build.dll
@@ -363,6 +364,8 @@ H:/2023 Flex Semester/Web Dev Technlologies/Assignment 2/MCBA-Web/MCBA-Web/bin/D
 /Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/bin/Debug/net7.0/System.Security.Cryptography.ProtectedData.dll
 /Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/bin/Debug/net7.0/System.Security.Permissions.dll
 /Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/bin/Debug/net7.0/System.Windows.Extensions.dll
+/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/bin/Debug/net7.0/X.PagedList.dll
+/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/bin/Debug/net7.0/X.PagedList.Mvc.Core.dll
 /Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/bin/Debug/net7.0/cs/Microsoft.CodeAnalysis.resources.dll
 /Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/bin/Debug/net7.0/de/Microsoft.CodeAnalysis.resources.dll
 /Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/bin/Debug/net7.0/es/Microsoft.CodeAnalysis.resources.dll
@@ -536,6 +539,7 @@ H:/2023 Flex Semester/Web Dev Technlologies/Assignment 2/MCBA-Web/MCBA-Web/bin/D
 /Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/obj/Debug/net7.0/MCBA-Web.AssemblyInfoInputs.cache
 /Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/obj/Debug/net7.0/MCBA-Web.AssemblyInfo.cs
 /Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/obj/Debug/net7.0/MCBA-Web.csproj.CoreCompileInputs.cache
+/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/obj/Debug/net7.0/MCBA-Web.MvcApplicationPartsAssemblyInfo.cs
 /Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/obj/Debug/net7.0/MCBA-Web.MvcApplicationPartsAssemblyInfo.cache
 /Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/obj/Debug/net7.0/MCBA-Web.RazorAssemblyInfo.cache
 /Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/obj/Debug/net7.0/MCBA-Web.RazorAssemblyInfo.cs

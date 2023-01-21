@@ -32,6 +32,16 @@
                     <a class="btn btn-primary"
                        asp-controller="Account" asp-action="Transfer" asp-route-accountNumber="@account.AccountNumber">Transfer</a>
                 </td>
+                <td>
+                    <form asp-action="MyStatements">
+                        <input type="hidden" name="accountNumber" value="@account.AccountNumber" />
+                        <input type="submit" class="btn btn-primary" value="My Statements" />
+                    </form>
+                </td>
+                <td>
+                    <a class="btn btn-primary"
+                       asp-controller="Account" asp-action="ScheduledBills" asp-route-accountNumber="@account.AccountNumber">BillPay</a>
+                </td>
             </tr>
         }
     </table>

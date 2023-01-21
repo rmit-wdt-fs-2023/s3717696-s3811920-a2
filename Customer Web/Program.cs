@@ -17,6 +17,7 @@ builder.Services.AddScoped<ILoginService, LoginService>();
 builder.Services.AddScoped<IAccountService, AccountService>();
 
 // Session Handler
+builder.Services.AddDistributedMemoryCache();
 
 builder.Services.AddDistributedSqlServerCache(options =>
 {
@@ -28,12 +29,13 @@ builder.Services.AddSession(options =>
 {
     // Make the session cookie essential.
     options.Cookie.IsEssential = true;
+    options.Cookie.HttpOnly = true;
     options.IdleTimeout = TimeSpan.FromDays(7);
 });
 
-
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
 
 var app = builder.Build();
 
@@ -62,16 +64,16 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
-app.UseSession();
-app.UseRouting();
 app.UseStatusCodePages();
 app.UseDeveloperExceptionPage();
-
+app.UseStaticFiles();
+app.UseRouting();
 app.UseAuthorization();
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
 
 app.Run();
