@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using MCBA_Web.Data;
 using MCBA_Web.Models;
-using McbaExampleWithLogin.Filters;
 using MCBA_Web.Services;
 
 namespace MCBA_Web.Controllers;
@@ -21,14 +18,23 @@ public class LoginController : Controller
     // GET: Login
     public IActionResult Index()
     {
+        var _customerId = HttpContext.Session.GetInt32(nameof(Customer.CustomerID));
+
+        if (_customerId.HasValue)
+            return RedirectToAction("Index", "Customer", new { customerId = _customerId });
+
         return View("Login");
     }
 
     [HttpPost]
     public IActionResult Login(int loginID, string password)
     {
-        //Console.WriteLine("loginId: " + loginID);
-        //Console.WriteLine("password: " + password);
+
+        if (loginID == 0 || loginID == null || password == null)
+        {
+            ModelState.AddModelError("LoginFailed", "Login failed, please try again.");
+            return View(new Login { LoginID = loginID });
+        }
 
         var login = _loginService.AuthenticateCustomer(loginID, password);
 
@@ -43,7 +49,7 @@ public class LoginController : Controller
         HttpContext.Session.SetInt32(nameof(Customer.CustomerID), login.CustomerID);
         HttpContext.Session.SetString(nameof(Customer.Name), _loginService.GetCustomerByLoginId(login.CustomerID).Name);
 
-        return RedirectToAction("Index", "Customer");
+        return RedirectToAction("Index", "Customer", new { customerId = login.CustomerID});
     }
 
     [Route("/logout")]
