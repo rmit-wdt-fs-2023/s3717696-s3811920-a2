@@ -8,7 +8,7 @@ using MCBA_Web.Services;
 namespace MCBA_Web.Controllers;
 
 [AuthorizeCustomer]
-[Route("/")] // route to CustomerID
+[Route("[controller]")] // route to CustomerID
 public class CustomerController : Controller
 {
     private readonly ICustomerService _customerService;
@@ -19,7 +19,8 @@ public class CustomerController : Controller
     }
 
     // GET: Customer
-    public IActionResult Index()
+    [Route("{customerId}")]
+    public IActionResult Index(int customerId)
     {
         return View("Overview");
     }
