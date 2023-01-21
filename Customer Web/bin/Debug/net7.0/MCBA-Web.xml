@@ -28,17 +28,5 @@
         <member name="M:MCBAWeb.Migrations.ModelsUpdate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
-        <member name="T:MCBAWeb.Migrations.ModelsUpdate2">
-            <inheritdoc />
-        </member>
-        <member name="M:MCBAWeb.Migrations.ModelsUpdate2.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:MCBAWeb.Migrations.ModelsUpdate2.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:MCBAWeb.Migrations.ModelsUpdate2.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
-        </member>
     </members>
 </doc>

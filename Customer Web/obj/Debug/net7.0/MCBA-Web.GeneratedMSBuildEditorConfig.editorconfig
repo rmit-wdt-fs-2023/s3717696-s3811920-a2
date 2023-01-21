@@ -9,45 +9,45 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MCBA_Web
 build_property.RootNamespace = MCBA_Web
-build_property.ProjectDir = H:\2023 Flex Semester\Web Dev Technlologies\Assignment 2\MCBA-Web\MCBA-Web\
+build_property.ProjectDir = H:\2023 Flex Semester\Web Dev Technlologies\Assignment 2\Assignment 2\MCBA-Assignment2\Customer Web\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = H:\2023 Flex Semester\Web Dev Technlologies\Assignment 2\MCBA-Web\MCBA-Web
+build_property.MSBuildProjectDirectory = H:\2023 Flex Semester\Web Dev Technlologies\Assignment 2\Assignment 2\MCBA-Assignment2\Customer Web
 build_property._RazorSourceGeneratorDebug = 
 
-[H:/2023 Flex Semester/Web Dev Technlologies/Assignment 2/MCBA-Web/MCBA-Web/Views/Account/Deposit.cshtml]
+[H:/2023 Flex Semester/Web Dev Technlologies/Assignment 2/Assignment 2/MCBA-Assignment2/Customer Web/Views/Account/Deposit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxEZXBvc2l0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[H:/2023 Flex Semester/Web Dev Technlologies/Assignment 2/MCBA-Web/MCBA-Web/Views/Customer/Overview.cshtml]
+[H:/2023 Flex Semester/Web Dev Technlologies/Assignment 2/Assignment 2/MCBA-Assignment2/Customer Web/Views/Account/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/2023 Flex Semester/Web Dev Technlologies/Assignment 2/Assignment 2/MCBA-Assignment2/Customer Web/Views/Account/Transfer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxUcmFuc2Zlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/2023 Flex Semester/Web Dev Technlologies/Assignment 2/Assignment 2/MCBA-Assignment2/Customer Web/Views/Account/Withdraw.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxXaXRoZHJhdy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/2023 Flex Semester/Web Dev Technlologies/Assignment 2/Assignment 2/MCBA-Assignment2/Customer Web/Views/Customer/Overview.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcT3ZlcnZpZXcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[H:/2023 Flex Semester/Web Dev Technlologies/Assignment 2/MCBA-Web/MCBA-Web/Views/Home/About.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[H:/2023 Flex Semester/Web Dev Technlologies/Assignment 2/MCBA-Web/MCBA-Web/Views/Home/Header.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIZWFkZXIuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[H:/2023 Flex Semester/Web Dev Technlologies/Assignment 2/MCBA-Web/MCBA-Web/Views/Home/Index.cshtml]
+[H:/2023 Flex Semester/Web Dev Technlologies/Assignment 2/Assignment 2/MCBA-Assignment2/Customer Web/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[H:/2023 Flex Semester/Web Dev Technlologies/Assignment 2/MCBA-Web/MCBA-Web/Views/Home/Intro.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbnRyby5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[H:/2023 Flex Semester/Web Dev Technlologies/Assignment 2/MCBA-Web/MCBA-Web/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[H:/2023 Flex Semester/Web Dev Technlologies/Assignment 2/MCBA-Web/MCBA-Web/Views/Login/Login.cshtml]
+[H:/2023 Flex Semester/Web Dev Technlologies/Assignment 2/Assignment 2/MCBA-Assignment2/Customer Web/Views/Login/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[H:/2023 Flex Semester/Web Dev Technlologies/Assignment 2/MCBA-Web/MCBA-Web/Views/Shared/_ValidationScriptsPartial.cshtml]
+[H:/2023 Flex Semester/Web Dev Technlologies/Assignment 2/Assignment 2/MCBA-Assignment2/Customer Web/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/2023 Flex Semester/Web Dev Technlologies/Assignment 2/Assignment 2/MCBA-Assignment2/Customer Web/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

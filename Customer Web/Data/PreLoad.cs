@@ -127,7 +127,7 @@ public sealed class PreLoad
                 TransactionID = transaction.TransactionID,
                 TransactionTimeUtc= transaction.TransactionTimeUtc,
                 Amount= transaction.Amount,
-                DestinationAccountNumber= transaction.DestinationAccountNumber,
+                DestinationAccountNumber= null,
                 TransactionType = ToTransactionType(transaction.TransactionType)
             };
             _transactions.Add(t);

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "141Di9mg8u7MvGbF4de66rVM9hzciL+siAjtD660Ldr/rp2IOsCkClqFzz+rrgNwz7J9xprJwZ44rwfmZIbCAw==",
+  "dgSpecHash": "j9mFKVJdsXUz/9GWcy0UvgnXl2fABNoIStlt34UE6H87HBrCwEq/fdVJRbrrlQ9QOKf1CJAEE2iEFvubvaOTvg==",
   "success": true,
-  "projectFilePath": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\MCBA-Web\\MCBA-Web\\MCBA-Web.csproj",
+  "projectFilePath": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\MCBA-Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mevi\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Mevi\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

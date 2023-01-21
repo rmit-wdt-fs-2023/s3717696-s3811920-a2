@@ -7,162 +7,129 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MCBA_Web.Data;
 using MCBA_Web.Models;
+using MCBA_Web.ViewModels;
+using MCBA_Web.Utilities;
+using MCBA_Web.Services;
 
 namespace MCBA_Web.Controllers;
 
-[Route("/account")]
+//[Route("/account")]
 public class AccountController : Controller
 {
-    private readonly MCBAContext _context;
+    private readonly IAccountService _accountService;
+    private readonly int _customerID = 2100;
 
-    public AccountController(MCBAContext context)
+    public AccountController(IAccountService accountService)
     {
-        _context = context;
+        _accountService = accountService;
     }
 
-    // GET: Accounts
+    // GET: Account
     public async Task<IActionResult> Index()
     {
-        var mCBAContext = _context.Account.Include(a => a.Customer);
-        return View(await mCBAContext.ToListAsync());
+        var customer = _accountService.GetCustomerById(_customerID);
+        return View(customer);
     }
 
-    // GET: Accounts/Details/5
-    public async Task<IActionResult> Details(int? id)
+
+    // GET: Account/Deposit?accountNumber=4100
+    public async Task<IActionResult> Deposit(int accountNumber)
     {
-        if (id == null || _context.Account == null)
-        {
-            return NotFound();
-        }
-
-        var account = await _context.Account
-            .Include(a => a.Customer)
-            .FirstOrDefaultAsync(m => m.AccountNumber == id);
-        if (account == null)
-        {
-            return NotFound();
-        }
-
-        return View(account);
-    }
-
-    // GET: Accounts/Create
-    public IActionResult Create()
-    {
-        ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Name");
-        return View();
-    }
-
-    // POST: Accounts/Create
-    // To protect from overposting attacks, enable the specific properties you want to bind to.
-    // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create([Bind("AccountNumber,AccountType,CustomerID")] Account account)
-    {
-        if (ModelState.IsValid)
-        {
-            _context.Add(account);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-        ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Name", account.CustomerID);
-        return View(account);
-    }
-
-    // GET: Accounts/Edit/5
-    public async Task<IActionResult> Edit(int? id)
-    {
-        if (id == null || _context.Account == null)
-        {
-            return NotFound();
-        }
-
-        var account = await _context.Account.FindAsync(id);
-        if (account == null)
-        {
-            return NotFound();
-        }
-        ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Name", account.CustomerID);
-        return View(account);
-    }
-
-    // POST: Accounts/Edit/5
-    // To protect from overposting attacks, enable the specific properties you want to bind to.
-    // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id, [Bind("AccountNumber,AccountType,CustomerID")] Account account)
-    {
-        if (id != account.AccountNumber)
-        {
-            return NotFound();
-        }
-
-        if (ModelState.IsValid)
-        {
-            try
+        return View(
+            new DepositViewModel
             {
-                _context.Update(account);
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!AccountExists(account.AccountNumber))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-            return RedirectToAction(nameof(Index));
-        }
-        ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Name", account.CustomerID);
-        return View(account);
+                AccountNumber = accountNumber,
+                Account = await _accountService.GetById(accountNumber)
+
+            });
     }
 
-    // GET: Accounts/Delete/5
-    public async Task<IActionResult> Delete(int? id)
+    // POST: Account/Deposit
+    [HttpPost]
+    public async Task<IActionResult> Deposit(DepositViewModel viewModel)
     {
-        if (id == null || _context.Account == null)
-        {
-            return NotFound();
-        }
+        viewModel.Account = await _accountService.GetById(viewModel.AccountNumber);
 
-        var account = await _context.Account
-            .Include(a => a.Customer)
-            .FirstOrDefaultAsync(m => m.AccountNumber == id);
-        if (account == null)
-        {
-            return NotFound();
-        }
+        if (viewModel.Amount.HasMoreThanTwoDecimalPlaces())
+            ModelState.AddModelError(nameof(viewModel.Amount), "Amount cannot have more than 2 decimal places.");
 
-        return View(account);
-    }
+        if (!ModelState.IsValid)
+            return View(viewModel);
 
-    // POST: Accounts/Delete/5
-    [HttpPost, ActionName("Delete")]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> DeleteConfirmed(int id)
-    {
-        if (_context.Account == null)
-        {
-            return Problem("Entity set 'MCBAContext.Account'  is null.");
-        }
-        var account = await _context.Account.FindAsync(id);
-        if (account != null)
-        {
-            _context.Account.Remove(account);
-        }
+        await _accountService.Deposit(viewModel);
 
-        await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
 
-    private bool AccountExists(int id)
+
+    // GET: Account/Withdraw?accountNumber=4100
+    public async Task<IActionResult> Withdraw(int accountNumber)
     {
-        return _context.Account.Any(e => e.AccountNumber == id);
+        return View(
+            new WithdrawViewModel
+            {
+                AccountNumber = accountNumber,
+                Account = await _accountService.GetById(accountNumber)
+            });
+    }
+
+
+    // POST: Account/Withdraw
+    [HttpPost]
+    public async Task<IActionResult> Withdraw(WithdrawViewModel viewModel)
+    {
+        viewModel.Account = await _accountService.GetById(viewModel.AccountNumber);
+
+        if (viewModel.Amount.HasMoreThanTwoDecimalPlaces())
+            ModelState.AddModelError(nameof(viewModel.Amount), "Amount cannot have more than 2 decimal places.");
+
+        if (viewModel.Account.HasInsufficientBalance(viewModel.Amount, viewModel.Account.AccountType))
+            ModelState.AddModelError(nameof(viewModel.Amount), "Insufficient balance.");
+
+        if (!ModelState.IsValid)
+            return View(viewModel);
+
+        await _accountService.Withdraw(viewModel);
+
+        return RedirectToAction(nameof(Index));
+    }
+
+
+    // GET: Account/Transfer?accountNumber=4100
+    public async Task<IActionResult> Transfer(int accountNumber)
+    {
+        return View(
+            new TransferViewModel
+            {
+                AccountNumber = accountNumber,
+                Account = await _accountService.GetById(accountNumber)
+            });
+    }
+
+
+    // POST: Account/Transfer
+    [HttpPost]
+    public async Task<IActionResult> Transfer(TransferViewModel viewModel)
+    {
+        viewModel.Account = await _accountService.GetById(viewModel.AccountNumber);
+        viewModel.DestinationAccount = await _accountService.GetById(viewModel.DestinationAccountNumber);
+
+        if (await _accountService.GetById(viewModel.DestinationAccountNumber) == null
+            || viewModel.AccountNumber.Equals(viewModel.DestinationAccountNumber))
+            ModelState.AddModelError(nameof(viewModel.DestinationAccountNumber), "Invalid destination account number.");
+
+        if (viewModel.Amount.HasMoreThanTwoDecimalPlaces())
+            ModelState.AddModelError(nameof(viewModel.Amount), "Amount cannot have more than 2 decimal places.");
+
+        if (viewModel.Account.HasInsufficientBalance(viewModel.Amount, viewModel.Account.AccountType))
+            ModelState.AddModelError(nameof(viewModel.Amount), "Insufficient balance.");
+
+        if (!ModelState.IsValid)
+            return View(viewModel);
+
+        await _accountService.Transfer(viewModel);
+
+        return RedirectToAction(nameof(Index));
+
     }
 }

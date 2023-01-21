@@ -8,6 +8,8 @@
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
   <ItemGroup>
     <Content Remove="Views\Deposit.cshtml" />
   </ItemGroup>
@@ -15,8 +17,13 @@
   <ItemGroup>
     <Folder Include="Migrations\" />
     <Folder Include="wwwroot\img\CustomerProfile\" />
+    <Folder Include="Utilities\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="ViewModels\" />
+    <None Remove="Utilities\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
     <None Include="wwwroot\img\Home\bank-intro.png" />

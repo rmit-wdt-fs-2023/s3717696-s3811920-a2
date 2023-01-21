@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - MCBA Admin</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/login.css">
+</head>
+<body>
+    <div class="form-container container">
+        <form class="form" asp-action="Login" method="post">
+            <h3 class="text-center mb-5">Admin Panel Login</h3>
+            <div class="form-group">
+                <input type="text" id="username" name="username" class="form-control" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+            </div>
+            <div class="form-group text-center">
+                <input type="submit" class="btn btn-primary" value="Login">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
