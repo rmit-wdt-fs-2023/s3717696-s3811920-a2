@@ -1,0 +1,15 @@
+﻿@model MCBA_Web.ViewModels.BillPayViewModel
+@{
+}
+
+<h1> Scheduled bills for Account Number: @Model.AccountNumber </h1>
+
+@*Post request*@
+
+<form asp-controller="Account" asp-action="ViewBillPay">
+    @*<input type="hidden" name="accountNumber" value="@Model.AccountNumber" />*@
+    <input type="hidden" asp-for="AccountNumber" />
+    <input type="submit" class="btn btn-primary" value="BillPay" />
+</form>
+
+
