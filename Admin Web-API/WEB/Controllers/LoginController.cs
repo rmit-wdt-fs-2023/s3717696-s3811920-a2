@@ -28,12 +28,16 @@ public class LoginController : Controller
     public IActionResult Login(string username, string password)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
 		
 		if (username == null || password == null){
 			ModelState.AddModelError("LoginFailed", "Login failed, please try again.");
             return RedirectToAction("Index", "Login");
 		}
 		
+=======
+
+>>>>>>> dev
 =======
 
 >>>>>>> dev

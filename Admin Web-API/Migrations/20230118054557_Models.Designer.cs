@@ -12,12 +12,22 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MCBAAdmin.Migrations
 {
     [DbContext(typeof(MCBAContext))]
+<<<<<<< HEAD
 <<<<<<<< HEAD:Admin Web-API/Migrations/20230118054557_Models.Designer.cs
     [Migration("20230118054557_Models")]
 ========
     [Migration("20230120212116_Models")]
 >>>>>>>> dev:Customer Web/Migrations/20230120212116_Models.Designer.cs
     partial class Models
+=======
+<<<<<<<< HEAD:Admin Web-API/Migrations/20230119025411_Models-Update-3.Designer.cs
+    [Migration("20230119025411_Models-Update-3")]
+    partial class ModelsUpdate3
+========
+    [Migration("20230118054557_Models")]
+    partial class Models
+>>>>>>>> dev:Admin Web-API/Migrations/20230118054557_Models.Designer.cs
+>>>>>>> dev
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -69,7 +79,12 @@ namespace MCBAAdmin.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Postcode")
+<<<<<<< HEAD
                         .HasColumnType("nvarchar(max)");
+=======
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
+>>>>>>> dev
 
                     b.Property<string>("State")
                         .HasColumnType("varchar(20)");
@@ -186,6 +201,14 @@ namespace MCBAAdmin.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PayeeID"));
 
+<<<<<<< HEAD
+=======
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)");
+
+>>>>>>> dev
                     b.Property<string>("City")
                         .IsRequired()
                         .HasMaxLength(14)
@@ -202,6 +225,7 @@ namespace MCBAAdmin.Migrations
 
                     b.Property<string>("Postcode")
                         .IsRequired()
+<<<<<<< HEAD
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("State")
@@ -212,6 +236,14 @@ namespace MCBAAdmin.Migrations
                         .IsRequired()
                         .HasMaxLength(40)
                         .HasColumnType("nvarchar(40)");
+=======
+                        .HasMaxLength(4)
+                        .HasColumnType("nvarchar(4)");
+
+                    b.Property<string>("State")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+>>>>>>> dev
 
                     b.HasKey("PayeeID");
 
@@ -250,8 +282,11 @@ namespace MCBAAdmin.Migrations
 
                     b.HasIndex("AccountNumber");
 
+<<<<<<< HEAD
                     b.HasIndex("DestinationAccountNumber");
 
+=======
+>>>>>>> dev
                     b.ToTable("Transaction");
                 });
 
@@ -268,6 +303,7 @@ namespace MCBAAdmin.Migrations
 
             modelBuilder.Entity("MCBA_Admin.Models.Address", b =>
                 {
+<<<<<<< HEAD
 <<<<<<<< HEAD:Admin Web-API/Migrations/20230118054557_Models.Designer.cs
                     b.HasOne("MCBA_Admin.Models.Customer", "Customer")
                         .WithOne("Address")
@@ -277,6 +313,11 @@ namespace MCBAAdmin.Migrations
                         .WithOne("Address")
                         .HasForeignKey("MCBA_Web.Models.Address", "CustomerID")
 >>>>>>>> dev:Customer Web/Migrations/20230120212116_Models.Designer.cs
+=======
+                    b.HasOne("MCBA_Admin.Models.Customer", "Customer")
+                        .WithOne("Address")
+                        .HasForeignKey("MCBA_Admin.Models.Address", "CustomerID")
+>>>>>>> dev
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -304,6 +345,7 @@ namespace MCBAAdmin.Migrations
 
             modelBuilder.Entity("MCBA_Admin.Models.Login", b =>
                 {
+<<<<<<< HEAD
 <<<<<<<< HEAD:Admin Web-API/Migrations/20230118054557_Models.Designer.cs
                     b.HasOne("MCBA_Admin.Models.Customer", "Customer")
                         .WithOne("Login")
@@ -313,13 +355,30 @@ namespace MCBAAdmin.Migrations
                         .WithMany()
                         .HasForeignKey("CustomerID")
 >>>>>>>> dev:Customer Web/Migrations/20230120212116_Models.Designer.cs
+=======
+                    b.HasOne("MCBA_Admin.Models.Customer", "Customer")
+<<<<<<<< HEAD:Admin Web-API/Migrations/20230119025411_Models-Update-3.Designer.cs
+                        .WithMany()
+                        .HasForeignKey("CustomerID")
+========
+                        .WithOne("Login")
+                        .HasForeignKey("MCBA_Admin.Models.Login", "CustomerID")
+>>>>>>>> dev:Admin Web-API/Migrations/20230118054557_Models.Designer.cs
+>>>>>>> dev
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Customer");
                 });
 
+<<<<<<< HEAD
 <<<<<<<< HEAD:Admin Web-API/Migrations/20230118054557_Models.Designer.cs
+=======
+<<<<<<<< HEAD:Admin Web-API/Migrations/20230119025411_Models-Update-3.Designer.cs
+            modelBuilder.Entity("MCBA_Admin.Models.Transaction", b =>
+                {
+========
+>>>>>>> dev
             modelBuilder.Entity("MCBA_Admin.Models.Payee", b =>
                 {
                     b.HasOne("MCBA_Admin.Models.Address", "Address")
@@ -332,16 +391,22 @@ namespace MCBAAdmin.Migrations
                 });
 
             modelBuilder.Entity("MCBA_Admin.Models.Transaction", b =>
+<<<<<<< HEAD
 ========
             modelBuilder.Entity("MCBA_Web.Models.Transaction", b =>
 >>>>>>>> dev:Customer Web/Migrations/20230120212116_Models.Designer.cs
                 {
+=======
+                {
+>>>>>>>> dev:Admin Web-API/Migrations/20230118054557_Models.Designer.cs
+>>>>>>> dev
                     b.HasOne("MCBA_Admin.Models.Account", "Account")
                         .WithMany("Transactions")
                         .HasForeignKey("AccountNumber")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+<<<<<<< HEAD
                     b.HasOne("MCBA_Web.Models.Account", "DestinationAccount")
                         .WithMany()
                         .HasForeignKey("DestinationAccountNumber");
@@ -349,6 +414,9 @@ namespace MCBAAdmin.Migrations
                     b.Navigation("Account");
 
                     b.Navigation("DestinationAccount");
+=======
+                    b.Navigation("Account");
+>>>>>>> dev
                 });
 
             modelBuilder.Entity("MCBA_Admin.Models.Account", b =>
@@ -361,11 +429,19 @@ namespace MCBAAdmin.Migrations
                     b.Navigation("Accounts");
 
                     b.Navigation("Address");
+<<<<<<< HEAD
 <<<<<<<< HEAD:Admin Web-API/Migrations/20230118054557_Models.Designer.cs
 
                     b.Navigation("Login");
 ========
 >>>>>>>> dev:Customer Web/Migrations/20230120212116_Models.Designer.cs
+=======
+<<<<<<<< HEAD:Admin Web-API/Migrations/20230119025411_Models-Update-3.Designer.cs
+========
+
+                    b.Navigation("Login");
+>>>>>>>> dev:Admin Web-API/Migrations/20230118054557_Models.Designer.cs
+>>>>>>> dev
                 });
 #pragma warning restore 612, 618
         }

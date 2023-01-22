@@ -30,8 +30,14 @@ public class LoginController : Controller
     public IActionResult Login(int loginID, string password)
     {
 
+<<<<<<< HEAD
         if (loginID == 0 || password == null)
         {
+=======
+        if (loginID == 0 || loginID == null || password == null)
+        {
+            ModelState.AddModelError("LoginFailed", "Login failed, please try again.");
+>>>>>>> dev
             return View(new Login { LoginID = loginID });
         }
 

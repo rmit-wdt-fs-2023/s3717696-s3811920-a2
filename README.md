@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # MCBA - Most Common Bank of Australia
 This project is an assignment for the Web Development Technologies course at RMIT. The project consists of two separate projects: Admin WEB-API and Customer-WEB.
 
@@ -28,10 +29,15 @@ The Customer WEB project is a web application that allows customers to log in an
 ## Inspiration/Acknowledgment
 This project was inspired by the work of Matthew Bolger and was used as a starting point for the assignment.
 =======
+=======
+>>>>>>> dev
 # Assignment 2 - WDT RMIT
 ## Customer Web - Admin Web & API
 
 ### Contributors
 **Abida Mohammadi** - s3811920  
 **Mevlut Saluk** - S3717696
+<<<<<<< HEAD
+>>>>>>> dev
+=======
 >>>>>>> dev

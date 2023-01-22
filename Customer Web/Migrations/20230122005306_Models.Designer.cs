@@ -12,8 +12,13 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MCBAWeb.Migrations
 {
     [DbContext(typeof(MCBAContext))]
+<<<<<<<< HEAD:Customer Web/Migrations/20230122005306_Models.Designer.cs
     [Migration("20230122005306_Models")]
     partial class Models
+========
+    [Migration("20230120215445_Models-Update")]
+    partial class ModelsUpdate
+>>>>>>>> dev:Customer Web/Migrations/20230120215445_Models-Update.Designer.cs
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -206,8 +211,13 @@ namespace MCBAWeb.Migrations
 
                     b.Property<string>("Street")
                         .IsRequired()
+<<<<<<<< HEAD:Customer Web/Migrations/20230122005306_Models.Designer.cs
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
+========
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)");
+>>>>>>>> dev:Customer Web/Migrations/20230120215445_Models-Update.Designer.cs
 
                     b.HasKey("PayeeID");
 

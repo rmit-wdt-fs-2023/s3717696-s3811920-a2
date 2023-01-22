@@ -20,7 +20,12 @@ public class Payee
 
     [Required]
 <<<<<<< HEAD
+<<<<<<< HEAD
     [StringLength(100, ErrorMessage = "Street must be less than 100 characters")]
+=======
+    [StringLength(40)]
+    [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Street must be in alpha")]
+>>>>>>> dev
 =======
     [StringLength(40)]
     [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Street must be in alpha")]

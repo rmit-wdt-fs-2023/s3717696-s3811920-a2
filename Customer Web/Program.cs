@@ -15,10 +15,13 @@ builder.Services.AddHostedService<BillSchedulerService>();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<ILoginService, LoginService>();
 builder.Services.AddScoped<IAccountService, AccountService>();
+<<<<<<< HEAD
 builder.Services.AddScoped<IAddressService, AddressService>();
 
 
 
+=======
+>>>>>>> dev
 
 // Session Handler
 
@@ -73,6 +76,12 @@ app.UseDeveloperExceptionPage();
 app.UseStatusCodePages();
 app.UseStaticFiles();
 app.UseRouting();
+<<<<<<< HEAD
+=======
+app.UseStatusCodePages();
+app.UseDeveloperExceptionPage();
+
+>>>>>>> dev
 app.UseAuthorization();
 app.UseSession();
 

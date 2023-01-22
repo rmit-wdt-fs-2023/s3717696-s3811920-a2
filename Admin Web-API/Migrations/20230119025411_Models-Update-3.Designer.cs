@@ -12,8 +12,13 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MCBAAdmin.Migrations
 {
     [DbContext(typeof(MCBAContext))]
+<<<<<<<< HEAD:Admin Web-API/Migrations/20230119025411_Models-Update-3.Designer.cs
     [Migration("20230119025411_Models-Update-3")]
     partial class ModelsUpdate3
+========
+    [Migration("20230118054557_Models")]
+    partial class Models
+>>>>>>>> dev:Admin Web-API/Migrations/20230118054557_Models.Designer.cs
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -295,16 +300,37 @@ namespace MCBAAdmin.Migrations
             modelBuilder.Entity("MCBA_Admin.Models.Login", b =>
                 {
                     b.HasOne("MCBA_Admin.Models.Customer", "Customer")
+<<<<<<<< HEAD:Admin Web-API/Migrations/20230119025411_Models-Update-3.Designer.cs
                         .WithMany()
                         .HasForeignKey("CustomerID")
+========
+                        .WithOne("Login")
+                        .HasForeignKey("MCBA_Admin.Models.Login", "CustomerID")
+>>>>>>>> dev:Admin Web-API/Migrations/20230118054557_Models.Designer.cs
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Customer");
                 });
 
+<<<<<<<< HEAD:Admin Web-API/Migrations/20230119025411_Models-Update-3.Designer.cs
             modelBuilder.Entity("MCBA_Admin.Models.Transaction", b =>
                 {
+========
+            modelBuilder.Entity("MCBA_Admin.Models.Payee", b =>
+                {
+                    b.HasOne("MCBA_Admin.Models.Address", "Address")
+                        .WithMany()
+                        .HasForeignKey("AddressID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Address");
+                });
+
+            modelBuilder.Entity("MCBA_Admin.Models.Transaction", b =>
+                {
+>>>>>>>> dev:Admin Web-API/Migrations/20230118054557_Models.Designer.cs
                     b.HasOne("MCBA_Admin.Models.Account", "Account")
                         .WithMany("Transactions")
                         .HasForeignKey("AccountNumber")
@@ -324,6 +350,11 @@ namespace MCBAAdmin.Migrations
                     b.Navigation("Accounts");
 
                     b.Navigation("Address");
+<<<<<<<< HEAD:Admin Web-API/Migrations/20230119025411_Models-Update-3.Designer.cs
+========
+
+                    b.Navigation("Login");
+>>>>>>>> dev:Admin Web-API/Migrations/20230118054557_Models.Designer.cs
                 });
 #pragma warning restore 612, 618
         }

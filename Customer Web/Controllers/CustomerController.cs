@@ -6,7 +6,11 @@ using MCBA_Web.Models;
 namespace MCBA_Web.Controllers;
 
 [AuthorizeCustomer]
+<<<<<<< HEAD
 [Route("MyProfile")]
+=======
+[Route("[controller]")] // route to CustomerID
+>>>>>>> dev
 public class CustomerController : Controller
 {
     private readonly ICustomerService _customerService;
