@@ -2,10 +2,7 @@
 using MCBA_Web.Models;
 using MCBA_Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-<<<<<<< HEAD
 using X.PagedList;
-=======
->>>>>>> dev
 
 namespace MCBA_Web.Services
 {
@@ -25,13 +22,10 @@ namespace MCBA_Web.Services
 
         public void AddTransaction(Account account, int? destinationAccountNumber, TransactionType transactionType, decimal amount, string comment);
 
-<<<<<<< HEAD
         public Task<IPagedList<Transaction>> GetAccountTransactionsPerPage(int accountNumber, int page = 1);
 
         public Task BillPay(BillPayViewModel viewModel);
 
-=======
->>>>>>> dev
         bool FreeTransactionNotAllowed(int accountNumber);
 
         public void ApplyServiceCharge(Account account, TransactionType transactionType);

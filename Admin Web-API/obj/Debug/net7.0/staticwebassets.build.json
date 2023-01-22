@@ -1,50 +1,28 @@
 {
   "Version": 1,
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
   "Hash": "/GeHhHncwQWNOf/XoGOX41ZmnMmzja8mdSiLQv2Hp1g=",
   "Source": "MCBA-Admin",
   "BasePath": "_content/MCBA-Admin",
-========
-  "Hash": "XZTKQfxr3IsOAsX/xDmuFILxt+QLaNG97QKo5FsiAQQ=",
-  "Source": "MCBA-Web",
-  "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Name": "MCBA-Admin\\wwwroot",
       "Source": "MCBA-Admin",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Name": "MCBA-Web\\wwwroot",
-      "Source": "MCBA-Web",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\css\\admin.css",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
       "RelativePath": "css/admin.css",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\css\\header.css",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
-      "RelativePath": "css/header.css",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -56,19 +34,11 @@
       "OriginalItemSpec": "wwwroot\\css\\admin.css"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\css\\login.css",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\css\\login.css",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "css/login.css",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -81,36 +51,11 @@
       "OriginalItemSpec": "wwwroot\\css\\login.css"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\favicon.ico",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\css\\site.css",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
-      "RelativePath": "css/site.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\site.css"
-    },
-    {
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\favicon.ico",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -123,19 +68,11 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\img\\CustomerProfile\\default_profile_picture.png",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\img\\CustomerProfile\\default_profile_picture.png",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "img/CustomerProfile/default_profile_picture.png",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -148,19 +85,11 @@
       "OriginalItemSpec": "wwwroot\\img\\CustomerProfile\\default_profile_picture.png"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\img\\Home\\bank-intro.png",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\img\\Home\\bank-intro.png",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "img/Home/bank-intro.png",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -173,104 +102,11 @@
       "OriginalItemSpec": "wwwroot\\img\\Home\\bank-intro.png"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\js\\site.js",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\img\\Home\\carousel-img-1.jpg",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
-      "RelativePath": "img/Home/carousel-img-1.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\Home\\carousel-img-1.jpg"
-    },
-    {
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\img\\Home\\carousel-img-2.jpg",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
-      "RelativePath": "img/Home/carousel-img-2.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\Home\\carousel-img-2.jpg"
-    },
-    {
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\img\\Home\\carousel-img-3.jpg",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
-      "RelativePath": "img/Home/carousel-img-3.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\Home\\carousel-img-3.jpg"
-    },
-    {
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\img\\Home\\home-banner.jpeg",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
-      "RelativePath": "img/Home/home-banner.jpeg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\Home\\home-banner.jpeg"
-    },
-    {
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\img\\Home\\logo.png",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
-      "RelativePath": "img/Home/logo.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\Home\\logo.png"
-    },
-    {
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\js\\site.js",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "js/site.js",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -283,19 +119,11 @@
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -308,19 +136,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -333,19 +153,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -358,19 +170,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -383,19 +187,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -408,19 +204,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -433,19 +221,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -458,19 +238,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -483,19 +255,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -508,19 +272,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -533,19 +289,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -558,19 +306,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -583,19 +323,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -608,19 +340,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -633,19 +357,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -658,19 +374,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -683,19 +391,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -708,19 +408,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -733,19 +425,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -758,19 +442,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -783,19 +459,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -808,19 +476,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -833,19 +493,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -858,19 +510,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -883,19 +527,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -908,19 +544,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -933,19 +561,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -958,19 +578,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -983,19 +595,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1008,19 +612,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1033,19 +629,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1058,19 +646,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1083,19 +663,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1108,19 +680,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1133,19 +697,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1158,19 +714,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1183,19 +731,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1208,19 +748,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1233,19 +765,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1258,19 +782,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1283,19 +799,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1308,19 +816,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1333,19 +833,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1358,19 +850,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1383,19 +867,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\bootstrap\\LICENSE",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\bootstrap\\LICENSE",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/bootstrap/LICENSE",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1408,19 +884,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\jquery\\dist\\jquery.js",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/jquery/dist/jquery.js",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1433,19 +901,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/jquery/dist/jquery.min.js",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1458,19 +918,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/jquery/dist/jquery.min.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1483,19 +935,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\jquery\\LICENSE.txt",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/jquery/LICENSE.txt",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1508,19 +952,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/jquery-validation/dist/additional-methods.js",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1533,19 +969,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/jquery-validation/dist/additional-methods.min.js",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1558,19 +986,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.js",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1583,19 +1003,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.min.js",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1608,19 +1020,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/jquery-validation/LICENSE.md",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1633,19 +1037,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1658,19 +1054,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1683,19 +1071,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-<<<<<<<< HEAD:Admin Web-API/obj/Debug/net7.0/staticwebassets.build.json
       "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "SourceId": "MCBA-Admin",
       "SourceType": "Discovered",
       "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Admin Web-API\\wwwroot\\",
       "BasePath": "_content/MCBA-Admin",
-========
-      "Identity": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
-      "SourceId": "MCBA-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "H:\\2023 Flex Semester\\Web Dev Technlologies\\Assignment 2\\Assignment 2\\MCBA-Assignment2\\Customer Web\\wwwroot\\",
-      "BasePath": "_content/MCBA-Web",
->>>>>>>> dev:Customer Web/obj/Debug/net7.0/staticwebassets.build.json
       "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE.txt",
       "AssetKind": "All",
       "AssetMode": "All",

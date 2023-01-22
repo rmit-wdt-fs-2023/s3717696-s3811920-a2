@@ -12,24 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MCBAWeb.Migrations
 {
     [DbContext(typeof(MCBAContext))]
-<<<<<<< HEAD
-<<<<<<<< HEAD:Customer Web/Migrations/20230120215445_Models-Update.Designer.cs
-=======
->>>>>>> dev
-<<<<<<<< HEAD:Customer Web/Migrations/20230122005306_Models.Designer.cs
-    [Migration("20230122005306_Models")]
-    partial class Models
-========
     [Migration("20230120215445_Models-Update")]
     partial class ModelsUpdate
->>>>>>>> dev:Customer Web/Migrations/20230120215445_Models-Update.Designer.cs
-<<<<<<< HEAD
-========
-    [Migration("20230120212116_Models")]
-    partial class Models
->>>>>>>> dev:Customer Web/Migrations/20230120212116_Models.Designer.cs
-=======
->>>>>>> dev
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -222,24 +206,8 @@ namespace MCBAWeb.Migrations
 
                     b.Property<string>("Street")
                         .IsRequired()
-<<<<<<< HEAD
-<<<<<<<< HEAD:Customer Web/Migrations/20230120215445_Models-Update.Designer.cs
-=======
->>>>>>> dev
-<<<<<<<< HEAD:Customer Web/Migrations/20230122005306_Models.Designer.cs
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-========
                         .HasMaxLength(40)
                         .HasColumnType("nvarchar(40)");
->>>>>>>> dev:Customer Web/Migrations/20230120215445_Models-Update.Designer.cs
-<<<<<<< HEAD
-========
-                        .HasMaxLength(40)
-                        .HasColumnType("nvarchar(40)");
->>>>>>>> dev:Customer Web/Migrations/20230120212116_Models.Designer.cs
-=======
->>>>>>> dev
 
                     b.HasKey("PayeeID");
 
