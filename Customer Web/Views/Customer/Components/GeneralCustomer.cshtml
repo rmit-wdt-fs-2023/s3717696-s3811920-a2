@@ -1,0 +1,78 @@
+﻿@model Customer
+
+<div>
+    @if (Model.HasDefaultProfilePicture)
+    {
+        <img style="margin-bottom: 10px;" src="~/img/CustomerProfile/default_profile_picture.png" width="50" height="50" class="img-fluid d-inline-block align-top" alt="Default Profile Picture">
+    }
+
+    @if (!Model.HasDefaultProfilePicture)
+    {
+            <form id="form-upload" asp-action="UploadImage" asp-controller="Customer" method="post" enctype="multipart/form-data">
+                <input type="hidden" asp-for=CustomerID />
+                <input type="hidden" asp-for=Name />
+                <input type="hidden" asp-for=Mobile />
+                <input type="hidden" asp-for=TFN />
+                <div style="position: relative;" class="profile-picture">
+                    <a onclick="" >
+                    <img onclick="document.getElementById('file-input').click()" style="border-radius: 50%; overflow: hidden;margin-top: 20px;margin-left: 350px; margin-bottom: 10px;" width="150" height="150" src="@Url.Action("GetProfilePicture", "Customer", new { customerId = Model.CustomerID })" alt="Profile Picture" onmouseover="this.nextElementSibling.style.display = 'block'" onmouseout="this.nextElementSibling.style.display = 'none'" />
+                        <div style="position: absolute; top: 55%; left: 50%; transform: translate(-50%, -50%); display: none" class="overlay-picture">
+                            <img style="width: 60px; height: 60px;" src="~/img/CustomerProfile/change_image_hover.png" alt="Overlay Picture">
+                            <input type="file" accept="image/*" asp-for="ImageUpload" id="file-input" style="display:none" oninput="submitForm()" onchange="submitForm(this)">
+                        </div>
+                    </a>
+                </div>
+            </form>
+    }
+
+</div>
+
+
+<form asp-controller="Customer" asp-action="UpdateCustomer" asp-route-customerId="@Model.CustomerID">
+    <div class="form-group">
+        <label asp-for="CustomerID">Customer ID</label>
+        <input type="text" class="form-control" id="CustomerID" name="CustomerID" value="@Model.CustomerID" readonly>
+    </div>
+    <div class="form-group">
+        <label>Name</label>
+        <input asp-for="Name" type="text" class="form-control general-editable" id="Name" name="Name" value="@Model.Name" readonly>
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="TFN">TFN</label>
+        <input asp-for="TFN" type="text" class="form-control general-editable" id="TFN" name="TFN" value="@Model.TFN" readonly>
+        <span asp-validation-for="TFN" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Mobile">Mobile</label>
+        <input asp-for="Mobile" type="text" class="form-control general-editable" id="Mobile" name="Mobile" value="@Model.Mobile" readonly>
+        <span asp-validation-for="Mobile" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <input style="width: 100px; font-size: 18px;" id="edit-general-button" value="Edit" class="btn btn-primary" />
+                <input type="submit" style="display:none; width: 100px; font-size: 18px;" id="save-general-button" value="Save" class="btn btn-primary" />
+            </div>
+            @Html.ValidationMessage("UpdateFailed", new { @class = "text-danger" })
+        </div>
+    </div>
+</form>
+
+
+<script>
+
+    function previewImage(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById('profile-picture').src = e.target.result;
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    function submitForm() {
+        document.getElementById("form-upload").submit();
+    }
+
+</script>

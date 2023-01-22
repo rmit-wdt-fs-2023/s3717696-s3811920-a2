@@ -1,4 +1,6 @@
-﻿<html>
+﻿@model Customer
+
+<html>
 
 <head>
     <title>MCBA - Home</title>
@@ -36,9 +38,42 @@
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a style="font-size: 1.5rem; font-weight: 350; line-height: 1.5; text-align: justify;" class="nav-link" href="Login">Login</a>
-                </li>
+                @if (Model == null){
+                    <li class="nav-item">
+                        <a style="font-size: 1.5rem; font-weight: 350; line-height: 1.5; text-align: justify;" class="nav-link" href="Login">Login</a>
+                    </li>
+                }
+                @if (Model != null)
+                {
+                    @if (Model.HasDefaultProfilePicture)
+                        {
+                            <div style="display: flex; gap: 30px;">
+                                <li class="nav-item">
+                                    <a style="padding-top: 20px; font-size: 1.5rem; font-weight: 350; line-height: 1.5; text-align: justify;" class="nav-link" href="/logout">Logout</a>
+                                </li>
+                                <div style="display: block;">
+                                    <a href= "/MyProfile/@Model.CustomerID" >
+                                        <img style="border-radius: 50%; overflow: hidden;margin-left: 50px; margin-bottom: 10px;" src="~/img/CustomerProfile/default_profile_picture.png" width="50" height="50" class="img-fluid d-inline-block align-top" alt="Default Profile Picture">
+                                    </a>
+                                    <h5>@Model.Name</h5>
+                                </div>
+                            </div>
+                        }
+                        @if (!Model.HasDefaultProfilePicture)
+                        {
+                            <div style="display: flex; gap: 30px;">
+                                <li class="nav-item">
+                                    <a style="padding-top: 40px; font-size: 1.5rem; font-weight: 350; line-height: 1.5; text-align: justify;" class="nav-link" href="/logout">Logout</a>
+                                </li>
+                                <div style="display: block;">
+                                    <a href= "/MyProfile/@Model.CustomerID" >
+                                <img style="border-radius: 50%; overflow: hidden;margin-left: 40px; margin-bottom: 10px;" width="70" height="70" src="@Url.Action("GetProfilePicture", "Customer", new { customerId = Model.CustomerID })" alt="Profile Picture" />
+                                    </a>
+                                    <h5>@Model.Name</h5>
+                                </div>
+                            </div>
+                        }
+                    }
             </ul>
         </div>
     </div>

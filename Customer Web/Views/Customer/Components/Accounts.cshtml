@@ -1,0 +1,152 @@
+﻿@model Customer
+
+<div style="display: block;" class="card-deck">
+    @foreach (var account in Model.Accounts)
+    {
+        <div style="margin-bottom: 20px;" class="card">
+            <div class="card-header d-flex align-items-center" data-toggle="collapse" data-target="#@account.AccountNumber" aria-expanded="false" aria-controls="@account.AccountNumber">
+                <h5 class="card-title mr-auto">Account Number: @account.AccountNumber</h5>
+                <i class="fas fa-angle-down"></i>
+            </div>
+            <div class="card-body">
+                <p class="card-text">Type: @account.AccountType</p>
+                <p class="card-text">Balance: @account.Balance.ToString("C")</p>
+                <div class="text-right">
+
+                    @* --- DEPOSIT --- *@
+                    <button class="btn btn-primary" id="deposit-button-@account.AccountNumber">Deposit</button>
+                    <div id="popupCard-@account.AccountNumber" style="width: 350px; height: 400px;display:none; position: fixed; top: 25%; left: 65%; transform: translate(-50%, -50%); background-color: lightblue; padding: 20px; box-shadow: 0px 0px 10px #999;">
+                        <div style="margin-top: 50px;" class="form-container">
+                            <h4 style="margin-right: 110px;">Deposit</h4>
+                            <form>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="amount" name="amount" placeholder="Amount">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="comment" name="comment" placeholder="Comment">
+                                </div>
+                                <button style="margin-right: 110px;" type="submit" class="btn btn-primary" id="depositButton-@account.AccountNumber">Deposit</button>
+                            </form>
+                            <button style="margin-top: 80px; width: 75px; height: 35px" id="close-deposit-form-button-@account.AccountNumber" class="btn btn-danger">Cancel</button>
+                        </div>
+                    </div>
+                    <script>
+                        $('#deposit-button-' + @account.AccountNumber).click(function () {
+                            document.getElementById("popupCard-" + @account.AccountNumber ).style.display = "block";
+                        });
+
+                        $('#close-deposit-form-button-' + @account.AccountNumber).click(function () {
+                            document.getElementById("popupCard-" + @account.AccountNumber).style.display = "none";
+                        });
+                    </script>
+                    @* --- END DEPOSIT --- *@
+
+                    
+                    @* --- START WITHDRAW --- *@
+
+                    <button class="btn btn-primary" id="withdraw-button-@account.AccountNumber">Withdraw</button>
+                    <div id="withdrawPopupCard-@account.AccountNumber" style="width: 350px; height: 400px;display:none; position: fixed; top: 25%; left: 65%; transform: translate(-50%, -50%); background-color: lightblue; padding: 20px; box-shadow: 0px 0px 10px #999;">
+                        <div style="margin-top: 50px;" class="form-container">
+                            <h4 style="margin-right: 110px;">Withdraw</h4>
+                            <form>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="amount" name="amount" placeholder="Amount">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="comment" name="comment" placeholder="Comment">
+                                </div>
+                                <button style="margin-right: 110px;" type="submit" class="btn btn-primary" id="withdrawButton-@account.AccountNumber">Withdraw</button>
+                            </form>
+                            <button style="margin-top: 80px; width: 75px; height: 35px" id="close-withdraw-form-button-@account.AccountNumber" class="btn btn-danger">Cancel</button>
+                        </div>
+                    </div>
+
+                    <script>
+                        $('#withdraw-button-' + @account.AccountNumber).click(function () {
+                            document.getElementById("withdrawPopupCard-" + @account.AccountNumber).style.display = "block";
+                        });
+
+                        $('#close-withdraw-form-button-' + @account.AccountNumber).click(function () {
+                            document.getElementById("withdrawPopupCard-" + @account.AccountNumber).style.display = "none";
+                        });
+                    </script>
+                    
+                    @* --- END WITHDRAW --- *@
+
+
+                    @* --- START TRANSFER --- *@
+                    <button class="btn btn-primary" id="transfer-button-@account.AccountNumber">Transfer</button>
+                    <div id="transferPopupCard-@account.AccountNumber" style="width: 350px; height: 400px;display:none; position: fixed; top: 25%; left: 65%; transform: translate(-50%, -50%); background-color: lightblue; padding: 20px; box-shadow: 0px 0px 10px #999;">
+                        <div style="margin-top: 50px;" class="form-container">
+                            <h4 style="margin-right: 110px;">Transfer</h4>
+                            <form>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="amount" name="amount" placeholder="Amount">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="comment" name="comment" placeholder="Comment">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="destinationAccountNumber" name="destinationAccountNumber" placeholder="Destination Account Number">
+                                </div>
+                                <button style="margin-right: 110px;" type="submit" class="btn btn-primary" id="transferButton">Transfer</button>
+                            </form>
+                            <button style="margin-top: 30px; width: 75px; height: 35px" id="close-transfer-form-button-@account.AccountNumber" class="btn btn-danger">Cancel</button>
+                        </div>
+                    </div>
+
+                    <script>
+                        $('#transfer-button-' + @account.AccountNumber).click(function () {
+                            document.getElementById("transferPopupCard-" + @account.AccountNumber).style.display = "block";
+                        });
+
+                        $('#close-transfer-form-button-' + @account.AccountNumber).click(function () {
+                            document.getElementById("transferPopupCard-" + @account.AccountNumber).style.display = "none";
+                        });
+                    </script>
+                    @* --- END TRANSFER --- *@
+
+                    @* --- START BILLS --- *@
+                    @* --- END BILLS --- *@
+                </div>
+            </div>
+
+            @* --- START STATEMENTS --- *@
+            <table class="table transactions" id="@account.AccountNumber" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Type</th>
+                        <th>Amount</th>
+                        <th>Comment</th>
+                        <th>Destination Account Number</th>
+                        <th>Time </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        var transactionsToDisplay = account.Transactions.Take(10);
+                        foreach (var transaction in transactionsToDisplay)
+                        {
+                            <tr>
+                                <td>@transaction.TransactionID</td>
+                                <td>@transaction.TransactionType</td>
+                                <td>@transaction.Amount.ToString("C")</td>
+                                <td>@(string.IsNullOrEmpty(transaction.Comment) ? "N/A" : transaction.Comment)</td>
+                                <td>@(string.IsNullOrEmpty(Convert.ToString(transaction.DestinationAccountNumber)) ? "N/A" : transaction.DestinationAccountNumber)</td>
+                                <td>@transaction.TransactionTimeUtc</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+            @* --- END STATEMENTS --- *@
+        </div>
+    }
+</div>
+<script>
+    $('.card-header').click(function () {
+        $(this).next().next('.transactions').slideToggle();
+        $(this).find('i').toggleClass('fa-angle-down fa-angle-up');
+    });
+</script>

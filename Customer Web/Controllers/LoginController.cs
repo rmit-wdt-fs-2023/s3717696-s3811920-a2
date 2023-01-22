@@ -45,6 +45,13 @@ public class LoginController : Controller
             return View(new Login { LoginID = loginID });
         }
 
+        // Check if locked
+        if (_loginService.IsLocked(login.LoginID))
+        {
+            ModelState.AddModelError("LoginFailed", "Account locked. Please contact us");
+            return View();
+        }
+
         // Login customer.
         HttpContext.Session.SetInt32(nameof(Customer.CustomerID), login.CustomerID);
         HttpContext.Session.SetString(nameof(Customer.Name), _loginService.GetCustomerByLoginId(login.CustomerID).Name);
