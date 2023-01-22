@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?xml version="1.0"?>
 <doc>
     <assembly>
@@ -20,6 +21,8 @@
     </members>
 </doc>
 =======
+=======
+>>>>>>> d3802e416e6e512c6268163c922a711299bb9fd4
 <?xml version="1.0"?>
 <doc>
     <assembly>
@@ -52,4 +55,7 @@
         </member>
     </members>
 </doc>
+<<<<<<< HEAD
+>>>>>>> d3802e416e6e512c6268163c922a711299bb9fd4
+=======
 >>>>>>> d3802e416e6e512c6268163c922a711299bb9fd4
