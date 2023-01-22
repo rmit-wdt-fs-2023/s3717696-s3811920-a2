@@ -27,12 +27,20 @@ public class LoginController : Controller
     [HttpPost]
     public IActionResult Login(string username, string password)
     {
+<<<<<<< HEAD
+<<<<<<< HEAD
 		
 		if (username == null || password == null){
 			ModelState.AddModelError("LoginFailed", "Login failed, please try again.");
             return RedirectToAction("Index", "Login");
 		}
 		
+=======
+
+>>>>>>> dev
+=======
+
+>>>>>>> dev
         var admin = _loginService.AuthenticateAdmin(username, password);
 
         // Check if authenticated

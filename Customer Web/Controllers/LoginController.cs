@@ -30,9 +30,14 @@ public class LoginController : Controller
     public IActionResult Login(int loginID, string password)
     {
 
+<<<<<<< HEAD
+        if (loginID == 0 || password == null)
+        {
+=======
         if (loginID == 0 || loginID == null || password == null)
         {
             ModelState.AddModelError("LoginFailed", "Login failed, please try again.");
+>>>>>>> dev
             return View(new Login { LoginID = loginID });
         }
 
@@ -43,6 +48,13 @@ public class LoginController : Controller
         {
             ModelState.AddModelError("LoginFailed", "Login failed, please try again.");
             return View(new Login { LoginID = loginID });
+        }
+
+        // Check if locked
+        if (_loginService.IsLocked(login.LoginID))
+        {
+            ModelState.AddModelError("LoginFailed", "Account locked. Please contact us");
+            return View();
         }
 
         // Login customer.
