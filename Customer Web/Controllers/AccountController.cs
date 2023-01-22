@@ -10,6 +10,8 @@ using MCBA_Web.Models;
 using MCBA_Web.ViewModels;
 using MCBA_Web.Utilities;
 using MCBA_Web.Services;
+using Newtonsoft.Json;
+using X.PagedList;
 
 namespace MCBA_Web.Controllers;
 
@@ -131,5 +133,45 @@ public class AccountController : Controller
 
         return RedirectToAction(nameof(Index));
 
+    }
+
+
+    public async Task<IActionResult> MyStatements(int accountNumber, int page = 1)
+    {
+        var account = await _accountService.GetById(Convert.ToInt32(accountNumber));
+        if (account is null)
+            return RedirectToAction(nameof(Index));
+
+        ViewBag.Account = account;
+        IPagedList<Transaction> pagedList = await _accountService.GetAccountTransactionsPerPage(account.AccountNumber, page);
+
+        return View(pagedList);
+    }
+
+
+    // GET: Account/ScheduledBills?accountNumber=4100
+    public async Task<IActionResult> ScheduledBills(int accountNumber)
+    {
+        return View(
+            new BillPayViewModel
+            {
+                AccountNumber = accountNumber,
+            });
+    }
+
+
+    // POST: Account/ViewBillPay
+    [HttpPost]
+    public async Task<IActionResult> ViewBillPay(BillPayViewModel viewModel)
+    {
+        return View(viewModel);
+    }
+
+    // POST: Account/BillPay
+    [HttpPost]
+    public async Task<IActionResult> BillPay(BillPayViewModel viewModel)
+    {
+        await _accountService.BillPay(viewModel);
+        return RedirectToAction(nameof(Index));
     }
 }

@@ -5,6 +5,7 @@ using MCBA_Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using MCBA_Web.Utilities;
 using Microsoft.EntityFrameworkCore;
+using X.PagedList;
 
 namespace MCBA_Web.Services
 {
@@ -88,6 +89,33 @@ namespace MCBA_Web.Services
                 });
         }
 
+        public async Task<IPagedList<Transaction>> GetAccountTransactionsPerPage(int accountNumber, int page = 1)
+        {
+            const int pageSize = 4;
+
+            var pagedList = await _context.Transaction.Where(x => x.AccountNumber == accountNumber)
+                .OrderByDescending(x => x.TransactionTimeUtc)
+                .ToPagedListAsync(page, pageSize);
+
+            return pagedList;
+        }
+
+
+        public async Task BillPay(BillPayViewModel viewModel)
+        {
+            // handle balance deduction and processing/ otherwise save data
+            BillPay newScheduledBill = new BillPay
+            {
+                AccountNumber = viewModel.AccountNumber,
+                PayeeID = viewModel.PayeeID,
+                Amount = viewModel.Amount,
+                ScheduleTimeUtc = viewModel.ScheduleTimeUtc,
+                PaymentPeriod = viewModel.PaymentPeriod
+            };
+
+            _context.BillPay.Add(newScheduledBill);
+            await _context.SaveChangesAsync();
+        }
 
         public bool FreeTransactionNotAllowed(int accountNumber)
         {

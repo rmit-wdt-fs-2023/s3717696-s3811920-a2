@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0"?>
 <doc>
     <assembly>
@@ -18,3 +19,37 @@
         </member>
     </members>
 </doc>
+=======
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MCBA-Web</name>
+    </assembly>
+    <members>
+        <member name="T:MCBAWeb.Migrations.Models">
+            <inheritdoc />
+        </member>
+        <member name="M:MCBAWeb.Migrations.Models.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:MCBAWeb.Migrations.Models.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:MCBAWeb.Migrations.Models.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:MCBAWeb.Migrations.ModelsUpdate">
+            <inheritdoc />
+        </member>
+        <member name="M:MCBAWeb.Migrations.ModelsUpdate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:MCBAWeb.Migrations.ModelsUpdate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:MCBAWeb.Migrations.ModelsUpdate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
+>>>>>>> d3802e416e6e512c6268163c922a711299bb9fd4
