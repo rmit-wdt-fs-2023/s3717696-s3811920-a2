@@ -19,8 +19,12 @@ public class Payee
     public string Phone { get; set; }
 
     [Required]
+<<<<<<< HEAD
+    [StringLength(100, ErrorMessage = "Street must be less than 100 characters")]
+=======
     [StringLength(40)]
     [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Street must be in alpha")]
+>>>>>>> dev
     public string Street { get; set; }
 
     [Required]

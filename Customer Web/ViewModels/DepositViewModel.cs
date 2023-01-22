@@ -4,7 +4,11 @@ using MCBA_Web.Models;
 
 namespace MCBA_Web.ViewModels
 {
+<<<<<<< HEAD
 	public class DepositViewModel : TransactionViewModel
+=======
+	public class DepositViewModel
+>>>>>>> dev
     {
         public int AccountNumber { get; set; }
         public Account Account { get; set; }

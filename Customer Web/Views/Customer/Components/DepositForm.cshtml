@@ -1,0 +1,26 @@
+﻿@model Customer
+
+<button class="btn btn-primary" id="deposit-button">Deposit</button>
+<div id="popupCard" style="height: 250px;display:none; position: fixed; top: 25%; left: 65%; transform: translate(-50%, -50%); background-color: lightblue; padding: 20px; box-shadow: 0px 0px 10px #999;">
+    <div style="padding-top: 70px;" class="form-container">
+        <h4>Deposit:</h4>
+        <form>
+            <label>Amount:</label>
+            <input type="text" id="amount" name="amount"><br>
+            <label>Comment:</label>
+            <input type="text" id="comment" name="comment"><br>
+            <input type="button" id="depositButton" value="Deposit">
+        </form>
+        <button id="close-deposit-form-button" class="btn btn-danger" >Cancel</button>
+    </div>
+</div>
+
+<script>
+    $('#deposit-button').click(function () {
+        document.getElementById("popupCard").style.display = "block";
+    });
+
+    $('#close-deposit-form-button').click(function () {
+        document.getElementById("popupCard").style.display = "none";
+    });
+</script>

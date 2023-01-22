@@ -5,7 +5,10 @@ using MCBA_Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using MCBA_Web.Utilities;
 using Microsoft.EntityFrameworkCore;
+<<<<<<< HEAD
 using X.PagedList;
+=======
+>>>>>>> dev
 
 namespace MCBA_Web.Services
 {
@@ -89,6 +92,7 @@ namespace MCBA_Web.Services
                 });
         }
 
+<<<<<<< HEAD
         public async Task<IPagedList<Transaction>> GetAccountTransactionsPerPage(int accountNumber, int page = 1)
         {
             const int pageSize = 4;
@@ -116,6 +120,8 @@ namespace MCBA_Web.Services
             _context.BillPay.Add(newScheduledBill);
             await _context.SaveChangesAsync();
         }
+=======
+>>>>>>> dev
 
         public bool FreeTransactionNotAllowed(int accountNumber)
         {
