@@ -1,13 +1,16 @@
 ﻿@model MCBA_Web.Models.BillPay
 @{
+    ViewData["Title"] = "Reschedule BillPay";
+    var account = (Account)ViewBag.Account;
 }
 
-<h1>Schedule New Bills from Account Number: @Model.AccountNumber</h1>
+<h1>Reschedle BillPay: @account.AccountNumber</h1>
 
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="BillPay">
+        <form asp-controller="Account" asp-action="EditBillPay">
             <input type="hidden" asp-for="AccountNumber" />
+            <input type="hidden" asp-for="BillPayID" />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 @* ReSharper disable once UnknownCssClass *@
@@ -34,7 +37,7 @@
                 <span asp-validation-for="PaymentPeriod" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="BillPay" class="btn btn-primary" />
+                <input type="submit" value="Edit BillPay" class="btn btn-primary" />
             </div>
         </form>
     </div>

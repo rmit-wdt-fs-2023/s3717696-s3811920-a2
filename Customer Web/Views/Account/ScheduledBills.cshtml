@@ -1,15 +1,75 @@
-﻿@model MCBA_Web.ViewModels.BillPayViewModel
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@using X.PagedList.Web.Common
+@model IPagedList<BillPay>
 @{
+    ViewData["Title"] = "Scheduled Bills";
+    var account = (Account)ViewBag.Account;
 }
 
-<h1> Scheduled bills for Account Number: @Model.AccountNumber </h1>
+<div>
+    <h1> My Statments </h1>
+    <h2>Account: @account.AccountNumber, Account Type: @account.AccountType, Balance: @account.Balance </h2>
+    <table class="table">
+        <tr>
+            <th>@Html.DisplayNameFor(x => x[0].BillPayID)</th>
+            <th>@Html.DisplayNameFor(x => x[0].PayeeID)</th>
+            <th>@Html.DisplayNameFor(x => x[0].Amount)</th>
+            <th>@Html.DisplayNameFor(x => x[0].IsBlocked)</th>
+            <th>@Html.DisplayNameFor(x => x[0].ScheduleTimeUtc)</th>
+            <th>@Html.DisplayNameFor(x => x[0].PaymentPeriod)</th>
+        </tr>
+        @foreach (var scheduledBill in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(x => scheduledBill.BillPayID)</td>
+                <td>@Html.DisplayFor(x => scheduledBill.PayeeID)</td>
+                <td>@Html.DisplayFor(x => scheduledBill.Amount)</td>
+                <td>@Html.DisplayFor(x => scheduledBill.IsBlocked)</td>
+                <td>@Html.DisplayFor(x => scheduledBill.ScheduleTimeUtc)</td>
+                <td>@Html.DisplayFor(x => scheduledBill.PaymentPeriod)</td>
 
-@*Post request*@
 
-<form asp-controller="Account" asp-action="ViewBillPay">
-    @*<input type="hidden" name="accountNumber" value="@Model.AccountNumber" />*@
-    <input type="hidden" asp-for="AccountNumber" />
-    <input type="submit" class="btn btn-primary" value="BillPay" />
-</form>
+                @if (scheduledBill.ScheduleTimeUtc < DateTime.UtcNow)
+                {
+                    <td>
+                        <form asp-controller="Account" asp-action="RetryBillPay">
+                            <input type="hidden" name="accountNumber" value="@account.AccountNumber" />
+                            <input type="hidden" name="billPayId" value="@scheduledBill.BillPayID" />
+                            <input type="submit" class="btn btn-primary" value="Retry" />
+                        </form>
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <form asp-controller="Account" asp-action="CancelBillPay">
+                            <input type="hidden" name="accountNumber" value="@account.AccountNumber" />
+                            <input type="hidden" name="billPayId" value="@scheduledBill.BillPayID" />
+                            <input type="submit" class="btn btn-primary" value="Cancel" />
+                        </form>
+                    </td>
+                }
+            </tr>
+         }
+    </table>
+
+    <form asp-controller="Account" asp-action="ViewBillPay">
+        <input type="hidden" name="accountNumber" value="@account.AccountNumber" />
+        <input type="submit" class="btn btn-primary" value="BillPay" />
+    </form>
+
+    @Html.PagedListPager(Model, page => Url.Action("ScheduledBills", new { account.AccountNumber, page }),
+            new PagedListRenderOptions
+            {
+                LiElementClasses = new[] { "page-item" },
+                PageClasses = new[] { "page-link" }
+            })
+</div>
+
+<div>
+    <a asp-action="Index">Back to Accounts</a>
+</div>
+
 
 
