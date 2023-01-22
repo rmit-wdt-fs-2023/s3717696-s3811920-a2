@@ -1,0 +1,59 @@
+﻿@model Customer
+
+<div style="display: block;" class="card-deck">
+    @foreach (var account in Model.Accounts)
+    {
+        <div style="margin-bottom: 20px;" class="card">
+            <div class="card-header d-flex align-items-center" data-toggle="collapse" data-target="#@account.AccountNumber" aria-expanded="false" aria-controls="@account.AccountNumber">
+                <h5 class="card-title mr-auto">Account Number: @account.AccountNumber</h5>
+                <i class="fas fa-angle-down"></i>
+            </div>
+            <div class="card-body">
+                <p class="card-text">Type: @account.AccountType</p>
+                <p class="card-text">Balance: @account.Balance.ToString("C")</p>
+                <div class=" text-right">
+                    @{
+                        await Html.RenderPartialAsync("Components/DepositForm", @Model);
+                    }
+                    <button class="btn btn-primary" type="submit">Transfer</button>
+                    <button class="btn btn-primary" type="submit">Withdraw</button>
+                    <button class="btn btn-primary" type="submit">Bills</button>
+                </div>
+            </div>
+            <table class="table transactions" id="@account.AccountNumber" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Type</th>
+                        <th>Amount</th>
+                        <th>Comment</th>
+                        <th>Destination Account Number</th>
+                        <th>Time </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        var transactionsToDisplay = account.Transactions.Take(10);
+                        foreach (var transaction in transactionsToDisplay)
+                        {
+                            <tr>
+                                <td>@transaction.TransactionID</td>
+                                <td>@transaction.TransactionType</td>
+                                <td>@transaction.Amount.ToString("C")</td>
+                                <td>@(string.IsNullOrEmpty(transaction.Comment) ? "N/A" : transaction.Comment)</td>
+                                <td>@(string.IsNullOrEmpty(Convert.ToString(transaction.DestinationAccountNumber)) ? "N/A" : transaction.DestinationAccountNumber)</td>
+                                <td>@transaction.TransactionTimeUtc</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+<script>
+    $('.card-header').click(function () {
+        $(this).next().next('.transactions').slideToggle();
+        $(this).find('i').toggleClass('fa-angle-down fa-angle-up');
+    });
+</script>

@@ -203,8 +203,8 @@ namespace MCBAWeb.Migrations
 
                     b.Property<string>("Street")
                         .IsRequired()
-                        .HasMaxLength(40)
-                        .HasColumnType("nvarchar(40)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("PayeeID");
 
