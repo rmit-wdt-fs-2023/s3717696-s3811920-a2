@@ -15,7 +15,7 @@ builder.Services.AddHostedService<BillSchedulerService>();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<ILoginService, LoginService>();
 builder.Services.AddScoped<IAccountService, AccountService>();
-
+builder.Services.AddScoped<IAddressService, AddressService>();
 
 // Session Handler
 
