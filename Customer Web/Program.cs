@@ -11,11 +11,15 @@ builder.Services.AddDbContext<MCBAContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString(nameof(MCBAContext))));
 
 // Register Services
+builder.Services.AddHostedService<BillSchedulerService>();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<ILoginService, LoginService>();
 builder.Services.AddScoped<IAccountService, AccountService>();
 
+
 // Session Handler
+
+builder.Services.AddDistributedMemoryCache();
 
 builder.Services.AddDistributedSqlServerCache(options =>
 {
@@ -27,6 +31,7 @@ builder.Services.AddSession(options =>
 {
     // Make the session cookie essential.
     options.Cookie.IsEssential = true;
+    options.Cookie.HttpOnly = true;
     options.IdleTimeout = TimeSpan.FromDays(7);
 });
 
@@ -61,13 +66,13 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
-app.UseSession();
-app.UseRouting();
-app.UseStatusCodePages();
 app.UseDeveloperExceptionPage();
-
+app.UseStatusCodePages();
+app.UseStaticFiles();
+app.UseRouting();
 app.UseAuthorization();
+app.UseSession();
+
 
 app.MapControllerRoute(
     name: "default",
