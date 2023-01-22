@@ -136,6 +136,7 @@ public class AccountController : Controller
     }
 
 
+    // Get: Account/MyStatements
     public async Task<IActionResult> MyStatements(int accountNumber, int page = 1)
     {
         var account = await _accountService.GetById(Convert.ToInt32(accountNumber));
@@ -149,29 +150,64 @@ public class AccountController : Controller
     }
 
 
-    // GET: Account/ScheduledBills?accountNumber=4100
-    public async Task<IActionResult> ScheduledBills(int accountNumber)
+    // Get: Account/ScheduledBills
+    public async Task<IActionResult> ScheduledBills(int accountNumber, int page = 1)
     {
-        return View(
-            new BillPayViewModel
-            {
-                AccountNumber = accountNumber,
-            });
+        var account = await _accountService.GetById(accountNumber);
+        if (account is null)
+            return RedirectToAction(nameof(Index));
+
+        ViewBag.Account = account;
+        IPagedList<BillPay> pagedList = await _accountService.GetBillPayTransactionsPerPage(account.AccountNumber, page);
+
+        return View(pagedList);
     }
 
 
-    // POST: Account/ViewBillPay
+    // GET: Account/ViewBillPay
     [HttpPost]
-    public async Task<IActionResult> ViewBillPay(BillPayViewModel viewModel)
+    public IActionResult ViewBillPay(BillPay model)
     {
-        return View(viewModel);
+        return View(model);
     }
+
 
     // POST: Account/BillPay
     [HttpPost]
-    public async Task<IActionResult> BillPay(BillPayViewModel viewModel)
+    public async Task<IActionResult> BillPay(BillPay model)
     {
-        await _accountService.BillPay(viewModel);
+        await _accountService.BillPay(model);
         return RedirectToAction(nameof(Index));
+    }
+
+
+    // GET: Account/EditBillPay
+    [HttpPost]
+    public async Task<IActionResult> EditBillPay(BillPay model)
+    {
+        await _accountService.RescheduleBillPay(model);
+        return RedirectToAction(nameof(Index));
+    }
+
+
+    // POST: Account/RetryBillPay
+    public async Task<IActionResult> RetryBillPay(int accountNumber, int billPayId)
+    {
+        var account = await _accountService.GetById(accountNumber);
+        if (account is null)
+            return RedirectToAction(nameof(Index));
+        ViewBag.Account = account;
+
+        BillPay bill = await _accountService.GetBillById(billPayId);
+        
+        return View(bill);
+    }
+
+
+    // POST: Account/CancelBillPay
+    public async Task<IActionResult> CancelBillPay(int accountNumber, int billPayId)
+    {
+        await _accountService.CancelScheduledBillPay(billPayId);
+        return RedirectToAction(nameof(ScheduledBills), new { accountNumber = accountNumber });
     }
 }

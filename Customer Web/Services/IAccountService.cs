@@ -12,6 +12,8 @@ namespace MCBA_Web.Services
 
         Task<Account> GetById(int? id);
 
+        Task<BillPay> GetBillById(int id);
+
         Customer GetCustomerById(int id);
 
         Task Deposit(DepositViewModel viewModel);
@@ -24,7 +26,13 @@ namespace MCBA_Web.Services
 
         public Task<IPagedList<Transaction>> GetAccountTransactionsPerPage(int accountNumber, int page = 1);
 
-        public Task BillPay(BillPayViewModel viewModel);
+        public Task<IPagedList<BillPay>> GetBillPayTransactionsPerPage(int accountNumber, int page = 1);
+
+        public Task BillPay(BillPay viewModel);
+
+        public Task RescheduleBillPay(BillPay viewModel);
+
+        public Task CancelScheduledBillPay(int billPayId);
 
         bool FreeTransactionNotAllowed(int accountNumber);
 

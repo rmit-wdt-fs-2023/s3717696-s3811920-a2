@@ -3,6 +3,7 @@ using System.Threading;
 using MCBA_Web.Data;
 using MCBA_Web.Models;
 using MCBA_Web.Utilities;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
 namespace MCBA_Web.Services
@@ -54,17 +55,25 @@ namespace MCBA_Web.Services
                     account.Balance -= bill.Amount;
 
                     // add billpay transaction
-                    account.Transactions.Add(
-                    new Transaction
-                    {
-                        TransactionType = TransactionType.BillPay,
-                        Amount = bill.Amount,
-                        TransactionTimeUtc = DateTime.UtcNow
-                    });
+                    context.Transaction.Add(
+                        new Transaction
+                        {
+                            AccountNumber = bill.AccountNumber,
+                            TransactionType = TransactionType.BillPay,
+                            Amount = bill.Amount,
+                            TransactionTimeUtc = bill.ScheduleTimeUtc
+                        });
 
                     // change status of the failed billpay or delete processed billpay
-                    context.BillPay.Attach(bill);
-                    context.BillPay.Remove(bill);
+                    if(bill.PaymentPeriod.Equals(PaymentPeriodType.Monthly))
+                    {
+                        await context.Database.ExecuteSqlAsync($"UPDATE BillPay SET ScheduleTimeUtc = DATEADD(MM, 1, ScheduleTimeUtc) WHERE BillPayID = {bill.BillPayID}");
+                    }
+                    else
+                    {
+                        context.BillPay.Attach(bill);
+                        context.BillPay.Remove(bill);
+                    }
                 }
             }
 
