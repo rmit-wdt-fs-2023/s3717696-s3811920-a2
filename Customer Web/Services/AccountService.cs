@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using MCBA_Web.Utilities;
 using Microsoft.EntityFrameworkCore;
 using X.PagedList;
+using System.Xml;
 
 namespace MCBA_Web.Services
 {
@@ -29,6 +30,12 @@ namespace MCBA_Web.Services
         public async Task<Account> GetById(int? id)
         {
             return await _context.Account.FindAsync(id);
+        }
+
+
+        public async Task<BillPay> GetBillById(int id)
+        {
+            return await _context.BillPay.FindAsync(id);
         }
 
 
@@ -101,21 +108,41 @@ namespace MCBA_Web.Services
         }
 
 
-        public async Task BillPay(BillPayViewModel viewModel)
+        public async Task<IPagedList<BillPay>> GetBillPayTransactionsPerPage(int accountNumber, int page = 1)
         {
-            // handle balance deduction and processing/ otherwise save data
-            BillPay newScheduledBill = new BillPay
-            {
-                AccountNumber = viewModel.AccountNumber,
-                PayeeID = viewModel.PayeeID,
-                Amount = viewModel.Amount,
-                ScheduleTimeUtc = viewModel.ScheduleTimeUtc,
-                PaymentPeriod = viewModel.PaymentPeriod
-            };
+            const int pageSize = 4;
 
-            _context.BillPay.Add(newScheduledBill);
+            var pagedList = await _context.BillPay.Where(x => x.AccountNumber == accountNumber)
+                .OrderByDescending(x => x.ScheduleTimeUtc)
+                .ToPagedListAsync(page, pageSize);
+
+            return pagedList;
+        }
+
+
+        public async Task BillPay(BillPay model)
+        {
+            _context.BillPay.Add(model);
             await _context.SaveChangesAsync();
         }
+
+
+        public async Task RescheduleBillPay(BillPay model)
+        {
+            _context.Update(model);
+            await _context.SaveChangesAsync();
+        }
+
+
+        public async Task CancelScheduledBillPay(int billPayId)
+        {
+            BillPay bill = await _context.BillPay.FindAsync(billPayId);
+            _context.BillPay.Attach(bill);
+            _context.BillPay.Remove(bill);
+
+            await _context.SaveChangesAsync();
+        }
+
 
         public bool FreeTransactionNotAllowed(int accountNumber)
         {
