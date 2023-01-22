@@ -1,11 +1,7 @@
 ﻿@model Login
 
 <head>
-<<<<<<< HEAD
-    <title>MCBA - Login</title>
-=======
     <title>Login</title>
->>>>>>> dev
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/login.css" >
 </head>
@@ -22,11 +18,7 @@
     </div>
 </nav>
 
-<<<<<<< HEAD
-@* --------- LoginForm ---------*@
-=======
 
->>>>>>> dev
 <body style="background-color: lightblue;">
     <div style="margin-top:120px;" class="container">
         <div class="row">
@@ -43,11 +35,8 @@
                                 <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                             </div>
                             <button style="height:40px; margin-bottom:20px; font-size: 15px" class="btn btn-lg btn-primary btn-block text-uppercase" value="Login" type="submit">GO!</button>
-<<<<<<< HEAD
-                            @Html.ValidationMessage("LoginFailed", new { @style = "margin-left: 80px", @class = "text-danger" })
-=======
->>>>>>> dev
                         </form>
+                        @Html.ValidationMessage("LoginFailed", new { @class = "text-danger" })
                     </div>
                 </div>
             </div>

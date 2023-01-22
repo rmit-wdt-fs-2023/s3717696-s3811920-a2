@@ -12,18 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MCBAAdmin.Migrations
 {
     [DbContext(typeof(MCBAContext))]
-<<<<<<< HEAD
-<<<<<<<< HEAD:Admin Web-API/Migrations/20230119023804_Models-Update.Designer.cs
     [Migration("20230119023804_Models-Update")]
     partial class ModelsUpdate
-========
-    [Migration("20230118054557_Models")]
-    partial class Models
->>>>>>>> dev:Admin Web-API/Migrations/20230118054557_Models.Designer.cs
-=======
-    [Migration("20230119023804_Models-Update")]
-    partial class ModelsUpdate
->>>>>>> dev
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -313,29 +303,8 @@ namespace MCBAAdmin.Migrations
                     b.Navigation("Customer");
                 });
 
-<<<<<<< HEAD
-<<<<<<<< HEAD:Admin Web-API/Migrations/20230119023804_Models-Update.Designer.cs
             modelBuilder.Entity("MCBA_Admin.Models.Transaction", b =>
                 {
-========
-            modelBuilder.Entity("MCBA_Admin.Models.Payee", b =>
-                {
-                    b.HasOne("MCBA_Admin.Models.Address", "Address")
-                        .WithMany()
-                        .HasForeignKey("AddressID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Address");
-                });
-
-            modelBuilder.Entity("MCBA_Admin.Models.Transaction", b =>
-                {
->>>>>>>> dev:Admin Web-API/Migrations/20230118054557_Models.Designer.cs
-=======
-            modelBuilder.Entity("MCBA_Admin.Models.Transaction", b =>
-                {
->>>>>>> dev
                     b.HasOne("MCBA_Admin.Models.Account", "Account")
                         .WithMany("Transactions")
                         .HasForeignKey("AccountNumber")
