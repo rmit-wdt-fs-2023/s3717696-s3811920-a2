@@ -7,43 +7,162 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MCBA_Web.Data;
 using MCBA_Web.Models;
-using MCBA_Web.Services;
 
 namespace MCBA_Web.Controllers;
 
-[Route("/[controller]")]
+[Route("/profile/MyDetails")]
 public class AddressController : Controller
 {
-    private readonly IAddressService _addressService;
+    private readonly MCBAContext _context;
 
-    public AddressController(IAddressService addressService)
+    public AddressController(MCBAContext context)
     {
-        _addressService = addressService;
+        _context = context;
     }
 
-
-    [HttpPost("UpdateAddress")]
-    public IActionResult UpdateAddress(int _customerId, Address address)
+    // GET: Address
+    public async Task<IActionResult> Index()
     {
-        Console.WriteLine("-----------------------------------------------------------------");
-        Console.WriteLine(_customerId);
-
-        _addressService.Update(_customerId, address);
-
-        return RedirectToAction("Index", "Customer", new { customerId = _customerId });
+        var mCBAContext = _context.Address.Include(a => a.Customer);
+        return View(await mCBAContext.ToListAsync());
     }
 
-    [HttpPost("CreateAddress")]
-    public IActionResult CreateAddress(int customerId, Address address)
+    // GET: Address/Details/5
+    public async Task<IActionResult> Details(int? id)
     {
-        Console.WriteLine("--------asdfasdfasd---------------------------------------------------");
-        //address.State = (StateType)Enum.ToObject(typeof(StateType), Convert.ToInt32(Request.Form["CustomerAddress.State"]));
-        //address.Street = Request.Form["CustomerAddress.Street"];
-        //address.Postcode = Request.Form["CustomerAddress.Postcode"];
-        //address.City = Request.Form["CustomerAddress.City"];
+        if (id == null || _context.Address == null)
+        {
+            return NotFound();
+        }
 
-        _addressService.Add(customerId, address);
+        var address = await _context.Address
+            .Include(a => a.Customer)
+            .FirstOrDefaultAsync(m => m.AddressID == id);
+        if (address == null)
+        {
+            return NotFound();
+        }
 
-        return RedirectToAction("Index", "Customer", new { CustomerID = customerId });
+        return View(address);
+    }
+
+    // GET: Address/Create
+    public IActionResult Create()
+    {
+        ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Name");
+        return View();
+    }
+
+    // POST: Address/Create
+    // To protect from overposting attacks, enable the specific properties you want to bind to.
+    // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Create([Bind("AddressID,Street,City,Postcode,State,CustomerID")] Address address)
+    {
+        if (ModelState.IsValid)
+        {
+            _context.Add(address);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+        ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Name", address.CustomerID);
+        return View(address);
+    }
+
+    // GET: Address/Edit/5
+    public async Task<IActionResult> Edit(int? id)
+    {
+        if (id == null || _context.Address == null)
+        {
+            return NotFound();
+        }
+
+        var address = await _context.Address.FindAsync(id);
+        if (address == null)
+        {
+            return NotFound();
+        }
+        ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Name", address.CustomerID);
+        return View(address);
+    }
+
+    // POST: Address/Edit/5
+    // To protect from overposting attacks, enable the specific properties you want to bind to.
+    // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Edit(int id, [Bind("AddressID,Street,City,Postcode,State,CustomerID")] Address address)
+    {
+        if (id != address.AddressID)
+        {
+            return NotFound();
+        }
+
+        if (ModelState.IsValid)
+        {
+            try
+            {
+                _context.Update(address);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!AddressExists(address.AddressID))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            return RedirectToAction(nameof(Index));
+        }
+        ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Name", address.CustomerID);
+        return View(address);
+    }
+
+    // GET: Address/Delete/5
+    public async Task<IActionResult> Delete(int? id)
+    {
+        if (id == null || _context.Address == null)
+        {
+            return NotFound();
+        }
+
+        var address = await _context.Address
+            .Include(a => a.Customer)
+            .FirstOrDefaultAsync(m => m.AddressID == id);
+        if (address == null)
+        {
+            return NotFound();
+        }
+
+        return View(address);
+    }
+
+    // POST: Address/Delete/5
+    [HttpPost, ActionName("Delete")]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> DeleteConfirmed(int id)
+    {
+        if (_context.Address == null)
+        {
+            return Problem("Entity set 'MCBAContext.Address'  is null.");
+        }
+        var address = await _context.Address.FindAsync(id);
+        if (address != null)
+        {
+            _context.Address.Remove(address);
+        }
+
+        await _context.SaveChangesAsync();
+        return RedirectToAction(nameof(Index));
+    }
+
+    private bool AddressExists(int id)
+    {
+        return _context.Address.Any(e => e.AddressID == id);
     }
 }

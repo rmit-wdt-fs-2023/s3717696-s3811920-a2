@@ -17,18 +17,12 @@ public class Transaction
 
     [ForeignKey("Account")]
     [JsonIgnore]
-<<<<<<< HEAD
     [Display(Name = "Account Number")]
-=======
->>>>>>> dev
     public int AccountNumber { get; set; }
     public virtual Account Account { get; set; }
 
     [ForeignKey("DestinationAccount")]
-<<<<<<< HEAD
     [Display(Name = "Destination Account Number")]
-=======
->>>>>>> dev
     public int? DestinationAccountNumber { get; set; }
     public virtual Account DestinationAccount { get; set; }
 

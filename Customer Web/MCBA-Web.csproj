@@ -23,10 +23,7 @@
   <ItemGroup>
     <None Remove="ViewModels\" />
     <None Remove="Utilities\" />
-<<<<<<< HEAD
     <None Remove="X.PagedList.Mvc.Core" />
-=======
->>>>>>> dev
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
