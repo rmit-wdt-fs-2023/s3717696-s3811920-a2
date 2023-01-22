@@ -4,11 +4,7 @@ using MCBA_Web.Models;
 
 namespace MCBA_Web.ViewModels
 {
-<<<<<<< HEAD
     public class WithdrawViewModel : TransactionViewModel
-=======
-	public class WithdrawViewModel
->>>>>>> dev
     {
         public int AccountNumber { get; set; }
         public Account Account { get; set; }
@@ -18,10 +14,6 @@ namespace MCBA_Web.ViewModels
 
         [StringLength(30, ErrorMessage = "Comment must be less than 30 characters.")]
         public string Comment { get; set; }
-<<<<<<< HEAD
     }
-=======
-	}
->>>>>>> dev
 }
 

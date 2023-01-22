@@ -10,11 +10,8 @@ using MCBA_Web.Models;
 using MCBA_Web.ViewModels;
 using MCBA_Web.Utilities;
 using MCBA_Web.Services;
-<<<<<<< HEAD
 using Newtonsoft.Json;
 using X.PagedList;
-=======
->>>>>>> dev
 
 namespace MCBA_Web.Controllers;
 
@@ -136,7 +133,6 @@ public class AccountController : Controller
 
         return RedirectToAction(nameof(Index));
 
-<<<<<<< HEAD
     }
 
 
@@ -177,7 +173,5 @@ public class AccountController : Controller
     {
         await _accountService.BillPay(viewModel);
         return RedirectToAction(nameof(Index));
-=======
->>>>>>> dev
     }
 }
