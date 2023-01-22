@@ -69,12 +69,13 @@ public class CustomerService : ICustomerService
 
     public IEnumerable<Customer> GetAll()
     {
+        //return _context.GetAll();
         return _context.Customer.ToList();
     }
 
     public Customer GetById(int id)
     {
-        Console.WriteLine(id);
+
         return _context.Customer
             .Include(m => m.Address)
             .Include(x => x.Accounts)
@@ -85,19 +86,16 @@ public class CustomerService : ICustomerService
     public void Add(Customer customer)
     {
         _context.Add(customer);
-        _context.SaveChanges();
     }
 
     public void Update(Customer customer)
     {
         _context.Update(customer);
-        _context.SaveChanges();
     }
 
     public void Delete(int id)
     {
         _context.Remove(id);
-        _context.SaveChanges();
     }
 
     public void Save()
