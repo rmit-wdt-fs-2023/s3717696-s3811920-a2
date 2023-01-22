@@ -21,6 +21,9 @@ public class Customer
 
     public byte[] ProfilePicture { get; set; }
 
+    [NotMapped]
+    public IFormFile ImageUpload { get; set; }
+
     public string ProfilePictureContentType { get; set; }
     public bool HasDefaultProfilePicture { get; set; } = true;
 
