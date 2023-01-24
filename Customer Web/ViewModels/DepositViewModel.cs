@@ -10,6 +10,7 @@ namespace MCBA_Web.ViewModels
         public Account Account { get; set; }
 
         [Range(0.01, double.MaxValue, ErrorMessage = "Amount must be positive.")]
+        [Required]
         public decimal Amount { get; set; }
 
         [StringLength(30, ErrorMessage = "Comment must be less than 30 characters.")]

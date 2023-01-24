@@ -8,6 +8,8 @@ namespace MCBA_Web.Services
 {
 	public interface IAccountService
 	{
+
+        Task<Payee> GetPayeeById(int id);
         IEnumerable<Account> GetAll();
 
         Task<Account> GetById(int? id);

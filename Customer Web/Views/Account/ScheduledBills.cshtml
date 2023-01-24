@@ -1,75 +1,102 @@
-﻿@using X.PagedList
-@using X.PagedList.Mvc.Core
-@using X.PagedList.Web.Common
-@model IPagedList<BillPay>
+﻿@model IPagedList<BillPay>
 @{
     ViewData["Title"] = "Scheduled Bills";
-    var account = (Account)ViewBag.Account;
+    var account = (Account) ViewBag.Account;
 }
 
-<div>
-    <h1> My Statments </h1>
-    <h2>Account: @account.AccountNumber, Account Type: @account.AccountType, Balance: @account.Balance </h2>
-    <table class="table">
-        <tr>
-            <th>@Html.DisplayNameFor(x => x[0].BillPayID)</th>
-            <th>@Html.DisplayNameFor(x => x[0].PayeeID)</th>
-            <th>@Html.DisplayNameFor(x => x[0].Amount)</th>
-            <th>@Html.DisplayNameFor(x => x[0].IsBlocked)</th>
-            <th>@Html.DisplayNameFor(x => x[0].ScheduleTimeUtc)</th>
-            <th>@Html.DisplayNameFor(x => x[0].PaymentPeriod)</th>
-        </tr>
-        @foreach (var scheduledBill in Model)
-        {
-            <tr>
-                <td>@Html.DisplayFor(x => scheduledBill.BillPayID)</td>
-                <td>@Html.DisplayFor(x => scheduledBill.PayeeID)</td>
-                <td>@Html.DisplayFor(x => scheduledBill.Amount)</td>
-                <td>@Html.DisplayFor(x => scheduledBill.IsBlocked)</td>
-                <td>@Html.DisplayFor(x => scheduledBill.ScheduleTimeUtc)</td>
-                <td>@Html.DisplayFor(x => scheduledBill.PaymentPeriod)</td>
+<head>
+    <title>MCBA - MyBills - @account.AccountNumber</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap.collapse@5.0.0/dist/js/bootstrap.collapse.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+</head>
+
+<div class="card-body">
+    <div id="popupCard" style="width: 1200px; height: 600px; display:block; box-shadow: 0px 0px 5px #999; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        <div style="margin-top: 30px; margin-left: 100px;" class="form-container">
+            <div style="width: 1000px;">
+                <div style="margin-left: 20px;">
+                    <h1 style="margin-left: 400px;">My Bills</h1>
+                    <div style="margin-top: 40px;margin-left: 240px;display: flex; gap: 60px;">
+                        <p>Account: @account.AccountNumber </p>
+                        <p>Account Type: @account.AccountType</p>
+                        <p>Balance: @account.Balance.ToString("C")</p>
+                    </div>
+                </div>
+                <table class="table">
+                    <tr>
+                        <th>@Html.DisplayNameFor(x => x[0].BillPayID)</th>
+                        <th>@Html.DisplayNameFor(x => x[0].PayeeID)</th>
+                        <th>@Html.DisplayNameFor(x => x[0].Amount)</th>
+                        <th>@Html.DisplayNameFor(x => x[0].IsBlocked)</th>
+                        <th>@Html.DisplayNameFor(x => x[0].ScheduleTimeUtc)</th>
+                        <th>@Html.DisplayNameFor(x => x[0].PaymentPeriod)</th>
+                    </tr>
+                    @foreach (var scheduledBill in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(x => scheduledBill.BillPayID)</td>
+                            <td>@Html.DisplayFor(x => scheduledBill.PayeeID)</td>
+                            <td>@Html.DisplayFor(x => scheduledBill.Amount)</td>
+                            <td>@Html.DisplayFor(x => scheduledBill.IsBlocked)</td>
+                            <td>@Html.DisplayFor(x => scheduledBill.ScheduleTimeUtc)</td>
+                            <td>@Html.DisplayFor(x => scheduledBill.PaymentPeriod)</td>
 
 
-                @if (scheduledBill.ScheduleTimeUtc < DateTime.UtcNow)
-                {
-                    <td>
-                        <form asp-controller="Account" asp-action="RetryBillPay">
-                            <input type="hidden" name="accountNumber" value="@account.AccountNumber" />
-                            <input type="hidden" name="billPayId" value="@scheduledBill.BillPayID" />
-                            <input type="submit" class="btn btn-primary" value="Retry" />
-                        </form>
-                    </td>
-                }
-                else
-                {
-                    <td>
-                        <form asp-controller="Account" asp-action="CancelBillPay">
-                            <input type="hidden" name="accountNumber" value="@account.AccountNumber" />
-                            <input type="hidden" name="billPayId" value="@scheduledBill.BillPayID" />
-                            <input type="submit" class="btn btn-primary" value="Cancel" />
-                        </form>
-                    </td>
-                }
-            </tr>
-         }
-    </table>
+                            @if (scheduledBill.ScheduleTimeUtc < DateTime.UtcNow)
+                            {
+                                <td>
+                                    <form asp-controller="Account" asp-action="RetryBillPay">
+                                        <input type="hidden" name="accountNumber" value="@account.AccountNumber" />
+                                        <input type="hidden" name="billPayId" value="@scheduledBill.BillPayID" />
+                                        <input type="submit" class="btn btn-primary" value="Retry" />
+                                    </form>
+                                </td>
+                            }
+                            else
+                            {
+                                <td>
+                                    <form asp-controller="Account" asp-action="CancelBillPay">
+                                        <input type="hidden" name="accountNumber" value="@account.AccountNumber" />
+                                        <input type="hidden" name="billPayId" value="@scheduledBill.BillPayID" />
+                                        <input type="submit" class="btn btn-danger" value="Cancel" />
+                                    </form>
+                                </td>
+                            }
+                        </tr>
+                     }
+                </table>
 
-    <form asp-controller="Account" asp-action="ViewBillPay">
-        <input type="hidden" name="accountNumber" value="@account.AccountNumber" />
-        <input type="submit" class="btn btn-primary" value="BillPay" />
-    </form>
+                <div style="margin-left: 95px;display: flex;">
 
-    @Html.PagedListPager(Model, page => Url.Action("ScheduledBills", new { account.AccountNumber, page }),
-            new PagedListRenderOptions
-            {
-                LiElementClasses = new[] { "page-item" },
-                PageClasses = new[] { "page-link" }
-            })
+                    <form style="margin-right: 300px;" asp-controller="Account" asp-action="ViewBillPay">
+                        <input type="hidden" name="accountNumber" value="@account.AccountNumber" />
+                        <input type="submit" class="btn btn-primary" value="New Bill" />
+                    </form>
+
+                    @Html.PagedListPager(Model, page => Url.Action("ScheduledBills", new { account.AccountNumber, page }),
+                            new PagedListRenderOptions
+                            {
+                                LiElementClasses = new[] { "page-item" },
+                                PageClasses = new[] { "page-link" }
+                            })
+
+                    <a href="/MyProfile/@account.CustomerID">
+                        <button type="button" style="margin-left: 380px;width: 75px; height: 35px" class="btn btn-danger">Back</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-<div>
-    <a asp-action="Index">Back to Accounts</a>
-</div>
-
 
 

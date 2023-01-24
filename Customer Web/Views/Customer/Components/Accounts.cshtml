@@ -1,7 +1,10 @@
-﻿@model Customer
+﻿
+@{
+    var Customer = ViewBag.Customer as Customer;
+}
 
 <div style="display: block;" class="card-deck">
-    @foreach (var account in Model.Accounts)
+    @foreach (var account in Customer.Accounts)
     {
         <div style="margin-bottom: 20px;" class="card">
             <div class="card-header d-flex align-items-center" data-toggle="collapse" data-target="#@account.AccountNumber" aria-expanded="false" aria-controls="@account.AccountNumber">
@@ -14,98 +17,33 @@
                 <div class="text-right">
 
                     @* --- DEPOSIT --- *@
-                    <button class="btn btn-primary" id="deposit-button-@account.AccountNumber">Deposit</button>
-                    <div id="popupCard-@account.AccountNumber" style="width: 350px; height: 400px;display:none; position: fixed; top: 25%; left: 65%; transform: translate(-50%, -50%); background-color: lightblue; padding: 20px; box-shadow: 0px 0px 10px #999;">
-                        <div style="margin-top: 50px;" class="form-container">
-                            <h4 style="margin-right: 110px;">Deposit</h4>
-                            <form>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="amount" name="amount" placeholder="Amount">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="comment" name="comment" placeholder="Comment">
-                                </div>
-                                <button style="margin-right: 110px;" type="submit" class="btn btn-primary" id="depositButton-@account.AccountNumber">Deposit</button>
-                            </form>
-                            <button style="margin-top: 80px; width: 75px; height: 35px" id="close-deposit-form-button-@account.AccountNumber" class="btn btn-danger">Cancel</button>
-                        </div>
-                    </div>
-                    <script>
-                        $('#deposit-button-' + @account.AccountNumber).click(function () {
-                            document.getElementById("popupCard-" + @account.AccountNumber ).style.display = "block";
-                        });
 
-                        $('#close-deposit-form-button-' + @account.AccountNumber).click(function () {
-                            document.getElementById("popupCard-" + @account.AccountNumber).style.display = "none";
-                        });
-                    </script>
-                    @* --- END DEPOSIT --- *@
+                    <a href="/Account/Deposit/@account.AccountNumber">
+                        <button type="button" class="btn btn-primary">Deposit</button>
 
-                    
+                    </a>
+
                     @* --- START WITHDRAW --- *@
 
-                    <button class="btn btn-primary" id="withdraw-button-@account.AccountNumber">Withdraw</button>
-                    <div id="withdrawPopupCard-@account.AccountNumber" style="width: 350px; height: 400px;display:none; position: fixed; top: 25%; left: 65%; transform: translate(-50%, -50%); background-color: lightblue; padding: 20px; box-shadow: 0px 0px 10px #999;">
-                        <div style="margin-top: 50px;" class="form-container">
-                            <h4 style="margin-right: 110px;">Withdraw</h4>
-                            <form>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="amount" name="amount" placeholder="Amount">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="comment" name="comment" placeholder="Comment">
-                                </div>
-                                <button style="margin-right: 110px;" type="submit" class="btn btn-primary" id="withdrawButton-@account.AccountNumber">Withdraw</button>
-                            </form>
-                            <button style="margin-top: 80px; width: 75px; height: 35px" id="close-withdraw-form-button-@account.AccountNumber" class="btn btn-danger">Cancel</button>
-                        </div>
-                    </div>
-
-                    <script>
-                        $('#withdraw-button-' + @account.AccountNumber).click(function () {
-                            document.getElementById("withdrawPopupCard-" + @account.AccountNumber).style.display = "block";
-                        });
-
-                        $('#close-withdraw-form-button-' + @account.AccountNumber).click(function () {
-                            document.getElementById("withdrawPopupCard-" + @account.AccountNumber).style.display = "none";
-                        });
-                    </script>
-                    
-                    @* --- END WITHDRAW --- *@
-
+                    <a href="/Account/Withdraw/@account.AccountNumber">
+                        <button type="button" class="btn btn-primary">Withdraw</button>
+                    </a>
 
                     @* --- START TRANSFER --- *@
-                    <button class="btn btn-primary" id="transfer-button-@account.AccountNumber">Transfer</button>
-                    <div id="transferPopupCard-@account.AccountNumber" style="width: 350px; height: 400px;display:none; position: fixed; top: 25%; left: 65%; transform: translate(-50%, -50%); background-color: lightblue; padding: 20px; box-shadow: 0px 0px 10px #999;">
-                        <div style="margin-top: 50px;" class="form-container">
-                            <h4 style="margin-right: 110px;">Transfer</h4>
-                            <form>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="amount" name="amount" placeholder="Amount">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="comment" name="comment" placeholder="Comment">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="destinationAccountNumber" name="destinationAccountNumber" placeholder="Destination Account Number">
-                                </div>
-                                <button style="margin-right: 110px;" type="submit" class="btn btn-primary" id="transferButton">Transfer</button>
-                            </form>
-                            <button style="margin-top: 30px; width: 75px; height: 35px" id="close-transfer-form-button-@account.AccountNumber" class="btn btn-danger">Cancel</button>
-                        </div>
-                    </div>
 
-                    <script>
-                        $('#transfer-button-' + @account.AccountNumber).click(function () {
-                            document.getElementById("transferPopupCard-" + @account.AccountNumber).style.display = "block";
-                        });
+                    <a href="/Account/Transfer/@account.AccountNumber">
+                        <button type="button" class="btn btn-primary">Transfer</button>
+                    </a>
 
-                        $('#close-transfer-form-button-' + @account.AccountNumber).click(function () {
-                            document.getElementById("transferPopupCard-" + @account.AccountNumber).style.display = "none";
-                        });
-                    </script>
-                    @* --- END TRANSFER --- *@
+                    @* --- START MYSTATEMENT --- *@
+                    <a href="/Account/MyStatements/@account.AccountNumber">
+                        <button type="button" class="btn btn-primary">My Statements</button>
+                    </a>
 
+                    @* --- START BILLS --- *@
+                    <a href="/Account/Bills/@account.AccountNumber">
+                        <button type="button" class="btn btn-primary">Bills</button>
+                    </a>
 
                 </div>
             </div>

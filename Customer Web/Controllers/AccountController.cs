@@ -1,43 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using MCBA_Web.Data;
+﻿using Microsoft.AspNetCore.Mvc;
 using MCBA_Web.Models;
 using MCBA_Web.ViewModels;
 using MCBA_Web.Utilities;
 using MCBA_Web.Services;
-using Newtonsoft.Json;
 using X.PagedList;
 
 namespace MCBA_Web.Controllers;
 
-//[Route("/account")]
+[Route("[controller]")]
 public class AccountController : Controller
 {
     private readonly IAccountService _accountService;
-    private readonly int _customerID = 2100;
 
     public AccountController(IAccountService accountService)
     {
         _accountService = accountService;
     }
 
-    // GET: Account
-    public async Task<IActionResult> Index()
-    {
-        var customer = _accountService.GetCustomerById(_customerID);
-        return View(customer);
-    }
-
-
     // GET: Account/Deposit?accountNumber=4100
+    [HttpGet("Deposit/{accountNumber}")]
     public async Task<IActionResult> Deposit(int accountNumber)
     {
-        return View(
+
+        return View("DepositForm",
             new DepositViewModel
             {
                 AccountNumber = accountNumber,
@@ -47,27 +32,31 @@ public class AccountController : Controller
     }
 
     // POST: Account/Deposit
-    [HttpPost]
-    public async Task<IActionResult> Deposit(DepositViewModel viewModel)
+    [HttpPost("Deposit/{accountNumber}")]
+    public async Task<IActionResult> Deposit(int customerId, DepositViewModel viewModel)
     {
         viewModel.Account = await _accountService.GetById(viewModel.AccountNumber);
 
         if (viewModel.Amount.HasMoreThanTwoDecimalPlaces())
+        {
             ModelState.AddModelError(nameof(viewModel.Amount), "Amount cannot have more than 2 decimal places.");
+            return View(viewModel);
+        }
 
         if (!ModelState.IsValid)
             return View(viewModel);
 
         await _accountService.Deposit(viewModel);
 
-        return RedirectToAction(nameof(Index));
+        return RedirectToAction(nameof(Index), "Customer", new { customerId });
     }
 
 
     // GET: Account/Withdraw?accountNumber=4100
+    [HttpGet("Withdraw/{accountNumber}")]
     public async Task<IActionResult> Withdraw(int accountNumber)
     {
-        return View(
+        return View("WithdrawForm",
             new WithdrawViewModel
             {
                 AccountNumber = accountNumber,
@@ -77,9 +66,12 @@ public class AccountController : Controller
 
 
     // POST: Account/Withdraw
-    [HttpPost]
-    public async Task<IActionResult> Withdraw(WithdrawViewModel viewModel)
+    [HttpPost("Withdraw/{accountNumber}")]
+    public async Task<IActionResult> Withdraw(int customerId, WithdrawViewModel viewModel)
     {
+
+        Console.Write("------------------------------------");
+
         viewModel.Account = await _accountService.GetById(viewModel.AccountNumber);
 
         if (viewModel.Amount.HasMoreThanTwoDecimalPlaces())
@@ -93,14 +85,15 @@ public class AccountController : Controller
 
         await _accountService.Withdraw(viewModel);
 
-        return RedirectToAction(nameof(Index));
+        return RedirectToAction(nameof(Index), "Customer", new { customerId });
     }
 
 
     // GET: Account/Transfer?accountNumber=4100
+    [HttpGet("Transfer/{accountNumber}")]
     public async Task<IActionResult> Transfer(int accountNumber)
     {
-        return View(
+        return View("TransferForm",
             new TransferViewModel
             {
                 AccountNumber = accountNumber,
@@ -110,8 +103,8 @@ public class AccountController : Controller
 
 
     // POST: Account/Transfer
-    [HttpPost]
-    public async Task<IActionResult> Transfer(TransferViewModel viewModel)
+    [HttpPost("Transfer/{accountNumber}")]
+    public async Task<IActionResult> Transfer(int customerId, TransferViewModel viewModel)
     {
         viewModel.Account = await _accountService.GetById(viewModel.AccountNumber);
         viewModel.DestinationAccount = await _accountService.GetById(viewModel.DestinationAccountNumber);
@@ -127,16 +120,17 @@ public class AccountController : Controller
             ModelState.AddModelError(nameof(viewModel.Amount), "Insufficient balance.");
 
         if (!ModelState.IsValid)
-            return View(viewModel);
+            return View("TransferForm",viewModel);
 
         await _accountService.Transfer(viewModel);
 
-        return RedirectToAction(nameof(Index));
+        return RedirectToAction(nameof(Index), "Customer", new { customerId });
 
     }
 
 
     // Get: Account/MyStatements
+    [HttpGet("MyStatements/{accountNumber}")]
     public async Task<IActionResult> MyStatements(int accountNumber, int page = 1)
     {
         var account = await _accountService.GetById(Convert.ToInt32(accountNumber));
@@ -151,6 +145,7 @@ public class AccountController : Controller
 
 
     // Get: Account/ScheduledBills
+    [HttpGet("Bills/{accountNumber}")]
     public async Task<IActionResult> ScheduledBills(int accountNumber, int page = 1)
     {
         var account = await _accountService.GetById(accountNumber);
@@ -158,6 +153,7 @@ public class AccountController : Controller
             return RedirectToAction(nameof(Index));
 
         ViewBag.Account = account;
+
         IPagedList<BillPay> pagedList = await _accountService.GetBillPayTransactionsPerPage(account.AccountNumber, page);
 
         return View(pagedList);
@@ -165,24 +161,37 @@ public class AccountController : Controller
 
 
     // GET: Account/ViewBillPay
-    [HttpPost]
-    public IActionResult ViewBillPay(BillPay model)
+    [HttpPost("ViewBillPay")]
+    public IActionResult ViewBillPay( BillPay model)
     {
         return View(model);
     }
 
 
     // POST: Account/BillPay
-    [HttpPost]
-    public async Task<IActionResult> BillPay(BillPay model)
+    [HttpPost("BillPay")]
+    public async Task<IActionResult> BillPay(int accountNumber, BillPay model)
     {
+
+        if (model.Amount.HasMoreThanTwoDecimalPlaces())
+            ModelState.AddModelError(nameof(model.Amount), "Amount cannot have more than 2 decimal places.");
+
+        var payee = await _accountService.GetPayeeById(model.PayeeID);
+
+        if (payee == null)
+            ModelState.AddModelError(nameof(model.PayeeID), "Payee doesn't exist.");
+
+        if (!ModelState.IsValid)
+            return View("ViewBillPay", model);
+
+        var acc = await _accountService.GetById(accountNumber);
         await _accountService.BillPay(model);
-        return RedirectToAction(nameof(Index));
+        return RedirectToAction(nameof(Index), "Customer", new { customerId = acc.CustomerID });
     }
 
 
     // GET: Account/EditBillPay
-    [HttpPost]
+    [HttpPost("EditBillPay")]
     public async Task<IActionResult> EditBillPay(BillPay model)
     {
         await _accountService.RescheduleBillPay(model);
@@ -191,6 +200,7 @@ public class AccountController : Controller
 
 
     // POST: Account/RetryBillPay
+    [HttpPost("RetryBillPay")]
     public async Task<IActionResult> RetryBillPay(int accountNumber, int billPayId)
     {
         var account = await _accountService.GetById(accountNumber);
@@ -205,6 +215,7 @@ public class AccountController : Controller
 
 
     // POST: Account/CancelBillPay
+    [HttpPost("CancelBillPay")]
     public async Task<IActionResult> CancelBillPay(int accountNumber, int billPayId)
     {
         await _accountService.CancelScheduledBillPay(billPayId);

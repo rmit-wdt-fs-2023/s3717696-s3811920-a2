@@ -14,6 +14,12 @@ namespace MCBA_Web.Services
 	{
         private readonly MCBAContext _context;
 
+        public async Task<Payee> GetPayeeById(int id)
+        {
+            var payee = await _context.Payee.FindAsync(id);
+
+            return payee;
+        }
 
         public AccountService(MCBAContext context)
 		{
@@ -85,15 +91,17 @@ namespace MCBA_Web.Services
 
         public void AddTransaction(Account account, int? destinationAccountNumber, TransactionType transactionType, decimal amount, string comment)
         {
-            account.Transactions.Add(
-                new Transaction
-                {
-                    DestinationAccountNumber = destinationAccountNumber,
-                    TransactionType = transactionType,
-                    Amount = amount,
-                    Comment = comment,
-                    TransactionTimeUtc = DateTime.UtcNow
-                });
+            Transaction transaction = new Transaction()
+            {
+                AccountNumber = account.AccountNumber,
+                DestinationAccountNumber = destinationAccountNumber,
+                TransactionType = transactionType,
+                Amount = amount,
+                Comment = comment,
+                TransactionTimeUtc = DateTime.UtcNow
+            }; 
+            
+            _context.Transaction.Add(transaction);
         }
 
         public async Task<IPagedList<Transaction>> GetAccountTransactionsPerPage(int accountNumber, int page = 1)
