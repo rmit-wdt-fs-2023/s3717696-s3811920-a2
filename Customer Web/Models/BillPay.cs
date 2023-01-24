@@ -14,7 +14,7 @@ public class BillPay
     public int PayeeID { get; set; }
 
     [Required]
-    [Range(0, double.MaxValue, ErrorMessage = "Amount must be positive")]
+    [Range(0.01, double.MaxValue, ErrorMessage = "Amount must be positive")]
     [Column(TypeName = "money")]
     [DataType(DataType.Currency)]
     public decimal Amount { get; set; }

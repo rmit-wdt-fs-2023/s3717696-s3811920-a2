@@ -1,52 +1,72 @@
-﻿@using X.PagedList
-@using X.PagedList.Mvc.Core
-@using X.PagedList.Web.Common
 @model IPagedList<Transaction>
 @{
     ViewData["Title"] = "View My Statements";
     var account = (Account)ViewBag.Account;
 }
 
-<div>
-    <h1> My Statments </h1>
-    <h2>Account: @account.AccountNumber, Account Type: @account.AccountType, Balance: @account.Balance </h2>
-    <table class="table">
-        <tr>
-            <th>@Html.DisplayNameFor(x => x[0].TransactionID)</th>
-            <th>@Html.DisplayNameFor(x => x[0].TransactionType)</th>
-            <th>@Html.DisplayNameFor(x => x[0].AccountNumber)</th>
-            <th>@Html.DisplayNameFor(x => x[0].DestinationAccountNumber)</th>
-            <th>@Html.DisplayNameFor(x => x[0].Amount)</th>
-            <th>@Html.DisplayNameFor(x => x[0].Comment)</th>
-            <th>@Html.DisplayNameFor(x => x[0].TransactionTimeUtc)</th>
-        </tr>
-        @foreach (var transaction in Model)
-            {
-                // Convert utc DateTime to LocalTime
-                DateTime convertedDate = DateTime.SpecifyKind(transaction.TransactionTimeUtc, DateTimeKind.Utc);
-                var kind = convertedDate.Kind;
-                DateTime dt = convertedDate.ToLocalTime();
-                var dateTime = dt.ToString("dd/MM/yyyy hh:mm tt").ToUpper();
-            <tr>
-                <td>@Html.DisplayFor(x => transaction.TransactionID)</td>
-                <td>@Html.DisplayFor(x => transaction.TransactionType)</td>
-                <td>@Html.DisplayFor(x => transaction.AccountNumber)</td>
-                <td>@Html.DisplayFor(x => transaction.DestinationAccountNumber)</td>
-                <td>@Html.DisplayFor(x => transaction.Amount)</td>
-                <td>@Html.DisplayFor(x => transaction.Comment)</td>
-                <td>@dateTime</td>
-            </tr>
-         }
-    </table>
+<head>
+    <title>MCBA - MyStatements - @account.AccountNumber</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap.collapse@5.0.0/dist/js/bootstrap.collapse.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+</head>
 
-    @Html.PagedListPager(Model, page => Url.Action("MyStatements", new { account.AccountNumber, page }),
-        new PagedListRenderOptions
-        {
-            LiElementClasses = new[] { "page-item" },
-            PageClasses = new[] { "page-link" }
-        })
-</div>
+<img src="~/img/Home/logo.png" width="160" height="160" class="img-fluid d-inline-block align-top" alt="MCBA Logo">
+<div class="card-body">
+    <div id="popupCard" style="width: 1200px; height: 600px; display:block; box-shadow: 0px 0px 5px #999; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        <div style="margin-top: 30px; margin-left: 70px;" class="form-container">
+            <div style="width: 1000px;">
+                <h1 style="margin-left: 400px;">My Statements</h1>
+                <div style="margin-top: 40px;margin-left: 280px;display: flex; gap: 60px;">
+                    <p>Account: @account.AccountNumber </p>
+                    <p>Account Type: @account.AccountType</p>
+                    <p>Balance: @account.Balance.ToString("C")</p>
+                </div>
+                <table class="table">
+                    <tr>
+                        <th>@Html.DisplayNameFor(x => x[0].TransactionID)</th>
+                        <th>@Html.DisplayNameFor(x => x[0].TransactionType)</th>
+                        <th>@Html.DisplayNameFor(x => x[0].AccountNumber)</th>
+                        <th>@Html.DisplayNameFor(x => x[0].DestinationAccountNumber)</th>
+                        <th>@Html.DisplayNameFor(x => x[0].Amount)</th>
+                        <th>@Html.DisplayNameFor(x => x[0].Comment)</th>
+                        <th>@Html.DisplayNameFor(x => x[0].TransactionTimeUtc)</th>
+                    </tr>
+                    @foreach (var transaction in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(x => transaction.TransactionID)</td>
+                            <td>@Html.DisplayFor(x => transaction.TransactionType)</td>
+                            <td>@Html.DisplayFor(x => transaction.AccountNumber)</td>
+                            <td>@(string.IsNullOrEmpty(Convert.ToString(transaction.DestinationAccountNumber)) ? "N/A" : transaction.DestinationAccountNumber)</td>
+                            <td>@Html.DisplayFor(x => transaction.Amount)</td>
+                            <td>@(string.IsNullOrEmpty(Convert.ToString(transaction.Comment)) ? "N/A" : transaction.Comment)</td>
+                            <td>@Html.DisplayFor(x => transaction.TransactionTimeUtc)</td>
+                        </tr>
+                    }
+                </table>
+                <div style="margin-left: 400px;display: flex;">
+                    @Html.PagedListPager(Model, page => Url.Action("MyStatements", new { account.AccountNumber, page }),
+                    new PagedListRenderOptions
+                    {
+                        LiElementClasses = new[] { "page-item" },
+                        PageClasses = new[] { "page-link" }
+                    })
 
-<div>
-    <a asp-action="Index">Back to Accounts</a>
+                    <a href="/MyProfile/@account.CustomerID">
+                        <button type="button" style="margin-left: 280px;width: 75px; height: 35px" class="btn btn-danger">Back</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

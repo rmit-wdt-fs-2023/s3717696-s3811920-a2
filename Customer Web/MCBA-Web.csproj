@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
-    <Folder Include="wwwroot\img\CustomerProfile\" />
     <Folder Include="Utilities\" />
   </ItemGroup>
 
@@ -28,10 +27,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
+    <None Include="Views\Account\TransferForm.cshtml" />
+    <None Include="Views\Account\WithdrawForm.cshtml" />
+    <None Include="Views\Customer\Components\Accounts.cshtml" />
+    <None Include="Views\Customer\Components\CreateAddress.cshtml" />
+    <None Include="Views\Account\DepositForm.cshtml" />
+    <None Include="Views\Customer\Components\GeneralCustomer.cshtml" />
+    <None Include="Views\Customer\Components\UpdateAddress.cshtml" />
+    <None Include="Views\Customer\Overview.cshtml" />
     <None Include="wwwroot\img\Home\bank-intro.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Magick.NET-Q8-AnyCPU" Version="12.2.2" />
+    <PackageReference Include="Magick.NET.Core" Version="12.2.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.2">
       <PrivateAssets>all</PrivateAssets>

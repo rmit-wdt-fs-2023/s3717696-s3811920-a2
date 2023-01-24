@@ -1,41 +1,61 @@
 ﻿@model MCBA_Web.Models.BillPay
-@{
-}
 
-<h1>Schedule New Bills from Account Number: @Model.AccountNumber</h1>
 
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="BillPay">
-            <input type="hidden" asp-for="AccountNumber" />
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                @* ReSharper disable once UnknownCssClass *@
-                <label asp-for="PayeeID" class="control-label"></label>
-                <input asp-for="PayeeID" class="form-control" />
-                <span asp-validation-for="PayeeID" class="text-danger"></span>
+<head>
+    <title>MCBA - Create Bill </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap.collapse@5.0.0/dist/js/bootstrap.collapse.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+</head>
+
+<div class="card-body">
+    <div id="popupCard" style="width: 1200px; height: 600px; display:block; box-shadow: 0px 0px 5px #999; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        <div style="margin-top: 30px; margin-left: 270px;" class="form-container">
+            <h1>Schedule New Bill for Account: @Model.AccountNumber</h1>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <form style="margin-top: 30px; margin-left: 200px;" asp-action="BillPay" asp-controller="Account" asp-route-accountNumber="@Model.AccountNumber">
+                        <input type="hidden" asp-for="AccountNumber" />
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            @* ReSharper disable once UnknownCssClass *@
+                            <label asp-for="PayeeID" class="control-label"></label>
+                            <input asp-for="PayeeID" value="" class="form-control" />
+                            <span asp-validation-for="PayeeID" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            @* ReSharper disable once UnknownCssClass *@
+                            <label asp-for="Amount" class="control-label"></label>
+                            <input asp-for="Amount" value="" class="form-control" />
+                            <span asp-validation-for="Amount" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            @* ReSharper disable once UnknownCssClass *@
+                            <label asp-for="ScheduleTimeUtc" class="control-label"></label>
+                            <input asp-for="ScheduleTimeUtc" class="form-control" />
+                            <span asp-validation-for="ScheduleTimeUtc" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="PaymentPeriod"></label>
+                            <select asp-for="PaymentPeriod" asp-items="Html.GetEnumSelectList<PaymentPeriodType>()" class="form-control"> </select>
+                            <span asp-validation-for="PaymentPeriod" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input style="margin-left: 80px;" type="submit" value="Schedule" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="form-group">
-                @* ReSharper disable once UnknownCssClass *@
-                <label asp-for="Amount" class="control-label"></label>
-                <input asp-for="Amount" class="form-control" />
-                <span asp-validation-for="Amount" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                @* ReSharper disable once UnknownCssClass *@
-                <label asp-for="ScheduleTimeUtc" class="control-label"></label>
-                <input asp-for="ScheduleTimeUtc" class="form-control" />
-                <span asp-validation-for="ScheduleTimeUtc" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                @* ReSharper disable once UnknownCssClass *@
-                <label asp-for="PaymentPeriod" class="control-label"></label>
-                <input asp-for="PaymentPeriod" class="form-control" />
-                <span asp-validation-for="PaymentPeriod" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="BillPay" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
 </div>
