@@ -42,7 +42,7 @@ public class CustomerController : Controller
             _customerService.UpdateProfilePicture(customer);
         }
 
-        return RedirectToAction("Index", "Customer", new {customerId = customer.CustomerID});
+        return RedirectToAction("Index", "Customer", new { customerId = customer.CustomerID });
     }
 
     [HttpGet("GetProfilePicture/{customerId}")]

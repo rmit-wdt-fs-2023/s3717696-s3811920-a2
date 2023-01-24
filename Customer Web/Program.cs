@@ -17,7 +17,6 @@ builder.Services.AddScoped<ILoginService, LoginService>();
 builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<IAddressService, AddressService>();
 
-
 // Session Handler
 
 builder.Services.AddDistributedMemoryCache();

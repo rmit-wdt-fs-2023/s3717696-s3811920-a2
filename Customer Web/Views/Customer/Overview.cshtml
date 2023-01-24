@@ -1,5 +1,7 @@
 ﻿@model Customer
-
+@{
+    ViewBag.Customer = Model;
+}
 <html>
 
 <head>
@@ -63,9 +65,10 @@
                     <div class="tab-pane" id="accounts" role="tabpanel">
                         <div class="card">
                             <div class="card-body" id="customer-body">
-                                @{
-                                    await Html.RenderPartialAsync("Components/Accounts", @Model);
-                                }
+                                    @{
+
+                                        await Html.RenderPartialAsync("Components/Accounts", new DepositViewModel());
+                                    }
                             </div>
                         </div>
                     </div>
@@ -105,7 +108,7 @@
 </div>
 
 @* --------- Footer --------- *@
-<footer class="bottom bg-light py-3">
+<footer style="margin-top: 350px" class="bottom bg-light py-3">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
