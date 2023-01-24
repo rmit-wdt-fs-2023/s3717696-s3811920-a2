@@ -1,6 +1,3 @@
-# Assignment 2 - WDT RMIT
-## Customer Web - Admin Web & API
-
 # MCBA - Most Common Bank of Australia
 This project is an assignment for the Web Development Technologies course at RMIT. The project consists of two separate projects: Admin WEB-API and Customer-WEB.
 
