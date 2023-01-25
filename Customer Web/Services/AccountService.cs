@@ -130,6 +130,11 @@ namespace MCBA_Web.Services
 
         public async Task BillPay(BillPay model)
         {
+            // Change local time to utc
+            TimeZoneInfo tz = TimeZoneInfo.FindSystemTimeZoneById("AUS Eastern Standard Time");
+            DateTime utcTime = TimeZoneInfo.ConvertTimeToUtc(model.ScheduleTimeUtc, tz);
+            model.ScheduleTimeUtc = utcTime;
+
             _context.BillPay.Add(model);
             await _context.SaveChangesAsync();
         }
@@ -137,6 +142,11 @@ namespace MCBA_Web.Services
 
         public async Task RescheduleBillPay(BillPay model)
         {
+            // Change local time to utc
+            TimeZoneInfo tz = TimeZoneInfo.FindSystemTimeZoneById("AUS Eastern Standard Time");
+            DateTime utcTime = TimeZoneInfo.ConvertTimeToUtc(model.ScheduleTimeUtc, tz);
+            model.ScheduleTimeUtc = utcTime;
+
             _context.Update(model);
             await _context.SaveChangesAsync();
         }
@@ -160,7 +170,7 @@ namespace MCBA_Web.Services
             .FromSql($"SELECT * FROM [Transaction] WHERE AccountNumber={accountNumber} AND (TransactionType = 'Withdraw' OR (TransactionType = 'Transfer' AND DestinationAccountNumber IS NOT NULL))")
             .Count();
 
-            if (freeTransactions > 2)
+            if (freeTransactions >= 2)
                 freeTransactionNotAllowed = true;
             else
                 freeTransactionNotAllowed = false;
@@ -174,14 +184,16 @@ namespace MCBA_Web.Services
             decimal serviceCharge = transactionType.ServiceCharge();
             account.Balance -= serviceCharge;
 
-            account.Transactions.Add(
-            new Transaction
+            Transaction transaction = new Transaction()
             {
+                AccountNumber = account.AccountNumber,
                 TransactionType = TransactionType.ServiceCharge,
                 Amount = serviceCharge,
                 Comment = "Applied service charge.",
                 TransactionTimeUtc = DateTime.UtcNow
-            });
+            };
+
+            _context.Transaction.Add(transaction);
         }
     }
 }

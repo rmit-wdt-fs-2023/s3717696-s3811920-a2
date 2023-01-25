@@ -42,17 +42,21 @@
                         <th>@Html.DisplayNameFor(x => x[0].PaymentPeriod)</th>
                     </tr>
                     @foreach (var scheduledBill in Model)
-                    {
+                        {
+                            // Convert utc DateTime to LocalTime
+                            DateTime convertedDate = DateTime.SpecifyKind(scheduledBill.ScheduleTimeUtc, DateTimeKind.Utc);
+                            var kind = convertedDate.Kind;
+                            DateTime dt = convertedDate.ToLocalTime();
+                            var dateTime = dt.ToString("dd/MM/yyyy hh:mm tt").ToUpper();
                         <tr>
                             <td>@Html.DisplayFor(x => scheduledBill.BillPayID)</td>
                             <td>@Html.DisplayFor(x => scheduledBill.PayeeID)</td>
                             <td>@Html.DisplayFor(x => scheduledBill.Amount)</td>
                             <td>@Html.DisplayFor(x => scheduledBill.IsBlocked)</td>
-                            <td>@Html.DisplayFor(x => scheduledBill.ScheduleTimeUtc)</td>
+                            <td>@dateTime</td>
                             <td>@Html.DisplayFor(x => scheduledBill.PaymentPeriod)</td>
 
-
-                            @if (scheduledBill.ScheduleTimeUtc < DateTime.UtcNow)
+                            @if (scheduledBill.ScheduleTimeUtc < DateTime.UtcNow.AddSeconds(1))
                             {
                                 <td>
                                     <form asp-controller="Account" asp-action="RetryBillPay">

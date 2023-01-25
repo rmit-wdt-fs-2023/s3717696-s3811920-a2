@@ -42,7 +42,12 @@
                         <th>@Html.DisplayNameFor(x => x[0].TransactionTimeUtc)</th>
                     </tr>
                     @foreach (var transaction in Model)
-                    {
+                        {
+                            // Convert utc DateTime to LocalTime
+                            DateTime convertedDate = DateTime.SpecifyKind(transaction.TransactionTimeUtc, DateTimeKind.Utc);
+                            var kind = convertedDate.Kind;
+                            DateTime dt = convertedDate.ToLocalTime();
+                            var dateTime = dt.ToString("dd/MM/yyyy hh:mm tt").ToUpper();
                         <tr>
                             <td>@Html.DisplayFor(x => transaction.TransactionID)</td>
                             <td>@Html.DisplayFor(x => transaction.TransactionType)</td>
@@ -50,7 +55,7 @@
                             <td>@(string.IsNullOrEmpty(Convert.ToString(transaction.DestinationAccountNumber)) ? "N/A" : transaction.DestinationAccountNumber)</td>
                             <td>@Html.DisplayFor(x => transaction.Amount)</td>
                             <td>@(string.IsNullOrEmpty(Convert.ToString(transaction.Comment)) ? "N/A" : transaction.Comment)</td>
-                            <td>@Html.DisplayFor(x => transaction.TransactionTimeUtc)</td>
+                            <td>@dateTime</td>
                         </tr>
                     }
                 </table>

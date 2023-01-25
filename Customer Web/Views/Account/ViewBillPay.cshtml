@@ -42,7 +42,7 @@
                         <div class="form-group">
                             @* ReSharper disable once UnknownCssClass *@
                             <label asp-for="ScheduleTimeUtc" class="control-label"></label>
-                            <input asp-for="ScheduleTimeUtc" class="form-control" />
+                            <input asp-for="ScheduleTimeUtc" value="@DateTime.Now.ToLocalTime().ToString("yyyy-MM-ddTHH:mm:ss")" type="datetime-local" class="form-control" />
                             <span asp-validation-for="ScheduleTimeUtc" class="text-danger"></span>
                         </div>
                         <div class="form-group">

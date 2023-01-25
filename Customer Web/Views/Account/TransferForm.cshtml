@@ -29,7 +29,7 @@
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
                     <label hidden style="width: 50px" asp-for="DestinationAccountNumber" class="control-label" ></label>
-                    <input style="width: 200px" asp-for="DestinationAccountNumber" placeholder="Destination Account Number" id="destinationAccountNumber" class="form-control" />
+                    <input style="width: 200px" asp-for="DestinationAccountNumber" placeholder="Destination Account" id="destinationAccountNumber" class="form-control" />
                     <span asp-validation-for="DestinationAccountNumber" class="text-danger"></span>
                 </div>
                 <div class="form-group">
@@ -46,7 +46,7 @@
                     <a href="/MyProfile/@Model.Account.CustomerID">
                         <button type="button" style="margin-left: 20px;margin-top: 25px; width: 75px; height: 35px" class="btn btn-danger">Back</button>
                     </a>
-                    <input type="button" style="margin-top: 25px; width: 75px; height: 35px" value="Transfer" class="btn btn-primary" id="form-transfer-button" />
+                    <input type="button" style="margin-top: 25px; width: 85px; height: 35px" value="Transfer" class="btn btn-primary" id="form-transfer-button" />
                 </div>
             </form>
         </div>

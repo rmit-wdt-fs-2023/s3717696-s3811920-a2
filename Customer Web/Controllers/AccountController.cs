@@ -32,7 +32,6 @@ public class AccountController : Controller
             {
                 AccountNumber = accountNumber,
                 Account = await _accountService.GetById(accountNumber)
-
             });
     }
 
@@ -43,13 +42,15 @@ public class AccountController : Controller
         viewModel.Account = await _accountService.GetById(viewModel.AccountNumber);
 
         if (viewModel.Amount.HasMoreThanTwoDecimalPlaces())
-        {
             ModelState.AddModelError(nameof(viewModel.Amount), "Amount cannot have more than 2 decimal places.");
-            return View(viewModel);
-        }
 
         if (!ModelState.IsValid)
-            return View(viewModel);
+            return View("DepositForm",
+                new DepositViewModel
+                {
+                    AccountNumber = viewModel.AccountNumber,
+                    Account = viewModel.Account
+                });
 
         await _accountService.Deposit(viewModel);
 
@@ -90,7 +91,12 @@ public class AccountController : Controller
             ModelState.AddModelError(nameof(viewModel.Amount), "Insufficient balance.");
 
         if (!ModelState.IsValid)
-            return View(viewModel);
+            return View("WithdrawForm",
+                new WithdrawViewModel
+                {
+                    AccountNumber = viewModel.AccountNumber,
+                    Account = viewModel.Account
+                });
 
         await _accountService.Withdraw(viewModel);
 
@@ -135,7 +141,12 @@ public class AccountController : Controller
             ModelState.AddModelError(nameof(viewModel.Amount), "Insufficient balance.");
 
         if (!ModelState.IsValid)
-            return View("TransferForm",viewModel);
+            return View("TransferForm",
+                new TransferViewModel
+                {
+                    AccountNumber = viewModel.AccountNumber,
+                    Account = viewModel.Account
+                });
 
         await _accountService.Transfer(viewModel);
 
@@ -203,9 +214,10 @@ public class AccountController : Controller
         if (!ModelState.IsValid)
             return View("ViewBillPay", model);
 
-        var acc = await _accountService.GetById(accountNumber);
         await _accountService.BillPay(model);
-        return RedirectToAction(nameof(Index), "Customer", new { customerId = acc.CustomerID });
+
+        var account = await _accountService.GetById(accountNumber);
+        return RedirectToAction(nameof(Index), "Customer", new { customerId = account.CustomerID });
     }
 
 
