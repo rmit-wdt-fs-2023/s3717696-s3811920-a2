@@ -86,7 +86,6 @@ public class CustomerService : ICustomerService
 
     public IEnumerable<Customer> GetAll()
     {
-        //return _context.GetAll();
         return _context.Customer.ToList();
     }
 
@@ -107,7 +106,8 @@ public class CustomerService : ICustomerService
 
     public void Update(Customer customer)
     {
-        _context.Update(customer);
+        _context.Customer.Update(customer);
+        _context.SaveChanges();
     }
 
     public void Delete(int id)
