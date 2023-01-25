@@ -2,6 +2,8 @@
 using MCBA_Web.Data;
 using MCBA_Web.Models;
 using MCBA_Web.Services;
+using MCBA_Web.ViewModels;
+using NuGet.Protocol.Plugins;
 
 namespace MCBA_Web.Controllers;
 
@@ -66,6 +68,16 @@ public class LoginController : Controller
         HttpContext.Session.Clear();
 
         return RedirectToAction("Index", "Home");
+    }
+
+    [HttpPost("UpdatePassword")]
+    public IActionResult UpdatePassword(LoginPasswordViewModel model)
+    {
+        var login = _loginService.GetLoginByCustomerId(model.CustomerID);
+
+        _loginService.UpdatePassword(login, model.Password);
+
+        return RedirectToAction("Index", "Customer", new { customerId = login.CustomerID });
     }
 
 }

@@ -50,6 +50,9 @@
             <div class="card-header">
                 <ul class="nav nav-tabs card-header-tabs justify-content-center">
                     <li class="nav-item">
+                        <a style="font-size: 20px;" class="nav-link" data-toggle="tab" href="#privacy" role="tab" aria-controls="accounts" aria-selected="false">Privacy</a>
+                    </li>
+                    <li class="nav-item">
                         <a style="font-size: 20px;" class="nav-link" data-toggle="tab" href="#customer" role="tab" aria-controls="porofile" aria-selected="true">Profile</a>
                     </li>
                     <li class="nav-item">
@@ -99,6 +102,17 @@
                                     }
                                 </div>
                             }
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="privacy" role="tabpanel">
+                        <div class="card">
+                            <div class="card-body">
+                                    @{
+                                        var loginPassModel = new LoginPasswordViewModel();
+                                        loginPassModel.CustomerID = Model.CustomerID;
+                                        await Html.RenderPartialAsync("Components/PrivacyCustomer", loginPassModel);
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>

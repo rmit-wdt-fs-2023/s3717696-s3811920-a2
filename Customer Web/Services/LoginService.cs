@@ -1,5 +1,7 @@
 ﻿using MCBA_Web.Data;
 using MCBA_Web.Models;
+using MCBA_Web.ViewModels;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NuGet.Protocol.Plugins;
 using SimpleHashing.Net;
@@ -43,6 +45,19 @@ public class LoginService : ILoginService
         return false;
     }
 
+    public void UpdatePassword(Login login, string newPassword)
+    {
+        login.PasswordHash = _simpleHash.Compute(newPassword);
+
+        _context.Login.Update(login);
+
+        _context.SaveChanges();
+    }
+
+    public Login GetLoginByCustomerId(int customerId)
+    {
+        return _context.Login.FirstOrDefault(m => m.CustomerID == customerId);
+    }
 
     public Customer GetCustomerByLoginId(int loginId)
     {

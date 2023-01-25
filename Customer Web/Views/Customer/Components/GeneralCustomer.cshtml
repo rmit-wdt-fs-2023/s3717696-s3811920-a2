@@ -3,11 +3,26 @@
 <div>
     @if (Model.HasDefaultProfilePicture)
     {
-        <img style="margin-bottom: 10px;" src="~/img/CustomerProfile/default_profile_picture.png" width="50" height="50" class="img-fluid d-inline-block align-top" alt="Default Profile Picture">
+        <form id="form-upload" asp-action="UploadImage" asp-controller="Customer" method="post" enctype="multipart/form-data">
+                <input type="hidden" asp-for=CustomerID />
+                <input type="hidden" asp-for=Name />
+                <input type="hidden" asp-for=Mobile />
+                <input type="hidden" asp-for=TFN />
+                <div class="profile-picture">
+                    <a onclick="" >
+                        <img onclick="document.getElementById('file-input').click()" style="border-radius: 50%; overflow: hidden;margin-top: 20px;margin-left: 350px; margin-bottom: 10px;" width="150" height="150" src="~/img/CustomerProfile/default_profile_picture.png" alt="Profile Picture" onmouseover="this.nextElementSibling.style.display = 'block'" onmouseout="this.nextElementSibling.style.display = 'none'" />
+                        <div style="position: absolute; top: 19%; left: 50%; transform: translate(-50%, -50%); display: none" class="overlay-picture">
+                            <img style="width: 60px; height: 60px;" src="~/img/CustomerProfile/change_image_hover.png" alt="Overlay Picture">
+                            <input type="file" accept="image/*" asp-for="ImageUpload" id="file-input" style="display:none" oninput="submitForm()" onchange="submitForm(this)">
+                        </div>
+                    </a>
+            </div>
+        </form>
     }
 
     @if (!Model.HasDefaultProfilePicture)
     {
+        <div style="display: flex;">
             <form id="form-upload" asp-action="UploadImage" asp-controller="Customer" method="post" enctype="multipart/form-data">
                 <input type="hidden" asp-for=CustomerID />
                 <input type="hidden" asp-for=Name />
@@ -16,13 +31,18 @@
                 <div style="position: relative;" class="profile-picture">
                     <a onclick="" >
                     <img onclick="document.getElementById('file-input').click()" style="border-radius: 50%; overflow: hidden;margin-top: 20px;margin-left: 350px; margin-bottom: 10px;" width="150" height="150" src="@Url.Action("GetProfilePicture", "Customer", new { customerId = Model.CustomerID })" alt="Profile Picture" onmouseover="this.nextElementSibling.style.display = 'block'" onmouseout="this.nextElementSibling.style.display = 'none'" />
-                        <div style="position: absolute; top: 55%; left: 50%; transform: translate(-50%, -50%); display: none" class="overlay-picture">
+                        <div style="position: absolute; top: 55%; left: 85%; transform: translate(-50%, -50%); display: none" class="overlay-picture">
                             <img style="width: 60px; height: 60px;" src="~/img/CustomerProfile/change_image_hover.png" alt="Overlay Picture">
                             <input type="file" accept="image/*" asp-for="ImageUpload" id="file-input" style="display:none" oninput="submitForm()" onchange="submitForm(this)">
                         </div>
                     </a>
                 </div>
             </form>
+
+            <form id="delete-profile-pic-form" asp-action="DeleteProfilePicture" asp-controller="Customer" asp-route-customerId="@Model.CustomerID">
+            <input style="margin-left: 180px;" class="btn btn-danger" type="button" value="Delete Profile Picture" onclick="submitDeletePictureForm()"/>
+            </form>
+        </div>
     }
 
 </div>
@@ -61,6 +81,9 @@
 
 
 <script>
+    function submitDeletePictureForm(){
+        document.getElementById("delete-profile-pic-form").submit();
+    }
 
     function previewImage(input) {
         if (input.files && input.files[0]) {
