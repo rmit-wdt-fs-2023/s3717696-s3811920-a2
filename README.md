@@ -16,6 +16,10 @@ The Admin WEB-API project consists of a RESTful API that is responsible for hand
 
 The Admin WEB project is a web application that connects to the Admin WEB-API endpoints and provides an easy-to-use interface for the bank's admin staff to manage customer accounts and transactions. The web application is built using ASP.NET Core and Razor Pages.
 
+- Allows operation to edit a customer's general details and address.
+- Can lock/unlock a login for a user.
+- Can lock/unlock a bill.
+
 ## Customer WEB
 The Customer WEB project is a web application that allows customers to log in and manage their banking details. The web application is built using ASP.NET Core and Razor Pages. It has the following features:
 
