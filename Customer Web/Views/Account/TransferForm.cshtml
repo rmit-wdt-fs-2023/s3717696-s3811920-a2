@@ -24,7 +24,7 @@
     <div id="popupCard" style="width: 550px; height: 600px; display:block; box-shadow: 0px 0px 5px #999; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
         <div style="margin-top: 100px;" class="form-container">
             <form style="margin-left: 160px" asp-controller="Account" asp-action="Transfer" asp-route-customerId="@Model.Account.CustomerID" asp-route-accountNumber="@Model.Account.AccountNumber" method="post" id="transfer-form">
-                <h4 style="margin-left: 10px; margin-bottom: 30px;">Transfer to @Model.Account.AccountNumber</h4>
+                <h4 style="margin-left: 10px; margin-bottom: 30px;">Transfer from Account: @Model.Account.AccountNumber</h4>
                 <input type="hidden" asp-for="AccountNumber" />
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
