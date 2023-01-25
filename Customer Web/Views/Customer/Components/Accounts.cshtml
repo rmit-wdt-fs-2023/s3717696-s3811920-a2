@@ -61,7 +61,7 @@
                 <tbody>
                     @{
                         var offset = TimeZoneInfo.FindSystemTimeZoneById("AUS Eastern Standard Time").GetUtcOffset(DateTime.Now);
-                        var transactionsToDisplay = account.Transactions.OrderBy(t => t.TransactionTimeUtc).Take(10);
+                        var transactionsToDisplay = account.Transactions.OrderByDescending(t => t.TransactionTimeUtc).Take(10);
                         foreach (var transaction in transactionsToDisplay)
                         {
                             <tr>
