@@ -1,0 +1,30 @@
+﻿@model LoginPasswordViewModel
+
+<form id="privacy-form" asp-action="UpdatePassword" asp-controller="Login" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="CustomerID" />
+    <div class="form-group">
+        <label asp-for="Password">Password</label>
+        <input asp-for="Password" type="password" class="form-control general-editable" id="Password" name="Password">
+        <span asp-validation-for="Password" class="text-danger"></span>
+        <label asp-for="ConfirmPassword">Confirm Password</label>
+        <input asp-for="ConfirmPassword" type="password" class="form-control general-editable" id="ConfirmPassword" name="ConfirmPassword">
+        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        <p id="password-not-match-label" style="display: none;" class="text-danger">Passwords do not match.</p>
+    </div>
+    <input onclick="ComparePasswords()" style="width: 100px; font-size: 18px;" id="save-private-button" value="Save" class="btn btn-primary" />
+</form>
+
+<script>
+    var form = document.getElementById("privacy-form");
+    var passwordDoesNotMatchLabel = document.getElementById("password-not-match-label")
+    function ComparePasswords() {
+        var password = document.getElementById("Password").value;
+        var confirmPassword = document.getElementById("ConfirmPassword").value;
+
+        if (password != confirmPassword) {
+            passwordDoesNotMatchLabel.style.display = "block";
+            return false;
+        }
+        form.submit();
+}
+</script>

@@ -60,7 +60,8 @@
                 </thead>
                 <tbody>
                     @{
-                        var transactionsToDisplay = account.Transactions.Take(10);
+                        var offset = TimeZoneInfo.FindSystemTimeZoneById("AUS Eastern Standard Time").GetUtcOffset(DateTime.Now);
+                        var transactionsToDisplay = account.Transactions.OrderBy(t => t.TransactionTimeUtc).Take(10);
                         foreach (var transaction in transactionsToDisplay)
                         {
                             <tr>
@@ -69,12 +70,13 @@
                                 <td>@transaction.Amount.ToString("C")</td>
                                 <td>@(string.IsNullOrEmpty(transaction.Comment) ? "N/A" : transaction.Comment)</td>
                                 <td>@(string.IsNullOrEmpty(Convert.ToString(transaction.DestinationAccountNumber)) ? "N/A" : transaction.DestinationAccountNumber)</td>
-                                <td>@transaction.TransactionTimeUtc</td>
+                                <td>@(transaction.TransactionTimeUtc.ToLocalTime().Add(offset))</td>
                             </tr>
                         }
                     }
                 </tbody>
             </table>
+
         </div>
     }
 </div>

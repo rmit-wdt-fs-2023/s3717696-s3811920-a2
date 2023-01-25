@@ -55,4 +55,15 @@ public class CustomerController : Controller
 
         return File(customer.ProfilePicture, customer.ProfilePictureContentType);
     }
+
+    [HttpPost("DeleteProfilePicture")]
+    public IActionResult DeleteProfilePicture(int customerId)
+    {
+
+        var customer = _customerService.GetById(customerId);
+
+        _customerService.MakeDefaultProfilePicture(customer);
+
+        return RedirectToAction("Index", "Customer", new { customerId = customer.CustomerID });
+    }
 }
