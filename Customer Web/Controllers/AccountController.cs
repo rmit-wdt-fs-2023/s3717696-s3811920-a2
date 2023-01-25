@@ -21,6 +21,11 @@ public class AccountController : Controller
     [HttpGet("Deposit/{accountNumber}")]
     public async Task<IActionResult> Deposit(int accountNumber)
     {
+        var account = await _accountService.GetById(accountNumber);
+        var customerID = HttpContext.Session.GetInt32(nameof(Customer.CustomerID));
+
+        if (account is null || account.IsNotOwned(customerID))
+            return RedirectToAction(nameof(Index), "Customer", new { customerID });
 
         return View("DepositForm",
             new DepositViewModel
@@ -56,6 +61,12 @@ public class AccountController : Controller
     [HttpGet("Withdraw/{accountNumber}")]
     public async Task<IActionResult> Withdraw(int accountNumber)
     {
+        var account = await _accountService.GetById(accountNumber);
+        var customerID = HttpContext.Session.GetInt32(nameof(Customer.CustomerID));
+
+        if (account is null || account.IsNotOwned(customerID))
+            return RedirectToAction(nameof(Index), "Customer", new { customerID });
+
         return View("WithdrawForm",
             new WithdrawViewModel
             {
@@ -69,8 +80,6 @@ public class AccountController : Controller
     [HttpPost("Withdraw/{accountNumber}")]
     public async Task<IActionResult> Withdraw(int customerId, WithdrawViewModel viewModel)
     {
-
-        Console.Write("------------------------------------");
 
         viewModel.Account = await _accountService.GetById(viewModel.AccountNumber);
 
@@ -93,6 +102,12 @@ public class AccountController : Controller
     [HttpGet("Transfer/{accountNumber}")]
     public async Task<IActionResult> Transfer(int accountNumber)
     {
+        var account = await _accountService.GetById(accountNumber);
+        var customerID = HttpContext.Session.GetInt32(nameof(Customer.CustomerID));
+
+        if (account is null || account.IsNotOwned(customerID))
+            return RedirectToAction(nameof(Index), "Customer", new { customerID });
+
         return View("TransferForm",
             new TransferViewModel
             {
@@ -133,9 +148,11 @@ public class AccountController : Controller
     [HttpGet("MyStatements/{accountNumber}")]
     public async Task<IActionResult> MyStatements(int accountNumber, int page = 1)
     {
-        var account = await _accountService.GetById(Convert.ToInt32(accountNumber));
-        if (account is null)
-            return RedirectToAction(nameof(Index));
+        var account = await _accountService.GetById(accountNumber);
+        var customerID = HttpContext.Session.GetInt32(nameof(Customer.CustomerID));
+
+        if (account is null || account.IsNotOwned(customerID))
+            return RedirectToAction(nameof(Index), "Customer", new { customerID });
 
         ViewBag.Account = account;
         IPagedList<Transaction> pagedList = await _accountService.GetAccountTransactionsPerPage(account.AccountNumber, page);
@@ -149,8 +166,10 @@ public class AccountController : Controller
     public async Task<IActionResult> ScheduledBills(int accountNumber, int page = 1)
     {
         var account = await _accountService.GetById(accountNumber);
-        if (account is null)
-            return RedirectToAction(nameof(Index));
+        var customerID = HttpContext.Session.GetInt32(nameof(Customer.CustomerID));
+
+        if (account is null || account.IsNotOwned(customerID))
+            return RedirectToAction(nameof(Index), "Customer", new { customerID });
 
         ViewBag.Account = account;
 
@@ -162,7 +181,7 @@ public class AccountController : Controller
 
     // GET: Account/ViewBillPay
     [HttpPost("ViewBillPay")]
-    public IActionResult ViewBillPay( BillPay model)
+    public IActionResult ViewBillPay(BillPay model)
     {
         return View(model);
     }
@@ -190,16 +209,17 @@ public class AccountController : Controller
     }
 
 
-    // GET: Account/EditBillPay
+    // POST: Account/EditBillPay
     [HttpPost("EditBillPay")]
     public async Task<IActionResult> EditBillPay(BillPay model)
     {
+        var account = await _accountService.GetById(model.AccountNumber);
         await _accountService.RescheduleBillPay(model);
-        return RedirectToAction(nameof(Index));
+        return RedirectToAction(nameof(Index), "Customer", new { account.CustomerID });
     }
 
 
-    // POST: Account/RetryBillPay
+    // GET: Account/RetryBillPay
     [HttpPost("RetryBillPay")]
     public async Task<IActionResult> RetryBillPay(int accountNumber, int billPayId)
     {

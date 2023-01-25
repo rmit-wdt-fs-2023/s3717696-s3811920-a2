@@ -20,7 +20,10 @@ public class CustomerController : Controller
     [Route("{customerId}")]
     public IActionResult Index(int customerId)
     {
+        var loggedInUserID = HttpContext.Session.GetInt32(nameof(Customer.CustomerID));
         var customer = _customerService.GetById(customerId);
+        if (customer.CustomerID != loggedInUserID)
+            return RedirectToAction("Index", "Customer", new { customerId = loggedInUserID });
 
         return View("Overview", customer);
     }

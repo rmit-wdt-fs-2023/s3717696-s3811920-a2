@@ -14,6 +14,8 @@ namespace MCBA_Web.Utilities
 
         public static bool HasMoreThanTwoDecimalPlaces(this decimal value) => value.HasMoreThanNDecimalPlaces(2);
 
+        public static bool IsNotOwned(this Account account, int? customerID) => account.CustomerID != customerID;
+
         public static bool HasInsufficientBalance(this Account account, decimal amount, AccountType accountType)
         {
             bool hasInsufficientBalance = false;
@@ -37,7 +39,6 @@ namespace MCBA_Web.Utilities
 
             return serviceCharge;
         }
-        
     }
 }
 

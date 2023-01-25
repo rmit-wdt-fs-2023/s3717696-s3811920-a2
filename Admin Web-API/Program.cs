@@ -53,7 +53,7 @@ builder.Services.AddHttpClient();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment()) // Enable Swagger API interface if in dev
 {
     app.UseSwagger();
     app.UseSwaggerUI();
