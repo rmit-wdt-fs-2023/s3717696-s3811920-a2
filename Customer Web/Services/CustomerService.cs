@@ -29,11 +29,11 @@ public class CustomerService : ICustomerService
             {
                 if (width > height)
                 {
-                    Tuple.Create(400, (int)(400 / aspectRatio));
+                    return Tuple.Create(400, (int)(400 / aspectRatio));
                 }
                 else
                 {
-                    Tuple.Create((int)(400 * aspectRatio), 400);
+                    return Tuple.Create((int)(400 * aspectRatio), 400);
                 }
             }
         }
@@ -45,6 +45,15 @@ public class CustomerService : ICustomerService
         return Tuple.Create(width, height);
     }
 
+    public void MakeDefaultProfilePicture(Customer customer)
+    {
+        customer.ProfilePicture = null;
+        customer.HasDefaultProfilePicture = true;
+        customer.ProfilePictureContentType = null;
+
+        _context.Customer.Update(customer);
+        _context.SaveChanges();
+    }
     public void UpdateProfilePicture(Customer customer)
     {
         using (MagickImage image = new MagickImage(customer.ImageUpload.OpenReadStream()))

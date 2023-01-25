@@ -11,4 +11,5 @@ public interface ICustomerService
     void Update(Customer customer);
     void Delete(int id);
     void Save();
+    void MakeDefaultProfilePicture(Customer customer);
 }
