@@ -7,161 +7,183 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MCBA_Web.Data;
 using MCBA_Web.Models;
+using MCBA_Web.ViewModels;
+using MCBA_Web.Services;
+using MCBA_Web.Utilities;
+using X.PagedList;
 
 namespace MCBA_Web.Controllers;
 
+[Route("Account")]
 public class TransactionController : Controller
 {
-    private readonly MCBAContext _context;
+    private readonly IAccountService _accountService;
 
-    public TransactionController(MCBAContext context)
+    private readonly ITransactionService _transactionService;
+
+
+    public TransactionController(IAccountService accountService, ITransactionService transactionService)
     {
-        _context = context;
+        _accountService = accountService;
+        _transactionService = transactionService;
     }
 
-    // GET: Transaction
-    public async Task<IActionResult> Index()
+
+    // GET: Account/Deposit?accountNumber=4100
+    [HttpGet("Deposit/{accountNumber}")]
+    public async Task<IActionResult> Deposit(int accountNumber)
     {
-        var mCBAContext = _context.Transaction.Include(t => t.Account);
-        return View(await mCBAContext.ToListAsync());
-    }
+        var customerID = HttpContext.Session.GetInt32(nameof(Customer.CustomerID));
+        var account = await _accountService.GetById(accountNumber);
 
-    // GET: Transaction/Details/5
-    public async Task<IActionResult> Details(int? id)
-    {
-        if (id == null || _context.Transaction == null)
-        {
-            return NotFound();
-        }
+        if (account is null || account.IsNotOwned(customerID))
+            return RedirectToAction(nameof(Index), "Customer", new { customerID });
 
-        var transaction = await _context.Transaction
-            .Include(t => t.Account)
-            .FirstOrDefaultAsync(m => m.TransactionID == id);
-        if (transaction == null)
-        {
-            return NotFound();
-        }
-
-        return View(transaction);
-    }
-
-    // GET: Transaction/Create
-    public IActionResult Create()
-    {
-        ViewData["AccountNumber"] = new SelectList(_context.Account, "AccountNumber", "AccountNumber");
-        return View();
-    }
-
-    // POST: Transaction/Create
-    // To protect from overposting attacks, enable the specific properties you want to bind to.
-    // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create([Bind("TransactionID,TransactionType,AccountNumber,DestinationAccountNumber,Amount,Comment,TransactionTimeUtc")] Transaction transaction)
-    {
-        if (ModelState.IsValid)
-        {
-            _context.Add(transaction);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-        ViewData["AccountNumber"] = new SelectList(_context.Account, "AccountNumber", "AccountNumber", transaction.AccountNumber);
-        return View(transaction);
-    }
-
-    // GET: Transaction/Edit/5
-    public async Task<IActionResult> Edit(int? id)
-    {
-        if (id == null || _context.Transaction == null)
-        {
-            return NotFound();
-        }
-
-        var transaction = await _context.Transaction.FindAsync(id);
-        if (transaction == null)
-        {
-            return NotFound();
-        }
-        ViewData["AccountNumber"] = new SelectList(_context.Account, "AccountNumber", "AccountNumber", transaction.AccountNumber);
-        return View(transaction);
-    }
-
-    // POST: Transaction/Edit/5
-    // To protect from overposting attacks, enable the specific properties you want to bind to.
-    // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id, [Bind("TransactionID,TransactionType,AccountNumber,DestinationAccountNumber,Amount,Comment,TransactionTimeUtc")] Transaction transaction)
-    {
-        if (id != transaction.TransactionID)
-        {
-            return NotFound();
-        }
-
-        if (ModelState.IsValid)
-        {
-            try
+        return View("DepositForm",
+            new DepositViewModel
             {
-                _context.Update(transaction);
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
+                AccountNumber = accountNumber,
+                Account = await _accountService.GetById(accountNumber)
+            });
+    }
+
+
+    // POST: Account/Deposit
+    [HttpPost("Deposit/{accountNumber}")]
+    public async Task<IActionResult> Deposit(int customerId, DepositViewModel viewModel)
+    {
+        viewModel.Account = await _accountService.GetById(viewModel.AccountNumber);
+
+        if (viewModel.Amount.HasMoreThanTwoDecimalPlaces())
+            ModelState.AddModelError(nameof(viewModel.Amount), "Amount cannot have more than 2 decimal places.");
+
+        if (!ModelState.IsValid)
+            return View("DepositForm",
+                new DepositViewModel
+                {
+                    AccountNumber = viewModel.AccountNumber,
+                    Account = viewModel.Account
+                });
+
+
+        await _transactionService.Deposit(viewModel);
+
+        return RedirectToAction(nameof(Index), "Customer", new { customerId });
+    }
+
+
+    // GET: Account/Withdraw?accountNumber=4100
+    [HttpGet("Withdraw/{accountNumber}")]
+    public async Task<IActionResult> Withdraw(int accountNumber)
+    {
+        var account = await _accountService.GetById(accountNumber);
+        var customerID = HttpContext.Session.GetInt32(nameof(Customer.CustomerID));
+
+        if (account is null || account.IsNotOwned(customerID))
+            return RedirectToAction(nameof(Index), "Customer", new { customerID });
+
+        return View("WithdrawForm",
+            new WithdrawViewModel
             {
-                if (!TransactionExists(transaction.TransactionID))
+                AccountNumber = accountNumber,
+                Account = await _accountService.GetById(accountNumber)
+            });
+    }
+
+
+    // POST: Account/Withdraw
+    [HttpPost("Withdraw/{accountNumber}")]
+    public async Task<IActionResult> Withdraw(int customerId, WithdrawViewModel viewModel)
+    {
+
+        viewModel.Account = await _accountService.GetById(viewModel.AccountNumber);
+
+        if (viewModel.Amount.HasMoreThanTwoDecimalPlaces())
+            ModelState.AddModelError(nameof(viewModel.Amount), "Amount cannot have more than 2 decimal places.");
+
+        if (viewModel.Account.HasInsufficientBalance(viewModel.Amount, viewModel.Account.AccountType))
+            ModelState.AddModelError(nameof(viewModel.Amount), "Insufficient balance.");
+
+        if (!ModelState.IsValid)
+            return View("WithdrawForm",
+                new WithdrawViewModel
                 {
-                    return NotFound();
-                }
-                else
+                    AccountNumber = viewModel.AccountNumber,
+                    Account = viewModel.Account
+                });
+
+        await _transactionService.Withdraw(viewModel);
+
+        return RedirectToAction(nameof(Index), "Customer", new { customerId });
+    }
+
+
+    // GET: Account/Transfer?accountNumber=4100
+    [HttpGet("Transfer/{accountNumber}")]
+    public async Task<IActionResult> Transfer(int accountNumber)
+    {
+        var account = await _accountService.GetById(accountNumber);
+        var customerID = HttpContext.Session.GetInt32(nameof(Customer.CustomerID));
+
+        if (account is null || account.IsNotOwned(customerID))
+            return RedirectToAction(nameof(Index), "Customer", new { customerID });
+
+        return View("TransferForm",
+            new TransferViewModel
+            {
+                AccountNumber = accountNumber,
+                Account = await _accountService.GetById(accountNumber)
+            });
+    }
+
+
+    // POST: Account/Transfer
+    [HttpPost("Transfer/{accountNumber}")]
+    public async Task<IActionResult> Transfer(int customerId, TransferViewModel viewModel)
+    {
+        viewModel.Account = await _accountService.GetById(viewModel.AccountNumber);
+        viewModel.DestinationAccount = await _accountService.GetById(viewModel.DestinationAccountNumber);
+
+        if (await _accountService.GetById(viewModel.DestinationAccountNumber) == null
+            || viewModel.AccountNumber.Equals(viewModel.DestinationAccountNumber))
+            ModelState.AddModelError(nameof(viewModel.DestinationAccountNumber), "Invalid destination account number.");
+
+        if (viewModel.Amount.HasMoreThanTwoDecimalPlaces())
+            ModelState.AddModelError(nameof(viewModel.Amount), "Amount cannot have more than 2 decimal places.");
+
+        if (viewModel.Account.HasInsufficientBalance(viewModel.Amount, viewModel.Account.AccountType))
+            ModelState.AddModelError(nameof(viewModel.Amount), "Insufficient balance.");
+
+        if (!ModelState.IsValid)
+            return View("TransferForm",
+                new TransferViewModel
                 {
-                    throw;
-                }
-            }
-            return RedirectToAction(nameof(Index));
-        }
-        ViewData["AccountNumber"] = new SelectList(_context.Account, "AccountNumber", "AccountNumber", transaction.AccountNumber);
-        return View(transaction);
+                    AccountNumber = viewModel.AccountNumber,
+                    Account = viewModel.Account
+                });
+
+
+        await _transactionService.Transfer(viewModel);
+
+        return RedirectToAction(nameof(Index), "Customer", new { customerId });
+
     }
 
-    // GET: Transaction/Delete/5
-    public async Task<IActionResult> Delete(int? id)
+
+    // Get: Account/MyStatements
+    [HttpGet("MyStatements/{accountNumber}")]
+    public async Task<IActionResult> MyStatements(int accountNumber, int page = 1)
     {
-        if (id == null || _context.Transaction == null)
-        {
-            return NotFound();
-        }
+        var account = await _accountService.GetById(accountNumber);
+        var customerID = HttpContext.Session.GetInt32(nameof(Customer.CustomerID));
 
-        var transaction = await _context.Transaction
-            .Include(t => t.Account)
-            .FirstOrDefaultAsync(m => m.TransactionID == id);
-        if (transaction == null)
-        {
-            return NotFound();
-        }
+        if (account is null || account.IsNotOwned(customerID))
+            return RedirectToAction(nameof(Index), "Customer", new { customerID });
 
-        return View(transaction);
+        ViewBag.Account = account;
+        IPagedList<Transaction> pagedList = await _transactionService.GetAccountTransactionsPerPage(account.AccountNumber, page);
+
+        return View(pagedList);
     }
 
-    // POST: Transaction/Delete/5
-    [HttpPost, ActionName("Delete")]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> DeleteConfirmed(int id)
-    {
-        if (_context.Transaction == null)
-        {
-            return Problem("Entity set 'MCBAContext.Transaction'  is null.");
-        }
-        var transaction = await _context.Transaction.FindAsync(id);
-        if (transaction != null)
-        {
-            _context.Transaction.Remove(transaction);
-        }
-
-        await _context.SaveChangesAsync();
-        return RedirectToAction(nameof(Index));
-    }
-
-    private bool TransactionExists(int id)
-    {
-        return _context.Transaction.Any(e => e.TransactionID == id);
-    }
 }

@@ -1,7 +1,7 @@
-﻿@model WithdrawViewModel
+﻿@model DepositViewModel
 
 <head>
-    <title>MCBA - Withdraw</title>
+    <title>MCBA - Deposit</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
@@ -15,13 +15,12 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
 </head>
-
 <img src="~/img/Home/logo.png" width="160" height="160" class="img-fluid d-inline-block align-top" alt="MCBA Logo">
 <div class="card-body">
     <div id="popupCard" style="width: 550px; height: 600px; display:block; box-shadow: 0px 0px 5px #999; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
         <div style="margin-top: 100px;" class="form-container">
-            <form style="margin-left: 180px" asp-controller="Account" asp-action="Withdraw" asp-route-customerId="@Model.Account.CustomerID" asp-route-accountNumber="@Model.Account.AccountNumber" method="post" id="withdraw-form">
-                <h4 style="margin-left: 10px; margin-bottom: 30px;">Withdraw from Account: @Model.Account.AccountNumber</h4>
+            <form style="margin-left: 180px" asp-controller="Transaction" asp-action="Deposit" asp-route-customerId="@Model.Account.CustomerID" asp-route-accountNumber="@Model.Account.AccountNumber" method="post" id="deposit-form">
+                <h4 style="margin-left: 10px; margin-bottom: 30px;">Deposit to Account: @Model.Account.AccountNumber</h4>
                 <input type="hidden" asp-for="AccountNumber" value="@Model.Account.AccountNumber" />
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div style="width: 200px;" class="form-group">
@@ -38,14 +37,14 @@
                     <a href="/MyProfile/@Model.Account.CustomerID">
                         <button type="button" style="margin-left: 20px;margin-top: 25px; width: 75px; height: 35px" class="btn btn-danger">Back</button>
                     </a>
-                    <input type="button" style="margin-top: 25px; width: 95px; height: 35px" value="Withdraw" class="btn btn-primary" id="form-withdraw-button" />
+                    <input type="button" style="margin-top: 25px; width: 85px; height: 35px" value="Deposit" class="btn btn-primary" id="form-deposit-button" />
                 </div>
             </form>
         </div>
 
         <div class="card-body confirmation-card" id="confirmation-card" style="display: none; margin-top: 100px;">
             <div>
-                <h4 style="margin-left: 180px; margin-bottom: 30px">Confirm Withdraw?</h4>
+                <h4 style="margin-left: 180px; margin-bottom: 30px">Confirm Deposit?</h4>
 
                 <p class="card-text" style="margin-left: 180px">Destination: @Model.Account.AccountNumber</p>
                 <p style="margin-left: 180px">Amount: $<span id="amount-span"></span></p>
@@ -54,26 +53,24 @@
                     <a href="/MyProfile/@Model.Account.CustomerID">
                         <button style="margin-left: 120px;" class="btn btn-secondary">Cancel</button>
                     </a>
-                    <button style="margin-left: 30px;;" class="btn btn-primary" id="confirm-button">Confirm</button>
+                    <button style="margin-left: 30px;" class="btn btn-primary" id="confirm-button">Confirm</button>
                 </div>
             </div>
         </div>
     </div>
-
-
-<script>
-    // Get the form, withdraw button, confirmation card, and input elements
-    var form = document.getElementById("withdraw-form");
+</div>
+<script>// Get the form, deposit button, confirmation card, and input elements
+    var form = document.getElementById("deposit-form");
     var confirmationCard = document.getElementById("confirmation-card");
     var amountInput = document.getElementById("amount");
     var commentInput = document.getElementById("comment");
     var amountSpan = document.getElementById("amount-span");
     var commentSpan = document.getElementById("comment-span");
     var popUpCard = document.getElementById("popupCard");
-    var depositButton = document.getElementById("withdraw-button");
-    var formDepositButton = document.getElementById("form-withdraw-button");
+    var depositButton = document.getElementById("deposit-button");
+    var formDepositButton = document.getElementById("form-deposit-button");
     var confirmationConfirmButton = document.getElementById("confirm-button");
-    var closeDepositFormButton = document.getElementById("close-withdraw-form-button");
+    var closeDepositFormButton = document.getElementById("close-deposit-form-button");
 
     formDepositButton.addEventListener("click", function (event) {
         event.preventDefault();
