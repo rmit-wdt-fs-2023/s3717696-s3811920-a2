@@ -1,7 +1,7 @@
 ﻿@model IPagedList<BillPay>
 @{
     ViewData["Title"] = "Scheduled Bills";
-    var account = (Account) ViewBag.Account;
+    var account = (Account)ViewBag.Account;
 }
 
 <head>
@@ -43,16 +43,20 @@
                     </tr>
                     @foreach (var scheduledBill in Model)
                     {
+                        // Convert utc DateTime to LocalTime
+                        DateTime convertedDate = DateTime.SpecifyKind(scheduledBill.ScheduleTimeUtc, DateTimeKind.Utc);
+                        var kind = convertedDate.Kind;
+                        DateTime dt = convertedDate.ToLocalTime();
+                        var dateTime = dt.ToString("dd/MM/yyyy hh:mm tt").ToUpper();
                         <tr>
                             <td>@Html.DisplayFor(x => scheduledBill.BillPayID)</td>
                             <td>@Html.DisplayFor(x => scheduledBill.PayeeID)</td>
                             <td>@Html.DisplayFor(x => scheduledBill.Amount)</td>
                             <td>@Html.DisplayFor(x => scheduledBill.IsBlocked)</td>
-                            <td>@Html.DisplayFor(x => scheduledBill.ScheduleTimeUtc)</td>
+                            <td>@dateTime</td>
                             <td>@Html.DisplayFor(x => scheduledBill.PaymentPeriod)</td>
 
-
-                            @if (scheduledBill.ScheduleTimeUtc < DateTime.UtcNow)
+                            @if (scheduledBill.ScheduleTimeUtc < DateTime.UtcNow.AddSeconds(1))
                             {
                                 <td>
                                     <form asp-controller="Account" asp-action="RetryBillPay">
@@ -73,7 +77,7 @@
                                 </td>
                             }
                         </tr>
-                     }
+                    }
                 </table>
 
                 <div style="margin-left: 95px;display: flex;">
@@ -84,11 +88,11 @@
                     </form>
 
                     @Html.PagedListPager(Model, page => Url.Action("ScheduledBills", new { account.AccountNumber, page }),
-                            new PagedListRenderOptions
-                            {
-                                LiElementClasses = new[] { "page-item" },
-                                PageClasses = new[] { "page-link" }
-                            })
+                                 new PagedListRenderOptions
+                                 {
+                                     LiElementClasses = new[] { "page-item" },
+                                     PageClasses = new[] { "page-link" }
+                                 })
 
                     <a href="/MyProfile/@account.CustomerID">
                         <button type="button" style="margin-left: 380px;width: 75px; height: 35px" class="btn btn-danger">Back</button>
@@ -98,5 +102,3 @@
         </div>
     </div>
 </div>
-
-

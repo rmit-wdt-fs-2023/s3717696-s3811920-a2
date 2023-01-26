@@ -8,37 +8,18 @@ namespace MCBA_Web.Services
 {
 	public interface IAccountService
 	{
-
-        Task<Payee> GetPayeeById(int id);
-        IEnumerable<Account> GetAll();
-
         Task<Account> GetById(int? id);
 
-        Task<BillPay> GetBillById(int id);
+        public IEnumerable<Account> GetAllCustomerAccounts(int customerID);
 
-        Customer GetCustomerById(int id);
+        public IEnumerable<Account> GetAllAccounts();
 
-        Task Deposit(DepositViewModel viewModel);
+        public Task CreateNewAccount(Account account);
 
-        Task Withdraw(WithdrawViewModel viewModel);
+        public Task UpdateAccountDetails(Account account);
 
-        Task Transfer(TransferViewModel viewModel);
+        public Task DeleteAccount(int accountNumber);
 
-        public void AddTransaction(Account account, int? destinationAccountNumber, TransactionType transactionType, decimal amount, string comment);
-
-        public Task<IPagedList<Transaction>> GetAccountTransactionsPerPage(int accountNumber, int page = 1);
-
-        public Task<IPagedList<BillPay>> GetBillPayTransactionsPerPage(int accountNumber, int page = 1);
-
-        public Task BillPay(BillPay viewModel);
-
-        public Task RescheduleBillPay(BillPay viewModel);
-
-        public Task CancelScheduledBillPay(int billPayId);
-
-        bool FreeTransactionNotAllowed(int accountNumber);
-
-        public void ApplyServiceCharge(Account account, TransactionType transactionType);
     }
 }
 

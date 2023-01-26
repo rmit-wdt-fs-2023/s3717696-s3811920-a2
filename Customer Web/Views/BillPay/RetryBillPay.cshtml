@@ -43,13 +43,13 @@
                 <div class="form-group" style="width: 200px;">
                     @* ReSharper disable once UnknownCssClass *@
                     <label asp-for="ScheduleTimeUtc" class="control-label"></label>
-                    <input asp-for="ScheduleTimeUtc" class="form-control" />
+                    <input asp-for="ScheduleTimeUtc" value="@Model.ScheduleTimeUtc.ToLocalTime().ToString("yyyy-MM-ddTHH:mm:ss")" type="datetime-local" class="form-control" />
                     <span asp-validation-for="ScheduleTimeUtc" class="text-danger"></span>
                 </div>
                 <div class="form-group" style="width: 200px;">
                     @* ReSharper disable once UnknownCssClass *@
                     <label asp-for="PaymentPeriod" class="control-label"></label>
-                    <input asp-for="PaymentPeriod" class="form-control" />
+                    <select asp-for="PaymentPeriod" asp-items="Html.GetEnumSelectList<PaymentPeriodType>()" class="form-control"> </select>
                     <span asp-validation-for="PaymentPeriod" class="text-danger"></span>
                 </div>
                 <div class="form-group" style="display:flex; gap: 15px;">
