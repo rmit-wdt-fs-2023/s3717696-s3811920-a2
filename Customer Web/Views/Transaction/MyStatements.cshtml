@@ -1,4 +1,4 @@
-@model IPagedList<Transaction>
+﻿@model IPagedList<Transaction>
 @{
     ViewData["Title"] = "View My Statements";
     var account = (Account)ViewBag.Account;
@@ -43,6 +43,11 @@
                     </tr>
                     @foreach (var transaction in Model)
                     {
+                        // Convert utc DateTime to LocalTime
+                        DateTime convertedDate = DateTime.SpecifyKind(transaction.TransactionTimeUtc, DateTimeKind.Utc);
+                        var kind = convertedDate.Kind;
+                        DateTime dt = convertedDate.ToLocalTime();
+                        var dateTime = dt.ToString("dd/MM/yyyy hh:mm tt").ToUpper();
                         <tr>
                             <td>@Html.DisplayFor(x => transaction.TransactionID)</td>
                             <td>@Html.DisplayFor(x => transaction.TransactionType)</td>
@@ -50,17 +55,17 @@
                             <td>@(string.IsNullOrEmpty(Convert.ToString(transaction.DestinationAccountNumber)) ? "N/A" : transaction.DestinationAccountNumber)</td>
                             <td>@Html.DisplayFor(x => transaction.Amount)</td>
                             <td>@(string.IsNullOrEmpty(Convert.ToString(transaction.Comment)) ? "N/A" : transaction.Comment)</td>
-                            <td>@Html.DisplayFor(x => transaction.TransactionTimeUtc)</td>
+                            <td>@dateTime</td>
                         </tr>
                     }
                 </table>
                 <div style="margin-left: 400px;display: flex;">
                     @Html.PagedListPager(Model, page => Url.Action("MyStatements", new { account.AccountNumber, page }),
-                    new PagedListRenderOptions
-                    {
-                        LiElementClasses = new[] { "page-item" },
-                        PageClasses = new[] { "page-link" }
-                    })
+                         new PagedListRenderOptions
+                         {
+                             LiElementClasses = new[] { "page-item" },
+                             PageClasses = new[] { "page-link" }
+                         })
 
                     <a href="/MyProfile/@account.CustomerID">
                         <button type="button" style="margin-left: 280px;width: 75px; height: 35px" class="btn btn-danger">Back</button>

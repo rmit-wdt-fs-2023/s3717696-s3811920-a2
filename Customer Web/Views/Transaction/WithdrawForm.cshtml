@@ -20,7 +20,7 @@
 <div class="card-body">
     <div id="popupCard" style="width: 550px; height: 600px; display:block; box-shadow: 0px 0px 5px #999; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
         <div style="margin-top: 100px;" class="form-container">
-            <form style="margin-left: 180px" asp-controller="Account" asp-action="Withdraw" asp-route-customerId="@Model.Account.CustomerID" asp-route-accountNumber="@Model.Account.AccountNumber" method="post" id="withdraw-form">
+            <form style="margin-left: 180px" asp-controller="Transaction" asp-action="Withdraw" asp-route-customerId="@Model.Account.CustomerID" asp-route-accountNumber="@Model.Account.AccountNumber" method="post" id="withdraw-form">
                 <h4 style="margin-left: 10px; margin-bottom: 30px;">Withdraw from Account: @Model.Account.AccountNumber</h4>
                 <input type="hidden" asp-for="AccountNumber" value="@Model.Account.AccountNumber" />
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -38,7 +38,7 @@
                     <a href="/MyProfile/@Model.Account.CustomerID">
                         <button type="button" style="margin-left: 20px;margin-top: 25px; width: 75px; height: 35px" class="btn btn-danger">Back</button>
                     </a>
-                    <input type="button" style="margin-top: 25px; width: 75px; height: 35px" value="Withdraw" class="btn btn-primary" id="form-withdraw-button" />
+                    <input type="button" style="margin-top: 25px; width: 95px; height: 35px" value="Withdraw" class="btn btn-primary" id="form-withdraw-button" />
                 </div>
             </form>
         </div>
@@ -61,7 +61,7 @@
     </div>
 
 
-<script>
+    <script>
     // Get the form, withdraw button, confirmation card, and input elements
     var form = document.getElementById("withdraw-form");
     var confirmationCard = document.getElementById("confirmation-card");
@@ -103,4 +103,5 @@
         popUpCard.style.display = "block";
         form.style.display = "block";
     });
+
 </script>

@@ -7,161 +7,114 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MCBA_Web.Data;
 using MCBA_Web.Models;
-
+using MCBA_Web.Services;
 namespace MCBA_Web.Controllers;
+using MCBA_Web.Utilities;
+using X.PagedList;
 
+
+[Route("Account")]
 public class BillPayController : Controller
 {
-    private readonly MCBAContext _context;
+    private readonly IAccountService _accountService;
 
-    public BillPayController(MCBAContext context)
+    private readonly ITransactionService _transactionService;
+
+    private readonly IPayeeService _payeeService;
+
+    private readonly IBillPayService _billPayService;
+
+
+    public BillPayController(IAccountService accountService, ITransactionService transactionService,
+        IPayeeService payeeService, IBillPayService billPayService)
     {
-        _context = context;
+        _accountService = accountService;
+        _transactionService = transactionService;
+        _payeeService = payeeService;
+        _billPayService = billPayService;
     }
 
-    // GET: BillPay
-    public async Task<IActionResult> Index()
+
+    // Get: Account/ScheduledBills
+    [HttpGet("Bills/{accountNumber}")]
+    public async Task<IActionResult> ScheduledBills(int accountNumber, int page = 1)
     {
-        var mCBAContext = _context.BillPay.Include(b => b.Payee);
-        return View(await mCBAContext.ToListAsync());
+        var account = await _accountService.GetById(accountNumber);
+        var customerID = HttpContext.Session.GetInt32(nameof(Customer.CustomerID));
+
+        if (account is null || account.IsNotOwned(customerID))
+            return RedirectToAction(nameof(Index), "Customer", new { customerID });
+
+        ViewBag.Account = account;
+
+        IPagedList<BillPay> pagedList = await _transactionService.GetBillPayTransactionsPerPage(account.AccountNumber, page);
+
+        return View(pagedList);
     }
 
-    // GET: BillPay/Details/5
-    public async Task<IActionResult> Details(int? id)
+
+    // GET: Account/ViewBillPay
+    [HttpPost("ViewBillPay")]
+    public IActionResult ViewBillPay(BillPay model)
     {
-        if (id == null || _context.BillPay == null)
-        {
-            return NotFound();
-        }
-
-        var billPay = await _context.BillPay
-            .Include(b => b.Payee)
-            .FirstOrDefaultAsync(m => m.BillPayID == id);
-        if (billPay == null)
-        {
-            return NotFound();
-        }
-
-        return View(billPay);
+        return View(model);
     }
 
-    // GET: BillPay/Create
-    public IActionResult Create()
+
+    // POST: Account/BillPay
+    [HttpPost("BillPay")]
+    public async Task<IActionResult> BillPay(int accountNumber, BillPay model)
     {
-        ViewData["PayeeID"] = new SelectList(_context.Payee, "PayeeID", "Name");
-        return View();
+
+        if (model.Amount.HasMoreThanTwoDecimalPlaces())
+            ModelState.AddModelError(nameof(model.Amount), "Amount cannot have more than 2 decimal places.");
+
+        var payee = await _payeeService.GetPayeeById(model.PayeeID);
+
+        if (payee == null)
+            ModelState.AddModelError(nameof(model.PayeeID), "Payee doesn't exist.");
+
+        if (!ModelState.IsValid)
+            return View("ViewBillPay", model);
+
+        await _transactionService.BillPay(model);
+
+        var account = await _accountService.GetById(accountNumber);
+        return RedirectToAction(nameof(Index), "Customer", new { customerId = account.CustomerID });
     }
 
-    // POST: BillPay/Create
-    // To protect from overposting attacks, enable the specific properties you want to bind to.
-    // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create([Bind("BillPayID,AccountNumber,PayeeID,Amount,ScheduleTimeUtc,PaymentPeriod")] BillPay billPay)
+
+    // GET: Account/RetryBillPay
+    [HttpPost("RetryBillPay")]
+    public async Task<IActionResult> RetryBillPay(int accountNumber, int billPayId)
     {
-        if (ModelState.IsValid)
-        {
-            _context.Add(billPay);
-            await _context.SaveChangesAsync();
+        var account = await _accountService.GetById(accountNumber);
+        if (account is null)
             return RedirectToAction(nameof(Index));
-        }
-        ViewData["PayeeID"] = new SelectList(_context.Payee, "PayeeID", "Name", billPay.PayeeID);
-        return View(billPay);
+        ViewBag.Account = account;
+
+        BillPay bill = await _billPayService.GetBillById(billPayId);
+
+        return View(bill);
     }
 
-    // GET: BillPay/Edit/5
-    public async Task<IActionResult> Edit(int? id)
+
+    // POST: Account/EditBillPay
+    [HttpPost("EditBillPay")]
+    public async Task<IActionResult> EditBillPay(BillPay model)
     {
-        if (id == null || _context.BillPay == null)
-        {
-            return NotFound();
-        }
-
-        var billPay = await _context.BillPay.FindAsync(id);
-        if (billPay == null)
-        {
-            return NotFound();
-        }
-        ViewData["PayeeID"] = new SelectList(_context.Payee, "PayeeID", "Name", billPay.PayeeID);
-        return View(billPay);
+        var account = await _accountService.GetById(model.AccountNumber);
+        await _transactionService.RescheduleBillPay(model);
+        return RedirectToAction(nameof(Index), "Customer", new { account.CustomerID });
     }
 
-    // POST: BillPay/Edit/5
-    // To protect from overposting attacks, enable the specific properties you want to bind to.
-    // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id, [Bind("BillPayID,AccountNumber,PayeeID,Amount,ScheduleTimeUtc,PaymentPeriod")] BillPay billPay)
+
+    // POST: Account/CancelBillPay
+    [HttpPost("CancelBillPay")]
+    public async Task<IActionResult> CancelBillPay(int accountNumber, int billPayId)
     {
-        if (id != billPay.BillPayID)
-        {
-            return NotFound();
-        }
-
-        if (ModelState.IsValid)
-        {
-            try
-            {
-                _context.Update(billPay);
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!BillPayExists(billPay.BillPayID))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-            return RedirectToAction(nameof(Index));
-        }
-        ViewData["PayeeID"] = new SelectList(_context.Payee, "PayeeID", "Name", billPay.PayeeID);
-        return View(billPay);
+        await _transactionService.CancelScheduledBillPay(billPayId);
+        return RedirectToAction(nameof(ScheduledBills), new { accountNumber = accountNumber });
     }
 
-    // GET: BillPay/Delete/5
-    public async Task<IActionResult> Delete(int? id)
-    {
-        if (id == null || _context.BillPay == null)
-        {
-            return NotFound();
-        }
-
-        var billPay = await _context.BillPay
-            .Include(b => b.Payee)
-            .FirstOrDefaultAsync(m => m.BillPayID == id);
-        if (billPay == null)
-        {
-            return NotFound();
-        }
-
-        return View(billPay);
-    }
-
-    // POST: BillPay/Delete/5
-    [HttpPost, ActionName("Delete")]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> DeleteConfirmed(int id)
-    {
-        if (_context.BillPay == null)
-        {
-            return Problem("Entity set 'MCBAContext.BillPay'  is null.");
-        }
-        var billPay = await _context.BillPay.FindAsync(id);
-        if (billPay != null)
-        {
-            _context.BillPay.Remove(billPay);
-        }
-
-        await _context.SaveChangesAsync();
-        return RedirectToAction(nameof(Index));
-    }
-
-    private bool BillPayExists(int id)
-    {
-        return _context.BillPay.Any(e => e.BillPayID == id);
-    }
 }
