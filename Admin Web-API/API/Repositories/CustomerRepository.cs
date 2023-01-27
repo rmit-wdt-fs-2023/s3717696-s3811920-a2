@@ -38,21 +38,20 @@ public class CustomerRepository : ICustomerRepository
         return customer;
     }
 
-    public async Task<bool> UpdateCustomerAsync(Customer customer)
+    public async Task UpdateCustomerAsync(Customer customer)
     {
+
         _context.Customer.Update(customer);
-        var updated = await _context.SaveChangesAsync();
-        return updated > 0;
+        await _context.SaveChangesAsync();
+
     }
 
-    public async Task<bool> DeleteCustomerAsync(int id)
+    public async Task DeleteCustomerAsync(int id)
     {
         var customer = await _context.Customer.FindAsync(id);
-        if (customer == null)
-            return false;
 
         _context.Customer.Remove(customer);
-        var deleted = await _context.SaveChangesAsync();
-        return deleted > 0;
+        await _context.SaveChangesAsync();
+
     }
 }

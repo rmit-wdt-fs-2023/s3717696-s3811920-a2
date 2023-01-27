@@ -10,7 +10,6 @@ public class Address
     public int AddressID { get; set; }
 
     [StringLength(100, ErrorMessage = "Address must be less than 100 characters")]
-    [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Street must be alpha")]
     public string Street { get; set; }
 
     [StringLength(50, ErrorMessage = "City must be less than 50 characters")]

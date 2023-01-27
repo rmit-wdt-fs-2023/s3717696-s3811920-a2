@@ -29,31 +29,14 @@ public class CustomerService : ICustomerService
         _customerRepository.AddCustomerAsync(customer);
     }
 
-    public bool Update(int id, Customer customerUpdated)
+    public void Update(int id, Customer customerUpdated)
     {
-        //var customer = 
-
-        //if (customer == null)
-        //{
-        //    return false;
-        //}
-
-        //customer.Address = customerUpdated.Address;
-        //customer.Accounts = customerUpdated.Accounts;
-        //customerUpdated.CustomerID = id;
+        customerUpdated.CustomerID = id;
         _customerRepository.UpdateCustomerAsync(customerUpdated);
-
-        return true;
     }
 
     public void Delete(int id)
     {
         _customerRepository.DeleteCustomerAsync(id);
     }
-
-    public void Save()
-    {
-        
-    }
-
 }

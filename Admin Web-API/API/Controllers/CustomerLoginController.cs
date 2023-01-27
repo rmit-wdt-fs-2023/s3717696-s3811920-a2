@@ -16,6 +16,7 @@ public class CustomerLoginController : ControllerBase
         _customerLoginService = customerLoginService;
     }
 
+    // GET: Returns All Logins
     [HttpGet]
     public async Task<ActionResult<List<Login>>> GetAllAsync()
     {
@@ -29,6 +30,7 @@ public class CustomerLoginController : ControllerBase
         return Ok(logins);
     }
 
+    // GET: Returns Login by passed id
     [HttpGet("{loginId}")]
     public async Task<ActionResult<Login>> GetLoginByIdAsync(int loginId)
     {
@@ -42,15 +44,15 @@ public class CustomerLoginController : ControllerBase
         return Ok(login);
     }
 
+    // PUT: Updated Login by passed id and new Login
     [HttpPut("{loginId}")]
-    public async Task<IActionResult> UpdateLoginDetails(int loginId, Login login)
+    public async Task<IActionResult> UpdateLoginDetails(Login login)
     {
-        if (!ModelState.IsValid)
-        {
-            return BadRequest(ModelState);
-        }
 
-        var result = await _customerLoginService.UpdateLoginDetailsAsync(loginId, login);
+        if (!ModelState.IsValid) // check if model is valid
+            return BadRequest(login);
+
+        await _customerLoginService.UpdateLoginDetailsAsync(login); // update
 
         return Ok();
     }
