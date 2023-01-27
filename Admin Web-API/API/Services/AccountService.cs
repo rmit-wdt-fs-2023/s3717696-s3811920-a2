@@ -1,7 +1,5 @@
 ﻿using MCBA_Admin.API.Repositories;
-using MCBA_Admin.Data;
 using MCBA_Admin.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace MCBA_Admin.Services;
 

@@ -13,13 +13,10 @@ public class CustomerLoginRepository : ICustomerLoginRepository
         _context = context;
     }
 
-    public async Task<bool> UpdateLoginDetailsAsync(int customerId, Login login)
+    public async Task UpdateLoginDetailsAsync(Login login)
     {
-
-        _context.Update(login);
-
+        _context.Login.Update(login);
         await _context.SaveChangesAsync();
-        return true;
     }
 
     public async Task<List<Login>> GetAllLoginsAsync()

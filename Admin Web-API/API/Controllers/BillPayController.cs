@@ -9,16 +9,14 @@ namespace MCBA_Admin.Controllers;
 [Route("api/v1/[controller]")]
 public class BillPayController : ControllerBase
 {
-
-    private readonly ILogger<BillPayController> _logger;
     private readonly IBillPayService _billPayService;
 
-    public BillPayController(IBillPayService billPayService, ILogger<BillPayController> logger)
+    public BillPayController(IBillPayService billPayService)
     {
         _billPayService = billPayService;
-        _logger = logger;
     }
 
+    // GET: returns BillPay from passed Id.
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById(int id)
     {
@@ -28,6 +26,7 @@ public class BillPayController : ControllerBase
         return Ok(billPay);
     }
 
+    // GET: returns all BillPays.
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
@@ -35,10 +34,15 @@ public class BillPayController : ControllerBase
         return Ok(billPays);
     }
 
+    // PUT: Updates bill from passed BillPay model and its id.
     [HttpPut("{id}")]
-    public ActionResult<Customer> Put(int id, [FromBody] BillPay bill)
+    public ActionResult<BillPay> Put(int id, BillPay bill)
     {
-        _billPayService.Update(id, bill);
+        if (!ModelState.IsValid) // Check if bill is valid
+            return BadRequest(bill);
+
+        _billPayService.Update(id, bill); // Update billPay
+
         return CreatedAtAction("Get", new { id = bill.BillPayID }, bill);
     }
 }
