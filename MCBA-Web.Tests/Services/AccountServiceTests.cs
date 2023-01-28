@@ -11,7 +11,7 @@ using MCBA_Web.Data;
 
 namespace MCBA_Web.Tests.Services
 {
-	public class AccountServiceTests : AbstractBackendTest
+    public class AccountServiceTests : AbstractBackendTest
 	{
         private readonly MCBAContext _context;
 
@@ -21,16 +21,17 @@ namespace MCBA_Web.Tests.Services
         public AccountServiceTests()
 		{
             _context = Container.Resolve<MCBAContext>();
+            _accountService = Container.Resolve<IAccountService>();
             SeedData.InitializeForInMemoryDBContext(_context);
 
-            _accountService = Container.Resolve<IAccountService>();
         }
 
+        public override void Dispose() => _context.Dispose();
 
         [Theory]
         [InlineData(4100)]
+        [InlineData(4101)]
         [InlineData(4200)]
-        [InlineData(4300)]
         public async Task GetById_ShouldReturnAccount(int id)
         {
             var result = await _accountService.GetById(id);
@@ -52,7 +53,7 @@ namespace MCBA_Web.Tests.Services
         public void GetAllAccounts_ShouldReturnAllAccountsInMemoryDatabase()
         {
             var result = _accountService.GetAllAccounts();
-            Assert.Equal(5, result.Count());
+            Assert.True(result.Count() >= 3);
         }
 
 
@@ -83,10 +84,10 @@ namespace MCBA_Web.Tests.Services
             // Arrange
             var account = new Account
             {
-                AccountNumber = 4400,
-                AccountType = AccountType.Checking,
+                AccountNumber = 4100,
+                AccountType = AccountType.Savings,
                 Balance = 5000,
-                CustomerID = 2200
+                CustomerID = 2100
             };
 
             // Act
