@@ -101,7 +101,8 @@ public class CustomerService : ICustomerService
 
     public void Add(Customer customer)
     {
-        _context.Add(customer);
+        _context.Customer.Add(customer);
+		_context.SaveChanges();
     }
 
     public void Update(Customer customer)
@@ -113,11 +114,6 @@ public class CustomerService : ICustomerService
     public void Delete(int id)
     {
         _context.Remove(id);
-    }
-
-    public void Save()
-    {
-        _context.SaveChanges();
     }
 
 }

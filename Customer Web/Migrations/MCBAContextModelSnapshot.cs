@@ -43,7 +43,7 @@ namespace MCBAWeb.Migrations
 
                     b.HasIndex("CustomerID");
 
-                    b.ToTable("Account", (string)null);
+                    b.ToTable("Account");
                 });
 
             modelBuilder.Entity("MCBA_Web.Models.Address", b =>
@@ -76,7 +76,7 @@ namespace MCBAWeb.Migrations
                     b.HasIndex("CustomerID")
                         .IsUnique();
 
-                    b.ToTable("Address", (string)null);
+                    b.ToTable("Address");
                 });
 
             modelBuilder.Entity("MCBA_Web.Models.BillPay", b =>
@@ -112,7 +112,7 @@ namespace MCBAWeb.Migrations
 
                     b.HasIndex("PayeeID");
 
-                    b.ToTable("BillPay", (string)null);
+                    b.ToTable("BillPay");
                 });
 
             modelBuilder.Entity("MCBA_Web.Models.Customer", b =>
@@ -144,7 +144,7 @@ namespace MCBAWeb.Migrations
 
                     b.HasKey("CustomerID");
 
-                    b.ToTable("Customer", (string)null);
+                    b.ToTable("Customer");
                 });
 
             modelBuilder.Entity("MCBA_Web.Models.Login", b =>
@@ -168,7 +168,7 @@ namespace MCBAWeb.Migrations
 
                     b.HasIndex("CustomerID");
 
-                    b.ToTable("Login", (string)null);
+                    b.ToTable("Login");
                 });
 
             modelBuilder.Entity("MCBA_Web.Models.Payee", b =>
@@ -208,7 +208,7 @@ namespace MCBAWeb.Migrations
 
                     b.HasKey("PayeeID");
 
-                    b.ToTable("Payee", (string)null);
+                    b.ToTable("Payee");
                 });
 
             modelBuilder.Entity("MCBA_Web.Models.Transaction", b =>
@@ -245,7 +245,7 @@ namespace MCBAWeb.Migrations
 
                     b.HasIndex("DestinationAccountNumber");
 
-                    b.ToTable("Transaction", (string)null);
+                    b.ToTable("Transaction");
                 });
 
             modelBuilder.Entity("MCBA_Web.Models.Account", b =>
