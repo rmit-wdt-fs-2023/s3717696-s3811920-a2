@@ -5,6 +5,7 @@ using MCBA_Web.Services;
 using Microsoft.Extensions.Logging;
 using System;
 using Microsoft.EntityFrameworkCore;
+using Autofac.Core;
 
 namespace MCBA_Web.Tests.Modules
 {
@@ -12,7 +13,7 @@ namespace MCBA_Web.Tests.Modules
     {
         protected override void Load(ContainerBuilder builder)
         {
-            //base.Load(builder);
+            base.Load(builder);
 
             // Substitute all ILogger types.
             builder.RegisterInstance(new LoggerFactory()).As<ILoggerFactory>();

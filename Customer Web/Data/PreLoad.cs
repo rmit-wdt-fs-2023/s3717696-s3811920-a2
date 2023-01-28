@@ -298,6 +298,16 @@ public sealed class PreLoad
                 IsBlocked = false,
                 ScheduleTimeUtc = DateTime.UtcNow,
                 PaymentPeriod = PaymentPeriodType.OneTime,
+            },
+            new BillPay
+            {
+                BillPayID = 3,
+                AccountNumber = 4300,
+                PayeeID = 2,
+                Amount = 100,
+                IsBlocked = false,
+                ScheduleTimeUtc = DateTime.UtcNow,
+                PaymentPeriod = PaymentPeriodType.Monthly,
             }
         };
 
