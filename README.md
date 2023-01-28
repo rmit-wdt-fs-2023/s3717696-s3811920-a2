@@ -8,8 +8,8 @@ Repository Link: https://github.com/rmit-wdt-fs-2023/s3717696-s3811920-a2
 Trello Board: https://trello.com/invite/b/3FL9Lygk/ATTIec2bdd2ec22b925f50b6623c5451c06c56B04286/project-management
 
 ### Contributors
-**Abida Mohammadi (s3811920)**  
-**Mevlut Saluk (s3717696)**
+**Abida Mohammadi (s3811920)** - 50%  
+**Mevlut Saluk (s3717696)** - 50%
 
 ## Admin WEB-API
 The Admin WEB-API project consists of a RESTful API that is responsible for handling all the database operations and endpoints for the bank's admin portal. The API is built using ASP.NET Core and Entity Framework Core and has the following features:
