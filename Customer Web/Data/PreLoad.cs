@@ -24,6 +24,7 @@ public sealed class PreLoad
     private List<Login> _logins;
     private List<Address> _addresses;
 
+
     public PreLoad()
     {
         _client = new();
@@ -242,6 +243,68 @@ public sealed class PreLoad
         return total;
     }
 
+
+    public Payee[] InsertPayeeDataForInMemeoryDatabase()
+    {
+        Payee[] payees =
+            {
+                new Payee
+                {
+                    PayeeID = 1,
+                    Name = "Telstra",
+                    Phone = "0300300300",
+                    Street = "ABC Street",
+                    State = StateType.VIC,
+                    Postcode = "0000",
+                    City = "Melbourne"
+                },
+
+                new Payee
+                {
+                    PayeeID = 2,
+                    Name = "Optus",
+                    Phone = "01001001000",
+                    Street = "XYZ Street",
+                    State = StateType.VIC,
+                    Postcode = "0000",
+                    City = "Melbourne"
+                },
+            };
+
+        return payees;
+    }
+
+
+    public BillPay[] InsertBillPayDataForInMemeoryDatabase()
+    {
+        BillPay[] bills =
+        {
+            new BillPay
+            {
+                BillPayID = 1,
+                AccountNumber = 4100,
+                PayeeID = 1,
+                Amount = 100,
+                IsBlocked = false,
+                ScheduleTimeUtc = DateTime.UtcNow,
+                PaymentPeriod = PaymentPeriodType.OneTime,
+            },
+            new BillPay
+            {
+                BillPayID = 2,
+                AccountNumber = 4100,
+                PayeeID = 2,
+                Amount = 200,
+                IsBlocked = false,
+                ScheduleTimeUtc = DateTime.UtcNow,
+                PaymentPeriod = PaymentPeriodType.OneTime,
+            }
+        };
+
+        return bills;
+    }
+    
+
     public List<Account> GetAccounts()
     {
         return _accounts;
@@ -265,5 +328,15 @@ public sealed class PreLoad
     public List<Login> GetLogins()
     {
         return _logins;
+    }
+
+    public Payee[] GetPayees()
+    {
+        return InsertPayeeDataForInMemeoryDatabase();
+    }
+
+    public BillPay[] GetBillPays()
+    {
+        return InsertBillPayDataForInMemeoryDatabase();
     }
 }
