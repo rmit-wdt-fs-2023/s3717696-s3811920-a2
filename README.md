@@ -4,7 +4,7 @@ This project is an assignment for the Web Development Technologies course at RMI
 ## Project Information
 
 ### Summary
-Repository Link: https://github.com/rmit-wdt-fs-2023/s3717696-s3811920-a2
+Repository Link: https://github.com/rmit-wdt-fs-2023/s3717696-s3811920-a2  
 Trello Board: https://trello.com/invite/b/3FL9Lygk/ATTIec2bdd2ec22b925f50b6623c5451c06c56B04286/project-management
 
 ### Contributors
