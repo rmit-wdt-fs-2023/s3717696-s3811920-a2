@@ -28,6 +28,15 @@ The Customer WEB project is a web application that allows customers to log in an
 - A page for customers to update their personal details
 - A page for printing a transaction history for the customer's accounts.
 
+### Pre-Requisites
+
+- The current **init** migration must be used to update the database.
+- Might need to have a pre added database table: dotnet.SessionCache for persisted sessions.
+
+## Customer WEB - Tests
+
+Currently onlt tests services for the project.
+
 ## Inspiration/Acknowledgment
 This project was inspired by the work of Matthew Bolger and was used as a starting point for the assignment.
 
