@@ -15,7 +15,6 @@ public class BillPayRepository : IBillPayRepository
     {
         return await _context.BillPay
             .Include(c => c.Account)
-            .Include(z => z.Payee)
             .FirstOrDefaultAsync(m => m.BillPayID == id);
     }
 
@@ -23,14 +22,13 @@ public class BillPayRepository : IBillPayRepository
     {
         return await _context.BillPay
             .Include(c => c.Account)
-            .Include(z => z.Payee)
             .ToListAsync();
     }
 
     public void Update(BillPay billPay)
     {
         _context.Update(billPay);
-        _context.SaveChangesAsync();
+        _context.SaveChanges();
     }
 }
 

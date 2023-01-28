@@ -1,7 +1,5 @@
 ﻿using MCBA_Admin.API.Repositories;
-using MCBA_Admin.Data;
 using MCBA_Admin.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace MCBA_Admin.Services;
 
@@ -14,16 +12,10 @@ public class CustomerLoginService : ICustomerLoginService
         _customerLoginRepository = customerLoginRepository;
     }
 
-    public async Task<bool> UpdateLoginDetailsAsync(int customerId, Login model)
+    public async Task UpdateLoginDetailsAsync(Login model)
     {
-        var result = await _customerLoginRepository.UpdateLoginDetailsAsync(customerId, model);
+        await _customerLoginRepository.UpdateLoginDetailsAsync(model);
 
-        if (!result)
-        {
-            return false;
-        }
-
-        return true;
     }
 
     public async Task<List<Login>> GetAllLoginsAsync()

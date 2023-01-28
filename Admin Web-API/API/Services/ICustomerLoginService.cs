@@ -4,7 +4,7 @@ namespace MCBA_Admin.Services;
 
 public interface ICustomerLoginService
 {
-    Task<bool> UpdateLoginDetailsAsync(int customerId, Login login);
+    Task UpdateLoginDetailsAsync(Login login);
 
     Task<List<Login>> GetAllLoginsAsync();
 

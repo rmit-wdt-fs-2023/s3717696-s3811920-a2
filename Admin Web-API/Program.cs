@@ -39,10 +39,8 @@ builder.Services.AddSession(options =>
     options.IdleTimeout = TimeSpan.FromDays(7);
 });
 
-
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -60,6 +58,7 @@ if (app.Environment.IsDevelopment()) // Enable Swagger API interface if in dev
 }
 
 app.UseHttpsRedirection();
+app.UseDeveloperExceptionPage();
 app.UseStaticFiles();
 app.UseSession();
 app.UseRouting();

@@ -4,7 +4,7 @@ namespace MCBA_Admin.API.Repositories;
 
 public interface ICustomerLoginRepository
 {
-    Task<bool> UpdateLoginDetailsAsync(int customerId, Login login);
+    Task UpdateLoginDetailsAsync(Login login);
 
     Task<List<Login>> GetAllLoginsAsync();
 

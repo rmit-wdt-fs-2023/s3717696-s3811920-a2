@@ -20,7 +20,6 @@ public class Payee
 
     [Required]
     [StringLength(40)]
-    [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Street must be in alpha")]
     public string Street { get; set; }
 
     [Required]

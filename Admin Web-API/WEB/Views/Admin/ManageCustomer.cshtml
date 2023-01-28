@@ -103,7 +103,7 @@
                                 @if (Model.CustomerAddress != null)
                                 {
                                     <div class="card-body">
-                                        <form asp-controller="Admin" asp-action="UpdateAddress" asp-route-customerId="@Model.Customer.CustomerID">
+                                        <form asp-controller="Admin" asp-action="UpdateAddress" asp-route-addressId="@Model.Customer.Address.AddressID" asp-route-customerId="@Model.Customer.CustomerID">
                                             <div class="form-group">
                                                 <label asp-for="CustomerAddress.AddressID">Address ID</label>
                                                 <input asp-for="CustomerAddress.AddressID" type="text" class="form-control" id="CustomerAddress.AddressID" name="CustomerAddress.AddressID" value="@Model.CustomerAddress.AddressID" readonly>
@@ -141,6 +141,7 @@
                                 }
                                 @if (Model.CustomerAddress == null)
                                 {
+
                                     <div class="card-body">
                                         <form asp-controller="Admin" asp-action="CreateAddress" asp-route-customerId="@Model.Customer.CustomerID">
                                             <div class="form-group">

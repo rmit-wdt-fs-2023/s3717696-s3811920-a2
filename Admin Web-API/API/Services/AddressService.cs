@@ -31,18 +31,15 @@ public class AddressService : IAddressService
 
     public void Update(int id, Address addressUpdated)
     {
+
         addressUpdated.AddressID = id;
         _addressRepository.UpdateAddress(addressUpdated);
+        
     }
 
     public void Delete(int id)
     {
         _addressRepository.DeleteAddressAsync(id);
-    }
-
-    public void Save()
-    {
-        
     }
 
 }
