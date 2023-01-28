@@ -16,36 +16,36 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/Views/Account/Confirmation.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Db25maXJtYXRpb24uY3NodG1s
+[/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/Views/BillPay/RetryBillPay.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmlsbFBheS9SZXRyeUJpbGxQYXkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/Views/Account/Deposit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9EZXBvc2l0LmNzaHRtbA==
+[/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/Views/BillPay/ScheduledBills.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmlsbFBheS9TY2hlZHVsZWRCaWxscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/Views/Account/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9JbmRleC5jc2h0bWw=
+[/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/Views/BillPay/ViewBillPay.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmlsbFBheS9WaWV3QmlsbFBheS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/Views/Account/MyStatements.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9NeVN0YXRlbWVudHMuY3NodG1s
+[/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/Views/Customer/Components/Accounts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ3VzdG9tZXIvQ29tcG9uZW50cy9BY2NvdW50cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/Views/Account/ScheduledBills.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9TY2hlZHVsZWRCaWxscy5jc2h0bWw=
+[/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/Views/Customer/Components/CreateAddress.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ3VzdG9tZXIvQ29tcG9uZW50cy9DcmVhdGVBZGRyZXNzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/Views/Account/Transfer.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9UcmFuc2Zlci5jc2h0bWw=
+[/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/Views/Customer/Components/GeneralCustomer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ3VzdG9tZXIvQ29tcG9uZW50cy9HZW5lcmFsQ3VzdG9tZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/Views/Account/ViewBillPay.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9WaWV3QmlsbFBheS5jc2h0bWw=
+[/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/Views/Customer/Components/PrivacyCustomer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ3VzdG9tZXIvQ29tcG9uZW50cy9Qcml2YWN5Q3VzdG9tZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/Views/Account/Withdraw.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9XaXRoZHJhdy5jc2h0bWw=
+[/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/Views/Customer/Components/UpdateAddress.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ3VzdG9tZXIvQ29tcG9uZW50cy9VcGRhdGVBZGRyZXNzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/Views/Customer/Overview.cshtml]
@@ -62,6 +62,22 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/Views/Transaction/DepositForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVHJhbnNhY3Rpb24vRGVwb3NpdEZvcm0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/Views/Transaction/MyStatements.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVHJhbnNhY3Rpb24vTXlTdGF0ZW1lbnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/Views/Transaction/TransferForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVHJhbnNhY3Rpb24vVHJhbnNmZXJGb3JtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/Views/Transaction/WithdrawForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVHJhbnNhY3Rpb24vV2l0aGRyYXdGb3JtLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/Views/_ViewImports.cshtml]

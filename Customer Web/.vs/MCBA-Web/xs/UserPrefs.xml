@@ -1,20 +1,39 @@
 ﻿<Properties StartupConfiguration="{D9BDE993-5467-46FC-A337-33D6B311ADD4}|https">
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../MCBA-Web.Tests/Services/BillPayServiceTests.cs">
+    <Files>
+      <File FileName="../MCBA-Web.Tests/Services/BillPayServiceTests.cs" Line="40" Column="1" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="MCBA-Web" expanded="True">
             <Node name="MCBA-Web" expanded="True" />
+            <Node name="MCBA-Web.Tests" expanded="True">
+              <Node name="Services" expanded="True">
+                <Node name="AccountServiceTests.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="MCBA-Web" expanded="True">
+            <Node name="MCBA-Web.Tests" expanded="True">
+              <Node name="MCBA_Web.Tests.Services" expanded="True">
+                <Node name="BillPayServiceTests" expanded="True" />
+              </Node>
+            </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.MCBA-Web PreferredExecutionTarget="/Applications/Safari.app" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MCBA-Web", "MCBA-Web.csproj", "{D9BDE993-5467-46FC-A337-33D6B311ADD4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCBA-Web.Tests", "..\MCBA-Web.Tests\MCBA-Web.Tests.csproj", "{6431EB16-F5DB-446E-BD02-5FF083A0E279}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D9BDE993-5467-46FC-A337-33D6B311ADD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9BDE993-5467-46FC-A337-33D6B311ADD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9BDE993-5467-46FC-A337-33D6B311ADD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6431EB16-F5DB-446E-BD02-5FF083A0E279}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6431EB16-F5DB-446E-BD02-5FF083A0E279}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6431EB16-F5DB-446E-BD02-5FF083A0E279}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6431EB16-F5DB-446E-BD02-5FF083A0E279}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

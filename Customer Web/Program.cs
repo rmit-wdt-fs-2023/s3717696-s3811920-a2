@@ -1,7 +1,6 @@
 using MCBA_Web.Controllers;
 using MCBA_Web.Data;
 using MCBA_Web.Services;
-using McbaExample.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
