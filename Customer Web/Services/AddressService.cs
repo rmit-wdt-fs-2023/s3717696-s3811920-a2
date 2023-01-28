@@ -26,7 +26,7 @@ public class AddressService : IAddressService
     {
         address.CustomerID = customerid;
 
-        _context.Add(address);
+        _context.Address.Add(address);
         _context.SaveChanges();
     }
 
@@ -34,13 +34,14 @@ public class AddressService : IAddressService
     {
         address.CustomerID = customerId;
 
-        _context.Update(address);
+        _context.Address.Update(address);
         _context.SaveChanges();
     }
 
     public void Delete(int id)
     {
-        _context.Remove(id);
+		var address = _context.Address.Find(id);
+        _context.Address.Remove(address);
         _context.SaveChanges();
     }
 }

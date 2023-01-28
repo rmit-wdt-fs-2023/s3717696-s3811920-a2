@@ -15,6 +15,8 @@ public class LoginController : Controller
     {
         _loginService = loginService;
     }
+
+    // GET: Login view for Admin
     [HttpGet]
     public IActionResult Index()
     {
@@ -24,6 +26,7 @@ public class LoginController : Controller
         return View("WEB/Views/Login/Index.cshtml");
     }
 
+    // POST: Admin Login, returns Index if authentication is successful.
     [HttpPost]
     public IActionResult Login(string username, string password)
     {
@@ -50,6 +53,7 @@ public class LoginController : Controller
         return RedirectToAction("Index", "Admin", admin);
     }
 
+    // GET: Logout current session
     [Route("/logout")]
     [HttpGet]
     public IActionResult Logout()

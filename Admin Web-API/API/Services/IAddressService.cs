@@ -9,5 +9,4 @@ public interface IAddressService
     void Add(Address customer);
     void Update(int id, Address customer);
     void Delete(int id);
-    void Save();
 }
