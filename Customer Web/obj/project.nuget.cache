@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "xOTkLOZ9/stW6ROA5FCIgyHxMDObVVnDHiyLjYUfte/HFax5YcH7oNnN0pOlUoaho9t0fwYlZPU/eKm4ll0U1A==",
+  "dgSpecHash": "+6ozi8K/g2+l/iRlDoGGUEJIcjPHCDbrXVJXVxJB4XBggn6o9vYXbWPAu3oYTzjUwgdXcGAa6VATsKqia2NHSg==",
   "success": true,
   "projectFilePath": "/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/MCBA-Web.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,8 @@
     "/Users/abidamohammadi/.nuget/packages/azure.identity/1.6.0/azure.identity.1.6.0.nupkg.sha512",
     "/Users/abidamohammadi/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/abidamohammadi/.nuget/packages/jetbrains.annotations/2022.1.0/jetbrains.annotations.2022.1.0.nupkg.sha512",
+    "/Users/abidamohammadi/.nuget/packages/magick.net-q8-anycpu/12.2.2/magick.net-q8-anycpu.12.2.2.nupkg.sha512",
+    "/Users/abidamohammadi/.nuget/packages/magick.net.core/12.2.2/magick.net.core.12.2.2.nupkg.sha512",
     "/Users/abidamohammadi/.nuget/packages/microsoft.aspnetcore.razor.language/6.0.11/microsoft.aspnetcore.razor.language.6.0.11.nupkg.sha512",
     "/Users/abidamohammadi/.nuget/packages/microsoft.bcl.asyncinterfaces/6.0.0/microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "/Users/abidamohammadi/.nuget/packages/microsoft.build/17.3.2/microsoft.build.17.3.2.nupkg.sha512",

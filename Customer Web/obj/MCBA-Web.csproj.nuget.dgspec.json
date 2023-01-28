@@ -38,6 +38,14 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Magick.NET-Q8-AnyCPU": {
+              "target": "Package",
+              "version": "[12.2.2, )"
+            },
+            "Magick.NET.Core": {
+              "target": "Package",
+              "version": "[12.2.2, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.2, )"

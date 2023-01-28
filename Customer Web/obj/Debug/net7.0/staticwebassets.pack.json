@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets/favicon.ico"
     },
     {
+      "Id": "/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/wwwroot/img/CustomerProfile/change_image_hover.png",
+      "PackagePath": "staticwebassets/img/CustomerProfile/change_image_hover.png"
+    },
+    {
       "Id": "/Users/abidamohammadi/Desktop/s3717696-s3811920-a2/Customer Web/wwwroot/img/CustomerProfile/default_profile_picture.png",
       "PackagePath": "staticwebassets/img/CustomerProfile/default_profile_picture.png"
     },
